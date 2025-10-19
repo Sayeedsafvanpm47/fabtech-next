@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel,
@@ -16,18 +16,45 @@ export default function ServiceCarousel({ services }) {
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
 
+  const scrollNext = useCallback(() => {
+    if (api) {
+      api.scrollNext();
+    }
+  }, [api]);
+
   useEffect(() => {
     if (!api) {
       return;
     }
 
     setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap() + 1);
+    setCurrent(api.selectedScrollSnap());
 
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1);
-    });
+    const onSelect = () => {
+      setCurrent(api.selectedScrollSnap());
+    };
+
+    api.on("select", onSelect);
+
+    return () => {
+      api.off("select", onSelect);
+    };
   }, [api]);
+
+  // Separate autoplay effect
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    const autoplayInterval = setInterval(() => {
+      scrollNext();
+    }, 3000);
+
+    return () => {
+      clearInterval(autoplayInterval);
+    };
+  }, [api, scrollNext]);
 
   const defaultServices = [
     { 
@@ -82,13 +109,16 @@ export default function ServiceCarousel({ services }) {
         <CarouselContent className="-ml-2 md:-ml-4">
           {serviceList.map((service, index) => (
             <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-              <div className="p-1 h-full">
-                <Card className="h-full hover:shadow-lg transition-shadow duration-300">
-                  <CardContent className="flex flex-col justify-between h-full p-6">
+              <div className="p-1 h-full perspective-1000">
+                <Card className="h-full transition-all duration-500 ease-out hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.3)] hover:-translate-y-3 hover:rotate-y-2 border-2 border-gray-100 bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/20 backdrop-blur-sm transform-gpu">
+                  <CardContent className="flex flex-col justify-between h-full p-6 relative">
+                    {/* Decorative gradient overlay */}
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-t-lg opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                    
                     {/* Header */}
                     <div>
                       <div className="flex items-center mb-4">
-                        <div className="text-3xl mr-3" role="img" aria-label={`${service.title} icon`}>
+                        <div className="text-4xl mr-3 transition-all duration-500 hover:scale-125 hover:rotate-12 filter drop-shadow-lg" role="img" aria-label={`${service.title} icon`}>
                           {service.icon}
                         </div>
                         <h3 className="text-lg font-bold text-gray-900 leading-tight">
@@ -105,11 +135,11 @@ export default function ServiceCarousel({ services }) {
                       {service.features && service.features.length > 0 && (
                         <div className="mb-4">
                           <h4 className="font-semibold text-gray-900 mb-2 text-sm">Key Features:</h4>
-                          <ul className="space-y-1">
+                          <ul className="space-y-1.5">
                             {service.features.slice(0, 3).map((feature, featureIndex) => (
-                              <li key={featureIndex} className="text-gray-600 text-xs flex items-start">
-                                <span className="text-green-500 mr-2 mt-0.5 flex-shrink-0">✓</span>
-                                <span>{feature}</span>
+                              <li key={featureIndex} className="text-gray-600 text-xs flex items-start group">
+                                <span className="text-green-500 mr-2 mt-0.5 flex-shrink-0 transition-transform duration-300 group-hover:scale-125">✓</span>
+                                <span className="group-hover:text-gray-900 transition-colors duration-200">{feature}</span>
                               </li>
                             ))}
                             {service.features.length > 3 && (
@@ -123,16 +153,16 @@ export default function ServiceCarousel({ services }) {
                     </div>
 
                     {/* CTA Buttons */}
-                    <div className="mt-auto space-y-2">
+                    <div className="mt-auto space-y-2.5">
                       {service.href && (
                         <Link
                           href={service.href}
-                          className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-lg font-medium transition-colors duration-200 text-sm"
+                          className="block w-full bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white text-center py-2.5 px-4 rounded-lg font-semibold transition-all duration-300 text-sm shadow-lg hover:shadow-2xl hover:scale-105 active:scale-95"
                         >
                           Learn More
                         </Link>
                       )}
-                      <button className="w-full border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white py-2 px-4 rounded-lg font-medium transition-all duration-200 text-sm">
+                      <button className="w-full border-2 border-blue-600 text-blue-600 hover:bg-gradient-to-r hover:from-blue-600 hover:to-blue-700 hover:text-white py-2.5 px-4 rounded-lg font-semibold transition-all duration-300 text-sm hover:shadow-lg hover:scale-105 active:scale-95 hover:border-transparent">
                         Get Quote
                       </button>
                     </div>
@@ -144,21 +174,25 @@ export default function ServiceCarousel({ services }) {
         </CarouselContent>
         
         {/* Navigation */}
-        <div className="flex items-center justify-center mt-6 space-x-4">
-          <CarouselPrevious className="relative left-0 top-0 translate-y-0" />
-          <div className="flex space-x-2">
+        <div className="flex items-center justify-center mt-10 space-x-8">
+          <CarouselPrevious className="relative left-0 top-0 translate-y-0 h-14 w-14 rounded-full bg-gradient-to-br from-red to-red-500 border-2 border-red-700 text-black hover:bg-gradient-to-br hover:from-red-600 hover:to-red-700 hover:text-white hover:border-red-700 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-125 active:scale-95 backdrop-blur-sm" />
+          
+          <div className="flex space-x-2.5 bg-white/50 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
             {Array.from({ length: count }).map((_, index) => (
               <button
                 key={index}
-                className={`w-2 h-2 rounded-full transition-colors duration-200 ${
-                  index === current - 1 ? 'bg-black' : 'bg-white'
+                className={`h-2.5 rounded-full transition-all duration-500 ${
+                  index === current 
+                    ? 'w-10 bg-gradient-to-r from-red-600 to-red-800 shadow-lg scale-110' 
+                    : 'w-2.5 bg-red-600 hover:bg-blue-400 hover:scale-125'
                 }`}
                 onClick={() => api?.scrollTo(index)}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
           </div>
-          <CarouselNext className="relative right-0 top-0 translate-y-0" />
+          
+          <CarouselNext className="relative right-0 top-0 translate-y-0 h-14 w-14 rounded-full bg-gradient-to-br from-red to-red-500 border-2 border-red-700 text-black hover:bg-gradient-to-br hover:from-red-600 hover:to-red-700 hover:text-white hover:border-red-700 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-125 active:scale-95 backdrop-blur-sm" />
         </div>
       </Carousel>
     </div>
