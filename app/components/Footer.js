@@ -1,18 +1,19 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-black text-white">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
-              <span className="text-2xl font-bold text-blue-400">FabTech</span>
+            <span  className="text-2xl font-bold text-blue-600"> <Image className='rounded-full' src="/logo.png" alt="logo" width={200} height={200} /> </span>
             </div>
             <p className="text-gray-300 mb-4 max-w-md">
-              Professional facility management services providing comprehensive solutions 
-              for maintenance, cleaning, security, and property management.
+         
+            We are dedicated to providing exceptional cleaning and facility management services in Qatar.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
@@ -47,8 +48,23 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/projects" className="text-gray-300 hover:text-white transition-colors">
+                  Projects
+                </Link>
+              </li>
+              <li>
                 <Link href="/about" className="text-gray-300 hover:text-white transition-colors">
-                  About Us
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="text-gray-300 hover:text-white transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="text-gray-300 hover:text-white transition-colors">
+                  FAQ
                 </Link>
               </li>
               <li>
@@ -66,16 +82,17 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2 text-gray-300">
               <li>
-                <span className="block">Phone: (555) 123-4567</span>
+                <span className="block">Phone: +974 5518 7619</span>
               </li>
               <li>
-                <span className="block">Email: info@fabtech-services.com</span>
+                <span className="block">Email: fms@fabtech-services.com</span>
               </li>
               <li>
                 <span className="block">
-                  Address: 123 Business Ave<br />
-                  Suite 100<br />
-                  City, State 12345
+                <p style={{ lineHeight: '1.6', margin: 0 }}>
+              Madina Khalifa (S) Building 138, Zone 34, Street 362 <br></br>Al Rabiah Building 1 
+              Second floor S14, Doha
+              </p>
                 </span>
               </li>
             </ul>
@@ -85,7 +102,7 @@ export default function Footer() {
         <div className="mt-8 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} FabTech Facility Management. All rights reserved.
+              © {new Date().getFullYear()} Fabtech Services W.L.L. All rights reserved.
             </p>
             <div className="mt-4 md:mt-0 flex space-x-6">
               <Link href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">

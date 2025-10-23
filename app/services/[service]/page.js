@@ -1,202 +1,575 @@
+import HomeFAQ from '@/app/components/HomeFAQ';
 import { notFound } from 'next/navigation';
 
 // Service data structure
 const servicesData = {
-  // CLEANING SERVICES
-  'sofa-cleaning': {
-    title: 'Professional Sofa Cleaning Services',
-    titleAr: 'خدمات تنظيف الأرائك المهنية',
-    category: 'Cleaning',
-    categoryAr: 'التنظيف',
-    heroIcon: '🛋️',
-    description: 'Expert sofa cleaning services in UAE. Deep cleaning, stain removal, and fabric protection for all types of sofas and upholstery.',
-    descriptionAr: 'خدمات تنظيف الأرائك المتخصصة في الإمارات. تنظيف عميق وإزالة البقع وحماية الأقمشة لجميع أنواع الأرائك والمفروشات.',
-    features: [
-      { icon: '🧽', title: 'Deep Steam Cleaning', titleAr: 'التنظيف العميق بالبخار', description: 'Advanced steam cleaning technology removes deep-seated dirt and allergens', descriptionAr: 'تقنية التنظيف بالبخار المتقدمة تزيل الأوساخ والمواد المسببة للحساسية' },
-      { icon: '🛡️', title: 'Fabric Protection', titleAr: 'حماية الأقمشة', description: 'Protective coating application to prevent future stains and wear', descriptionAr: 'تطبيق طلاء واقي لمنع البقع والتآكل المستقبلي' },
-      { icon: '🌿', title: 'Eco-Friendly Products', titleAr: 'منتجات صديقة للبيئة', description: 'Safe, non-toxic cleaning solutions that are gentle on fabrics and family', descriptionAr: 'حلول تنظيف آمنة وغير سامة لطيفة على الأقمشة والعائلة' },
-      { icon: '⚡', title: 'Quick Drying', titleAr: 'تجفيف سريع', description: 'Fast-drying techniques minimize disruption to your daily routine', descriptionAr: 'تقنيات التجفيف السريع تقلل من تعطيل روتينك اليومي' }
-    ],
-    process: [
-      { step: 1, title: 'Inspection & Assessment', titleAr: 'الفحص والتقييم', description: 'Thorough examination of fabric type, stains, and cleaning requirements', descriptionAr: 'فحص شامل لنوع القماش والبقع ومتطلبات التنظيف' },
-      { step: 2, title: 'Pre-Treatment', titleAr: 'المعالجة المسبقة', description: 'Targeted treatment of stains and heavily soiled areas', descriptionAr: 'معالجة مستهدفة للبقع والمناطق شديدة الاتساخ' },
-      { step: 3, title: 'Deep Cleaning', titleAr: 'التنظيف العميق', description: 'Professional steam cleaning or dry cleaning based on fabric type', descriptionAr: 'تنظيف احترافي بالبخار أو التنظيف الجاف حسب نوع القماش' },
-      { step: 4, title: 'Protection & Finishing', titleAr: 'الحماية واللمسة الأخيرة', description: 'Application of fabric protector and final quality inspection', descriptionAr: 'تطبيق واقي القماش والفحص النهائي للجودة' }
-    ],
-    pricing: [
-      { type: 'Single Seater', typeAr: 'مقعد واحد', price: 'AED 150', features: ['Deep steam cleaning', 'Stain treatment', 'Deodorizing', 'Basic protection'] },
-      { type: '3-Seater Sofa', typeAr: 'أريكة 3 مقاعد', price: 'AED 350', features: ['Deep steam cleaning', 'Advanced stain removal', 'Deodorizing', 'Fabric protection', 'Cushion cleaning'], popular: true },
-      { type: 'L-Shaped Sofa', typeAr: 'أريكة على شكل L', price: 'AED 500', features: ['Complete deep cleaning', 'Premium stain removal', 'Sanitization', 'Advanced protection', 'All cushions included'] }
-    ]
-  },
-
-  'carpet-cleaning': {
-    title: 'Professional Carpet Cleaning Services',
-    titleAr: 'خدمات تنظيف السجاد المهنية',
-    category: 'Cleaning',
-    categoryAr: 'التنظيف',
+  'residential-deep-cleaning': {
+    title: 'Residential Deep Cleaning',
+    titleAr: 'التنظيف العميق للمنازل',
+    category: 'Residential',
+    categoryAr: 'السكني',
     heroIcon: '🏠',
-    description: 'Expert carpet cleaning services using advanced techniques to remove stains, odors, and allergens from all types of carpets.',
-    descriptionAr: 'خدمات تنظيف السجاد المتخصصة باستخدام تقنيات متقدمة لإزالة البقع والروائح والمواد المسببة للحساسية من جميع أنواع السجاد.',
+    description: 'Thorough, top-to-bottom deep cleaning for homes and apartments, focusing on neglected areas.',
+    descriptionAr: 'تنظيف عميق شامل للمنازل والشقق، مع التركيز على المناطق المهملة.',
     features: [
-      { icon: '🌊', title: 'Hot Water Extraction', titleAr: 'استخراج الماء الساخن', description: 'Deep cleaning method that removes embedded dirt and bacteria', descriptionAr: 'طريقة تنظيف عميقة تزيل الأوساخ والبكتيريا المتراكمة' },
-      { icon: '🦠', title: 'Sanitization', titleAr: 'التعقيم', description: 'Eliminates bacteria, viruses, and allergens for a healthier environment', descriptionAr: 'يقضي على البكتيريا والفيروسات والمواد المسببة للحساسية لبيئة أكثر صحة' },
-      { icon: '🎯', title: 'Stain Removal', titleAr: 'إزالة البقع', description: 'Specialized treatments for different types of stains and spills', descriptionAr: 'علاجات متخصصة لأنواع مختلفة من البقع والانسكابات' },
-      { icon: '💨', title: 'Odor Elimination', titleAr: 'إزالة الروائح', description: 'Complete removal of pet odors, smoke, and other unpleasant smells', descriptionAr: 'إزالة كاملة لروائح الحيوانات الأليفة والدخان والروائح الكريهة الأخرى' }
+      { icon: '🌟', title: 'Detailed Clean', titleAr: 'تنظيف مفصل', description: 'Focus on baseboards, inside cabinets, and hard-to-reach spots', descriptionAr: 'التركيز على الألواح الجدارية، داخل الخزائن، والأماكن التي يصعب الوصول إليها' },
+      { icon: '🧼', title: 'Kitchen & Bath Scrub', titleAr: 'تنظيف المطابخ والحمامات', description: 'Deep scrubbing and sanitization of kitchens and bathrooms', descriptionAr: 'تنظيف وتعقيم عميق للمطابخ والحمامات' },
+      { icon: '🌬️', title: 'Air Quality', titleAr: 'جودة الهواء', description: 'Dusting and vent cleaning to improve indoor air quality', descriptionAr: 'إزالة الغبار وتنظيف فتحات التهوية لتحسين جودة الهواء الداخلي' },
+      { icon: '🪟', title: 'Interior Windows', titleAr: 'النوافذ الداخلية', description: 'Cleaning of interior window glass and frames', descriptionAr: 'تنظيف الزجاج والإطارات الداخلية للنوافذ' }
     ],
     process: [
-      { step: 1, title: 'Pre-Inspection', titleAr: 'الفحص المسبق', description: 'Assessment of carpet condition, fiber type, and stain identification', descriptionAr: 'تقييم حالة السجاد ونوع الألياف وتحديد البقع' },
-      { step: 2, title: 'Vacuuming', titleAr: 'الشفط', description: 'Thorough vacuuming to remove loose dirt and debris', descriptionAr: 'شفط شامل لإزالة الأوساخ والحطام السائب' },
-      { step: 3, title: 'Treatment', titleAr: 'المعالجة', description: 'Application of cleaning solutions and stain treatments', descriptionAr: 'تطبيق محاليل التنظيف وعلاجات البقع' },
-      { step: 4, title: 'Extraction & Drying', titleAr: 'الاستخراج والتجفيف', description: 'Hot water extraction and professional drying techniques', descriptionAr: 'استخراج الماء الساخن وتقنيات التجفيف المهنية' }
+      { step: 1, title: 'Assessment', titleAr: 'التقييم', description: 'Determine scope and areas of focus', descriptionAr: 'تحديد النطاق ومناطق التركيز' },
+      { step: 2, title: 'Pre-Treatment', titleAr: 'المعالجة المسبقة', description: 'Apply deep cleaning agents to soiled areas', descriptionAr: 'وضع مواد التنظيف العميق على المناطق المتسخة' },
+      { step: 3, title: 'Deep Clean', titleAr: 'التنظيف العميق', description: 'Systematic cleaning of all surfaces and fixtures', descriptionAr: 'تنظيف منهجي لجميع الأسطح والتركيبات' },
+      { step: 4, title: 'Client Walkthrough', titleAr: 'جولة مع العميل', description: 'Final inspection and client approval', descriptionAr: 'الفحص النهائي وموافقة العميل' }
     ],
     pricing: [
-      { type: 'Small Room (up to 200 sq ft)', typeAr: 'غرفة صغيرة (حتى 200 قدم مربع)', price: 'AED 200', features: ['Deep cleaning', 'Stain treatment', 'Deodorizing'] },
-      { type: 'Medium Room (200-400 sq ft)', typeAr: 'غرفة متوسطة (200-400 قدم مربع)', price: 'AED 350', features: ['Deep cleaning', 'Stain removal', 'Sanitization', 'Protection'], popular: true },
-      { type: 'Large Room (400+ sq ft)', typeAr: 'غرفة كبيرة (400+ قدم مربع)', price: 'AED 500', features: ['Complete cleaning', 'Advanced treatment', 'Full sanitization', 'Carpet protection'] }
+      { type: 'Studio/1 Bedroom', typeAr: 'استوديو/غرفة نوم واحدة', price: 'AED 350', features: ['4-6 hours service', 'All chemicals included'] },
+      { type: '2 Bedroom', typeAr: 'غرفتا نوم', price: 'AED 500', features: ['6-8 hours service', 'Inside fridge/oven included'], popular: true },
+      { type: 'Villa/Large House', typeAr: 'فيلا/منزل كبير', price: 'Custom Quote', features: ['Team of cleaners', 'Specialized equipment', 'Full day service'] }
+    ],
+    faqs: [
+      {
+        question: 'What is the difference between a residential deep cleaning and a commercial deep cleaning?',
+        answer: 'A residential deep cleaning is a thorough cleaning of a home or apartment, focusing on neglected areas. A commercial deep cleaning is a thorough cleaning of a commercial property, focusing on neglected areas.'
+      }, 
+      {
+        question: 'What is the difference between a residential deep cleaning and a commercial deep cleaning?',
+        answer: 'A residential deep cleaning is a thorough cleaning of a home or apartment, focusing on neglected areas. A commercial deep cleaning is a thorough cleaning of a commercial property, focusing on neglected areas.'
+      },
+      {
+        question: 'What is the difference between a residential deep cleaning and a commercial deep cleaning?',
+        answer: 'A residential deep cleaning is a thorough cleaning of a home or apartment, focusing on neglected areas. A commercial deep cleaning is a thorough cleaning of a commercial property, focusing on neglected areas.'
+      }
     ]
   },
-
-  'mattress-cleaning': {
-    title: 'Professional Mattress Cleaning Services',
-    titleAr: 'خدمات تنظيف المراتب المهنية',
-    category: 'Cleaning',
-    categoryAr: 'التنظيف',
-    heroIcon: '🛏️',
-    description: 'Deep mattress cleaning services to eliminate dust mites, allergens, and stains for a healthier sleep environment.',
-    descriptionAr: 'خدمات تنظيف المراتب العميقة للقضاء على عث الغبار والمواد المسببة للحساسية والبقع لبيئة نوم أكثر صحة.',
+  'commercial-deep-cleaning': {
+    title: 'Commercial Deep Cleaning Services',
+    titleAr: 'خدمات التنظيف العميق التجاري',
+    category: 'Commercial',
+    categoryAr: 'التجاري',
+    heroIcon: '🏭',
+    description: 'Intensive deep cleaning for commercial kitchens, industrial facilities, and large offices.',
+    descriptionAr: 'تنظيف عميق مكثف للمطابخ التجارية والمرافق الصناعية والمكاتب الكبيرة.',
     features: [
-      { icon: '🦠', title: 'Dust Mite Elimination', titleAr: 'القضاء على عث الغبار', description: 'Removes dust mites and their allergens for better sleep quality', descriptionAr: 'يزيل عث الغبار والمواد المسببة للحساسية لجودة نوم أفضل' },
-      { icon: '🌡️', title: 'UV Sanitization', titleAr: 'التعقيم بالأشعة فوق البنفسجية', description: 'UV light treatment kills bacteria and viruses effectively', descriptionAr: 'علاج الأشعة فوق البنفسجية يقتل البكتيريا والفيروسات بفعالية' },
-      { icon: '💧', title: 'Stain & Odor Removal', titleAr: 'إزالة البقع والروائح', description: 'Specialized treatment for sweat stains, spills, and odors', descriptionAr: 'علاج متخصص لبقع العرق والانسكابات والروائح' },
-      { icon: '🌬️', title: 'Anti-Allergen Treatment', titleAr: 'علاج مضاد للحساسية', description: 'Application of anti-allergen solutions for sensitive individuals', descriptionAr: 'تطبيق محاليل مضادة للحساسية للأشخاص الحساسين' }
+      { icon: '⚙️', title: 'Heavy Duty', titleAr: 'تنظيف للأماكن الصناعية', description: 'Specialized equipment for industrial-grade dirt and grime', descriptionAr: 'معدات متخصصة للأوساخ والأتربة الصناعية' },
+      { icon: '🔪', title: 'Kitchen Exhaust', titleAr: 'شفاطات المطبخ', description: 'Deep cleaning of commercial kitchen hoods and exhausts', descriptionAr: 'تنظيف عميق لأغطية وشفاطات المطابخ التجارية' },
+      { icon: '📐', title: 'Floor Restoration', titleAr: 'تجديد الأرضيات', description: 'Stripping, waxing, and polishing of commercial flooring', descriptionAr: 'تجريد وتشميع وتلميع الأرضيات التجارية' },
+      { icon: '🚨', title: 'Safety Compliance', titleAr: 'الامتثال للسلامة', description: 'Adherence to HACCP and local authority hygiene standards', descriptionAr: 'الالتزام بمعايير النظافة HACCP والسلطات المحلية' }
     ],
     process: [
-      { step: 1, title: 'Mattress Assessment', titleAr: 'تقييم المرتبة', description: 'Inspection for stains, odors, and overall condition', descriptionAr: 'فحص البقع والروائح والحالة العامة' },
-      { step: 2, title: 'Vacuuming', titleAr: 'الشفط', description: 'Deep vacuuming to remove surface dirt and debris', descriptionAr: 'شفط عميق لإزالة الأوساخ والحطام السطحي' },
-      { step: 3, title: 'Steam Cleaning', titleAr: 'التنظيف بالبخار', description: 'High-temperature steam cleaning for deep sanitization', descriptionAr: 'تنظيف بالبخار عالي الحرارة للتعقيم العميق' },
-      { step: 4, title: 'UV Treatment & Drying', titleAr: 'علاج الأشعة فوق البنفسجية والتجفيف', description: 'UV sanitization and professional drying process', descriptionAr: 'تعقيم بالأشعة فوق البنفسجية وعملية تجفيف مهنية' }
+      { step: 1, title: 'Hazard Assessment', titleAr: 'تقييم المخاطر', description: 'Identify and mitigate risks in the workspace', descriptionAr: 'تحديد وتخفيف المخاطر في مكان العمل' },
+      { step: 2, title: 'Chemical Application', titleAr: 'تطبيق المواد الكيميائية', description: 'Use of industrial-strength, safe cleaning chemicals', descriptionAr: 'استخدام مواد تنظيف صناعية قوية وآمنة' },
+      { step: 3, title: 'High-Pressure Cleaning', titleAr: 'تنظيف بالضغط العالي', description: 'Use of steam and pressure washers for deep penetration', descriptionAr: 'استخدام البخار وغسالات الضغط للتغلغل العميق' },
+      { step: 4, title: 'Hygiene Certification', titleAr: 'شهادة النظافة', description: 'Post-service hygiene certificate and report', descriptionAr: 'تقرير وشهادة النظافة بعد الخدمة' }
     ],
     pricing: [
-      { type: 'Single Mattress', typeAr: 'مرتبة مفردة', price: 'AED 180', features: ['Deep cleaning', 'Dust mite removal', 'Basic sanitization'] },
-      { type: 'Double/Queen Mattress', typeAr: 'مرتبة مزدوجة/كوين', price: 'AED 250', features: ['Complete cleaning', 'UV treatment', 'Stain removal', 'Anti-allergen'], popular: true },
-      { type: 'King Size Mattress', typeAr: 'مرتبة كينج سايز', price: 'AED 320', features: ['Premium cleaning', 'Full sanitization', 'Odor elimination', 'Protection treatment'] }
+      { type: 'Retail Store', typeAr: 'متجر بيع بالتجزئة', price: 'AED 1200+', features: ['Quarterly service', 'Window cleaning'] },
+      { type: 'Restaurant Kitchen', typeAr: 'مطبخ مطعم', price: 'AED 2500+', features: ['Monthly/Bi-annual service', 'Hood cleaning included'], popular: true },
+      { type: 'Warehouse/Factory', typeAr: 'مستودع/مصنع', price: 'Custom Quote', features: ['Large scale machinery cleaning', 'Oil stain removal', 'Safety compliance'] }
+    ],
+    faqs: [
+      {
+        question: 'What is the difference between a residential deep cleaning and a commercial deep cleaning?',
+        answer: 'A residential deep cleaning is a thorough cleaning of a home or apartment, focusing on neglected areas. A commercial deep cleaning is a thorough cleaning of a commercial property, focusing on neglected areas.'
+      }
     ]
   },
-
-  // MARBLE SERVICES
-  'marble-polishing': {
-    title: 'Professional Marble Polishing & Restoration',
-    titleAr: 'تلميع وترميم الرخام المهني',
-    category: 'Marble',
-    categoryAr: 'الرخام',
-    heroIcon: '✨',
-    description: 'Expert marble polishing and restoration services to bring back the natural shine and beauty of your marble surfaces.',
-    descriptionAr: 'خدمات تلميع وترميم الرخام المتخصصة لإعادة اللمعان والجمال الطبيعي لأسطح الرخام الخاصة بك.',
-    features: [
-      { icon: '💎', title: 'Diamond Polishing', titleAr: 'التلميع بالماس', description: 'Professional diamond pad polishing for mirror-like finish', descriptionAr: 'تلميع احترافي بوسائد الماس للحصول على لمسة نهائية تشبه المرآة' },
-      { icon: '🔧', title: 'Crack Repair', titleAr: 'إصلاح الشقوق', description: 'Expert repair of cracks and chips in marble surfaces', descriptionAr: 'إصلاح متخصص للشقوق والرقائق في أسطح الرخام' },
-      { icon: '🛡️', title: 'Sealing & Protection', titleAr: 'الختم والحماية', description: 'Application of protective sealers to prevent future damage', descriptionAr: 'تطبيق مواد مانعة للتسرب الواقية لمنع الأضرار المستقبلية' },
-      { icon: '🎨', title: 'Color Restoration', titleAr: 'استعادة اللون', description: 'Restoration of original marble color and patterns', descriptionAr: 'استعادة لون وأنماط الرخام الأصلية' }
-    ],
-    process: [
-      { step: 1, title: 'Surface Assessment', titleAr: 'تقييم السطح', description: 'Detailed inspection of marble condition and damage assessment', descriptionAr: 'فحص مفصل لحالة الرخام وتقييم الأضرار' },
-      { step: 2, title: 'Grinding & Honing', titleAr: 'الطحن والصقل', description: 'Removal of scratches and surface imperfections', descriptionAr: 'إزالة الخدوش وعيوب السطح' },
-      { step: 3, title: 'Polishing', titleAr: 'التلميع', description: 'Multi-stage polishing process for high-gloss finish', descriptionAr: 'عملية تلميع متعددة المراحل للحصول على لمسة نهائية عالية اللمعان' },
-      { step: 4, title: 'Sealing & Protection', titleAr: 'الختم والحماية', description: 'Application of protective coating and final inspection', descriptionAr: 'تطبيق طلاء واقي وفحص نهائي' }
-    ],
-    pricing: [
-      { type: 'Basic Polishing (per sq m)', typeAr: 'تلميع أساسي (لكل متر مربع)', price: 'AED 25', features: ['Surface cleaning', 'Basic polishing', 'Light scratch removal'] },
-      { type: 'Premium Restoration (per sq m)', typeAr: 'ترميم متميز (لكل متر مربع)', price: 'AED 45', features: ['Deep restoration', 'Crack repair', 'High-gloss polish', 'Sealing'], popular: true },
-      { type: 'Complete Renovation (per sq m)', typeAr: 'تجديد كامل (لكل متر مربع)', price: 'AED 65', features: ['Full restoration', 'Color matching', 'Premium sealing', 'Long-term warranty'] }
-    ]
-  },
-
-  // PEST CONTROL SERVICES
-  'cockroach-control': {
-    title: 'Professional Cockroach Control Services',
-    titleAr: 'خدمات مكافحة الصراصير المهنية',
-    category: 'Pest Control',
-    categoryAr: 'مكافحة الآفات',
-    heroIcon: '🪳',
-    description: 'Effective cockroach elimination and prevention services using safe, proven methods to protect your property.',
-    descriptionAr: 'خدمات فعالة للقضاء على الصراصير ومنعها باستخدام طرق آمنة ومثبتة لحماية ممتلكاتك.',
-    features: [
-      { icon: '🎯', title: 'Targeted Treatment', titleAr: 'علاج مستهدف', description: 'Precise application of treatments in cockroach hiding spots', descriptionAr: 'تطبيق دقيق للعلاجات في أماكن اختباء الصراصير' },
-      { icon: '🛡️', title: 'Safe Methods', titleAr: 'طرق آمنة', description: 'Child and pet-safe pest control solutions', descriptionAr: 'حلول مكافحة الآفات الآمنة للأطفال والحيوانات الأليفة' },
-      { icon: '🔄', title: 'Long-lasting Results', titleAr: 'نتائج طويلة المدى', description: 'Extended protection with residual effect treatments', descriptionAr: 'حماية ممتدة مع علاجات ذات تأثير متبقي' },
-      { icon: '📊', title: 'Monitoring System', titleAr: 'نظام المراقبة', description: 'Regular monitoring and follow-up treatments as needed', descriptionAr: 'مراقبة منتظمة وعلاجات متابعة حسب الحاجة' }
-    ],
-    process: [
-      { step: 1, title: 'Inspection & Assessment', titleAr: 'الفحص والتقييم', description: 'Thorough inspection to identify infestation level and entry points', descriptionAr: 'فحص شامل لتحديد مستوى الإصابة ونقاط الدخول' },
-      { step: 2, title: 'Treatment Plan', titleAr: 'خطة العلاج', description: 'Customized treatment strategy based on infestation severity', descriptionAr: 'استراتيجية علاج مخصصة بناءً على شدة الإصابة' },
-      { step: 3, title: 'Application', titleAr: 'التطبيق', description: 'Professional application of pest control treatments', descriptionAr: 'تطبيق احترافي لعلاجات مكافحة الآفات' },
-      { step: 4, title: 'Follow-up & Prevention', titleAr: 'المتابعة والوقاية', description: 'Regular monitoring and preventive measures', descriptionAr: 'مراقبة منتظمة وتدابير وقائية' }
-    ],
-    pricing: [
-      { type: 'Single Treatment', typeAr: 'علاج واحد', price: 'AED 300', features: ['Initial inspection', 'One-time treatment', 'Basic warranty'] },
-      { type: 'Quarterly Package', typeAr: 'باقة ربع سنوية', price: 'AED 800', features: ['4 treatments per year', 'Regular monitoring', 'Extended warranty'], popular: true },
-      { type: 'Annual Contract', typeAr: 'عقد سنوي', price: 'AED 1200', features: ['Monthly monitoring', 'Unlimited treatments', 'Full guarantee', 'Emergency service'] }
-    ]
-  },
-
-  // CAR SERVICES
-  'car-interior-detailing': {
-    title: 'Professional Car Interior Detailing',
-    titleAr: 'تفصيل داخلي احترافي للسيارة',
-    category: 'Car',
-    categoryAr: 'السيارات',
-    heroIcon: '🚗',
-    description: 'Complete car interior detailing services including deep cleaning, leather treatment, and fabric protection.',
-    descriptionAr: 'خدمات تفصيل داخلي كاملة للسيارة تشمل التنظيف العميق وعلاج الجلد وحماية الأقمشة.',
-    features: [
-      { icon: '🧽', title: 'Deep Cleaning', titleAr: 'تنظيف عميق', description: 'Thorough cleaning of all interior surfaces and components', descriptionAr: 'تنظيف شامل لجميع الأسطح والمكونات الداخلية' },
-      { icon: '🪑', title: 'Leather Care', titleAr: 'العناية بالجلد', description: 'Professional leather cleaning, conditioning, and protection', descriptionAr: 'تنظيف وترطيب وحماية الجلد بشكل احترافي' },
-      { icon: '🌟', title: 'Stain Removal', titleAr: 'إزالة البقع', description: 'Specialized treatment for stubborn stains and spills', descriptionAr: 'علاج متخصص للبقع العنيدة والانسكابات' },
-      { icon: '💨', title: 'Odor Elimination', titleAr: 'إزالة الروائح', description: 'Complete removal of smoke, food, and other odors', descriptionAr: 'إزالة كاملة لروائح الدخان والطعام والروائح الأخرى' }
-    ],
-    process: [
-      { step: 1, title: 'Pre-Inspection', titleAr: 'الفحص المسبق', description: 'Assessment of interior condition and specific cleaning needs', descriptionAr: 'تقييم الحالة الداخلية واحتياجات التنظيف المحددة' },
-      { step: 2, title: 'Vacuuming & Preparation', titleAr: 'الشفط والتحضير', description: 'Thorough vacuuming and removal of personal items', descriptionAr: 'شفط شامل وإزالة الأغراض الشخصية' },
-      { step: 3, title: 'Deep Cleaning', titleAr: 'التنظيف العميق', description: 'Detailed cleaning of all surfaces, seats, and components', descriptionAr: 'تنظيف مفصل لجميع الأسطح والمقاعد والمكونات' },
-      { step: 4, title: 'Protection & Finishing', titleAr: 'الحماية واللمسة الأخيرة', description: 'Application of protectants and final quality check', descriptionAr: 'تطبيق المواد الواقية والفحص النهائي للجودة' }
-    ],
-    pricing: [
-      { type: 'Basic Interior Clean', typeAr: 'تنظيف داخلي أساسي', price: 'AED 200', features: ['Vacuuming', 'Surface cleaning', 'Basic protection'] },
-      { type: 'Premium Detailing', typeAr: 'تفصيل متميز', price: 'AED 400', features: ['Deep cleaning', 'Leather treatment', 'Stain removal', 'Odor elimination'], popular: true },
-      { type: 'Luxury Treatment', typeAr: 'علاج فاخر', price: 'AED 600', features: ['Complete restoration', 'Premium products', 'Extended protection', 'Ceramic coating'] }
-    ]
-  },
-
-  // COMMERCIAL & RESIDENTIAL CLEANING
-  'commercial-cleaning': {
-    title: 'Professional Commercial Cleaning Services',
-    titleAr: 'خدمات التنظيف التجاري المهنية',
+  'general-cleaning': {
+    title: 'General Cleaning & Maid Services',
+    titleAr: 'خدمات التنظيف العامة والعمالة المنزلية',
     category: 'Commercial & Residential',
-    categoryAr: 'التنظيف التجاري والسكني',
-    heroIcon: '🏢',
-    description: 'Comprehensive commercial cleaning services for offices, retail spaces, and business facilities of all sizes.',
-    descriptionAr: 'خدمات تنظيف تجارية شاملة للمكاتب والمساحات التجارية والمرافق التجارية من جميع الأحجام.',
+    categoryAr: 'التجاري والسكني',
+    heroIcon: '🧹',
+    description: 'Routine and recurring general cleaning services for homes and small businesses.',
+    descriptionAr: 'خدمات تنظيف عامة روتينية ومتكررة للمنازل والشركات الصغيرة.',
     features: [
-      { icon: '🕐', title: 'Flexible Scheduling', titleAr: 'جدولة مرنة', description: 'Cleaning services scheduled around your business hours', descriptionAr: 'خدمات التنظيف مجدولة حول ساعات عملك' },
-      { icon: '🧹', title: 'Comprehensive Cleaning', titleAr: 'تنظيف شامل', description: 'Complete cleaning of all areas including offices, restrooms, and common areas', descriptionAr: 'تنظيف كامل لجميع المناطق بما في ذلك المكاتب ودورات المياه والمناطق المشتركة' },
-      { icon: '🦠', title: 'Sanitization', titleAr: 'التعقيم', description: 'Professional sanitization and disinfection services', descriptionAr: 'خدمات التعقيم والتطهير المهنية' },
-      { icon: '✅', title: 'Quality Assurance', titleAr: 'ضمان الجودة', description: 'Regular quality checks and customer satisfaction monitoring', descriptionAr: 'فحوصات جودة منتظمة ومراقبة رضا العملاء' }
+      { icon: '🗓️', title: 'Hourly Booking', titleAr: 'الحجز بالساعة', description: 'Flexible booking for a few hours of cleaning assistance', descriptionAr: 'حجز مرن لبضع ساعات من المساعدة في التنظيف' },
+      { icon: '🪣', title: 'Standard Tasks', titleAr: 'المهام القياسية', description: 'Dusting, sweeping, mopping, and basic tidying', descriptionAr: 'إزالة الغبار، الكنس، المسح، والترتيب الأساسي' },
+      { icon: '🧑‍💼', title: 'Trained Maids', titleAr: 'عاملات مدربات', description: 'Professional and reliable cleaning staff', descriptionAr: 'طاقم تنظيف محترف وموثوق' },
+      { icon: '🧺', title: 'Light Laundry/Ironing', titleAr: 'غسيل/كي خفيف', description: 'Assistance with basic laundry and ironing upon request', descriptionAr: 'المساعدة في الغسيل والكي الأساسي عند الطلب' }
     ],
     process: [
-      { step: 1, title: 'Site Assessment', titleAr: 'تقييم الموقع', description: 'Evaluation of facility size, cleaning requirements, and scheduling needs', descriptionAr: 'تقييم حجم المرفق ومتطلبات التنظيف واحتياجات الجدولة' },
-      { step: 2, title: 'Custom Plan', titleAr: 'خطة مخصصة', description: 'Development of tailored cleaning plan and schedule', descriptionAr: 'تطوير خطة وجدولة تنظيف مخصصة' },
-      { step: 3, title: 'Implementation', titleAr: 'التنفيذ', description: 'Professional cleaning service delivery by trained staff', descriptionAr: 'تقديم خدمة تنظيف احترافية من قبل موظفين مدربين' },
-      { step: 4, title: 'Quality Control', titleAr: 'مراقبة الجودة', description: 'Regular inspections and performance monitoring', descriptionAr: 'فحوصات منتظمة ومراقبة الأداء' }
+      { step: 1, title: 'Booking', titleAr: 'الحجز', description: 'Select time, duration, and service location', descriptionAr: 'اختيار الوقت والمدة وموقع الخدمة' },
+      { step: 2, title: 'Arrival', titleAr: 'الوصول', description: 'Cleaner arrives with necessary basic supplies', descriptionAr: 'وصول عامل التنظيف مع اللوازم الأساسية الضرورية' },
+      { step: 3, title: 'Service Delivery', titleAr: 'تقديم الخدمة', description: 'Execution of agreed-upon cleaning tasks', descriptionAr: 'تنفيذ مهام التنظيف المتفق عليها' },
+      { step: 4, title: 'Feedback', titleAr: 'الملاحظات', description: 'Quick check and feedback collection', descriptionAr: 'فحص سريع وجمع الملاحظات' }
     ],
     pricing: [
-      { type: 'Small Office (up to 2000 sq ft)', typeAr: 'مكتب صغير (حتى 2000 قدم مربع)', price: 'AED 800/month', features: ['Daily cleaning', 'Restroom maintenance', 'Trash removal'] },
-      { type: 'Medium Office (2000-5000 sq ft)', typeAr: 'مكتب متوسط (2000-5000 قدم مربع)', price: 'AED 1500/month', features: ['Comprehensive cleaning', 'Sanitization', 'Window cleaning', 'Floor care'], popular: true },
-      { type: 'Large Facility (5000+ sq ft)', typeAr: 'مرفق كبير (5000+ قدم مربع)', price: 'Custom Quote', features: ['Full facility management', 'Specialized cleaning', '24/7 support', 'Custom schedule'] }
+      { type: '2-hour Session', typeAr: 'جلسة ساعتين', price: 'AED 70/hour', features: ['Quick clean', 'Focus on 1-2 areas'] },
+      { type: '4-hour Session', typeAr: 'جلسة 4 ساعات', price: 'AED 65/hour', features: ['Standard home clean', 'All rooms covered'], popular: true },
+      { type: 'Full Day/Contract', typeAr: 'يوم كامل/عقد', price: 'Custom Quote', features: ['Discounted rates', 'Dedicated cleaner', 'Weekly/Bi-weekly schedule'] }
+    ]
+  },
+  'cleaner-supply-commercial': {
+    title: 'Commercial Cleaner Staffing & Supply',
+    titleAr: 'توريد وتوظيف عمال النظافة التجاريين',
+    category: 'Commercial',
+    categoryAr: 'التجاري',
+    heroIcon: '👔',
+    description: 'Outsourcing and supply of dedicated, vetted cleaning staff for long-term commercial contracts.',
+    descriptionAr: 'استعانة بمصادر خارجية وتوريد موظفي نظافة متخصصين وموثوقين للعقود التجارية طويلة الأجل.',
+    features: [
+      { icon: '📜', title: 'Vetted Staff', titleAr: 'موظفون موثوقون', description: 'Fully legal, insured, and background-checked personnel', descriptionAr: 'موظفين قانونيين ومؤمن عليهم ومفحوصين أمنياً بالكامل' },
+      { icon: '🔄', title: 'Flexible Contracts', titleAr: 'عقود مرنة', description: 'Full-time, part-time, and shift-based deployment', descriptionAr: 'توظيف بدوام كامل، جزئي، وقائم على النوبات' },
+      { icon: '🧑‍🎓', title: 'Trained Professionals', titleAr: 'محترفون مدربون', description: 'Staff trained in commercial hygiene and safety protocols', descriptionAr: 'موظفون مدربون على بروتوكولات النظافة والسلامة التجارية' },
+      { icon: '⚕️', title: 'Medical Coverage', titleAr: 'تغطية طبية', description: 'We provide full medical and visa sponsorship', descriptionAr: 'نحن نقدم الكفالة الطبية والتأشيرة بالكامل' }
+    ],
+    process: [
+      { step: 1, title: 'Requirement Analysis', titleAr: 'تحليل المتطلبات', description: 'Understand staffing needs, skills, and shift timings', descriptionAr: 'فهم احتياجات التوظيف والمهارات وتوقيتات المناوبة' },
+      { step: 2, title: 'Candidate Selection', titleAr: 'اختيار المرشحين', description: 'Screening and shortlisting of qualified cleaners', descriptionAr: 'فرز واختيار المرشحين المؤهلين' },
+      { step: 3, title: 'Deployment', titleAr: 'التوزيع', description: 'On-site placement of staff with necessary equipment', descriptionAr: 'توزيع الموظفين في الموقع مع المعدات الضرورية' },
+      { step: 4, title: 'Management', titleAr: 'الإدارة', description: 'Ongoing management, payroll, and performance monitoring', descriptionAr: 'الإدارة المستمرة، كشوف المرتبات، ومراقبة الأداء' }
+    ],
+    pricing: [
+      { type: 'Single Cleaner (Full-time)', typeAr: 'عامل نظافة واحد (دوام كامل)', price: 'AED 3500/month', features: ['8 hours/day', '6 days/week', 'Client supervision'] },
+      { type: 'Team of Cleaners', typeAr: 'فريق من عمال النظافة', price: 'AED 12,000+/month', features: ['Dedicated supervisor', 'Shift coverage', 'All amenities covered'], popular: true },
+      { type: 'Specialist Staff', typeAr: 'موظفون متخصصون', price: 'Custom Quote', features: ['Hygiene/technical cleaning focus', 'Special certification required'] }
+    ]
+  },
+  'cleaner-supply-residential': {
+    title: 'Residential Cleaner Supply (Live-out)',
+    titleAr: 'توريد عمال النظافة السكنيين (غير مقيمين)',
+    category: 'Residential',
+    categoryAr: 'السكني',
+    heroIcon: '🏡',
+    description: 'Long-term supply of live-out domestic helpers/maids for residential clients on contract.',
+    descriptionAr: 'توريد طويل الأجل لعاملات منازل غير مقيمات/مساعدات للمنازل للعملاء بعقود.',
+    features: [
+      { icon: '🤝', title: 'Contract Basis', titleAr: 'أساس تعاقدي', description: 'Long-term agreement for regular, dedicated service', descriptionAr: 'اتفاق طويل الأجل لخدمة مخصصة ومنتظمة' },
+      { icon: '🛡️', title: 'Sponsorship Included', titleAr: 'الكفالة مشمولة', description: 'We handle visa, insurance, and medical requirements', descriptionAr: 'نتولى أمور التأشيرة والتأمين والمتطلبات الطبية' },
+      { icon: '🏠', title: 'Daily/Weekly Service', titleAr: 'خدمة يومية/أسبوعية', description: 'Fixed schedule tailored to family needs', descriptionAr: 'جدول ثابت مصمم حسب احتياجات العائلة' },
+      { icon: '🗣️', title: 'Language Match', titleAr: 'مطابقة اللغة', description: 'Attempt to match helpers based on language preference (English/Arabic/Other)', descriptionAr: 'محاولة مطابقة المساعدات بناءً على تفضيل اللغة (الإنجليزية/العربية/أخرى)' }
+    ],
+    process: [
+      { step: 1, title: 'Family Interview', titleAr: 'مقابلة العائلة', description: 'Understand family routine and specific needs', descriptionAr: 'فهم الروتين العائلي والاحتياجات المحددة' },
+      { step: 2, title: 'Helper Matching', titleAr: 'مطابقة المساعدة', description: 'Select suitable helper based on experience and language', descriptionAr: 'اختيار المساعدة المناسبة بناءً على الخبرة واللغة' },
+      { step: 3, title: 'Contract Finalization', titleAr: 'إنهاء العقد', description: 'Formalize agreement, payment, and terms of service', descriptionAr: 'إضفاء الطابع الرسمي على الاتفاق والدفع وشروط الخدمة' },
+      { step: 4, title: 'Onboarding', titleAr: 'الترحيب والبدء', description: 'Introduction to the household and service commencement', descriptionAr: 'التعريف بالمنزل وبدء الخدمة' }
+    ],
+    pricing: [
+      { type: 'Part-Time Live-out', typeAr: 'دوام جزئي غير مقيمة', price: 'AED 2500/month', features: ['4 hours/day', '5 days/week', 'Basic house help'] },
+      { type: 'Full-Time Live-out', typeAr: 'دوام كامل غير مقيمة', price: 'AED 4000/month', features: ['8 hours/day', '6 days/week', 'All household tasks'], popular: true },
+      { type: 'Specialized Nanny/Elder Care', typeAr: 'متخصصة في رعاية الأطفال/كبار السن', price: 'Custom Quote', features: ['Specialized training required', 'Extended hours'] }
+    ]
+  },
+  'sofa-cleaning': {
+    title: 'Sofa & Upholstery Cleaning',
+    titleAr: 'تنظيف الأرائك والمفروشات',
+    category: 'Specialized Cleaning',
+    categoryAr: 'التنظيف المتخصص',
+    heroIcon: '🛋️',
+    description: 'Professional deep cleaning and sanitization for sofas, chairs, and all types of upholstery.',
+    descriptionAr: 'تنظيف عميق وتعقيم احترافي للأرائك والكراسي وجميع أنواع المفروشات.',
+    features: [
+      { icon: '💧', title: 'Steam Extraction', titleAr: 'الاستخلاص بالبخار', description: 'Hot water extraction for deep dirt and stain removal', descriptionAr: 'استخلاص بالماء الساخن لإزالة الأوساخ والبقع العميقة' },
+      { icon: '🔬', title: 'Fabric Safe', titleAr: 'آمن على الأقمشة', description: 'Use of non-toxic, fabric-specific cleaning solutions', descriptionAr: 'استخدام محاليل تنظيف غير سامة ومخصصة للأقمشة' },
+      { icon: '👃', title: 'Odor Removal', titleAr: 'إزالة الروائح', description: 'Elimination of foul odors, including pet smells', descriptionAr: 'إزالة الروائح الكريهة، بما في ذلك روائح الحيوانات الأليفة' },
+      { icon: '💨', title: 'Fast Drying', titleAr: 'تجفيف سريع', description: 'Use of powerful air movers to reduce drying time significantly', descriptionAr: 'استخدام منفاخ هواء قوي لتقليل وقت التجفيف بشكل كبير' }
+    ],
+    process: [
+      { step: 1, title: 'Fabric Test', titleAr: 'اختبار القماش', description: 'Identify fabric type and color fastness', descriptionAr: 'تحديد نوع القماش وثبات اللون' },
+      { step: 2, title: 'Pre-Treatment', titleAr: 'المعالجة المسبقة', description: 'Application of stain removers to problem areas', descriptionAr: 'تطبيق مزيلات البقع على المناطق التي تعاني من مشاكل' },
+      { step: 3, title: 'Deep Cleaning', titleAr: 'التنظيف العميق', description: 'Full steam or dry cleaning process', descriptionAr: 'عملية تنظيف كاملة بالبخار أو التنظيف الجاف' },
+      { step: 4, title: 'Quick Dry', titleAr: 'تجفيف سريع', description: 'Speed up drying time with specialized air movers', descriptionAr: 'تسريع وقت التجفيف باستخدام منفاخ هواء متخصص' }
+    ],
+    pricing: [
+      { type: 'Single Seat/Armchair', typeAr: 'مقعد واحد/كرسي بذراعين', price: 'AED 80-150', features: ['Spot treatment included'] },
+      { type: '3-Seater Sofa', typeAr: 'أريكة 3 مقاعد', price: 'AED 250-400', features: ['Full extraction cleaning', 'Basic deodorizer'], popular: true },
+      { type: 'L-Shape/Set', typeAr: 'أريكة على شكل L/طقم', price: 'Custom Quote', features: ['Full living room set cleaning', 'Anti-dust mite treatment'] }
+    ]
+  },
+  'carpet-cleaning': {
+    title: 'Carpet Cleaning Services',
+    titleAr: 'خدمات تنظيف السجاد والموكيت',
+    category: 'Specialized Cleaning',
+    categoryAr: 'التنظيف المتخصص',
+    heroIcon: '🧶',
+    description: 'Professional cleaning for all types of carpets and rugs, removing dirt, allergens, and stains.',
+    descriptionAr: 'تنظيف احترافي لجميع أنواع السجاد والبسط، وإزالة الأوساخ والمواد المسببة للحساسية والبقع.',
+    features: [
+      { icon: '🦠', title: 'Allergen Removal', titleAr: 'إزالة مسببات الحساسية', description: 'Deep cleaning to remove dust mites and pet dander', descriptionAr: 'تنظيف عميق لإزالة عث الغبار ووبر الحيوانات الأليفة' },
+      { icon: '🌈', title: 'Color Restoration', titleAr: 'استعادة الألوان', description: 'Revitalizing carpet fibers for brighter colors', descriptionAr: 'إنعاش ألياف السجاد للحصول على ألوان أكثر إشراقاً' },
+      { icon: '🌱', title: 'Eco-Friendly', titleAr: 'صديق للبيئة', description: 'Use of green and non-toxic cleaning agents upon request', descriptionAr: 'استخدام مواد تنظيف خضراء وغير سامة عند الطلب' },
+      { icon: '📏', title: 'Area Rug Drop-Off', titleAr: 'تسليم البساط للمغسلة', description: 'Collection and delivery service for delicate area rugs', descriptionAr: 'خدمة جمع وتسليم للبسط الصغيرة والحساسة' }
+    ],
+    process: [
+      { step: 1, title: 'Vacuum & Pre-Spray', titleAr: 'الكنس والرش المسبق', description: 'High-powered vacuuming and pre-treatment application', descriptionAr: 'كنس عالي الطاقة وتطبيق المعالجة المسبقة' },
+      { step: 2, title: 'Agitation', titleAr: 'الفرك والتحريك', description: 'Mechanical brushing to loosen embedded soil', descriptionAr: 'فرك ميكانيكي لتفكيك الأوساخ المدمجة' },
+      { step: 3, title: 'Rinse & Extract', titleAr: 'الشطف والاستخلاص', description: 'Hot water rinse and powerful extraction of dirt and moisture', descriptionAr: 'شطف بالماء الساخن واستخلاص قوي للأوساخ والرطوبة' },
+      { step: 4, title: 'Grooming', titleAr: 'التمشيط والتسريح', description: 'Setting the pile for faster drying and better appearance', descriptionAr: 'تجهيز الوبر لتجفيف أسرع ومظهر أفضل' }
+    ],
+    pricing: [
+      { type: 'Small Area Rug', typeAr: 'بساط منطقة صغيرة', price: 'AED 50-100', features: ['In-house/drop-off service'] },
+      { type: 'Standard Room', typeAr: 'غرفة قياسية', price: 'AED 150-300', features: ['Full deep cleaning', 'Quick drying'], popular: true },
+      { type: 'Full House/Commercial', typeAr: 'منزل كامل/تجاري', price: 'Custom Quote', features: ['Volume discounts', 'Specialized rug handling', 'Stain protection'] }
+    ]
+  },
+  'mattress-cleaning': {
+    title: 'Mattress Deep Cleaning & Sanitization',
+    titleAr: 'تنظيف وتعقيم المراتب العميق',
+    category: 'Specialized Cleaning',
+    categoryAr: 'التنظيف المتخصص',
+    heroIcon: '🛏️',
+    description: 'Eliminate dust mites, allergens, dead skin, and stains from your mattress for a healthier sleep.',
+    descriptionAr: 'القضاء على عث الغبار ومسببات الحساسية والجلد الميت والبقع من مرتبتك لنوم أكثر صحة.',
+    features: [
+      { icon: '👾', title: 'Mite Removal', titleAr: 'إزالة العث', description: 'Specialized UV light and vacuum to kill and remove dust mites', descriptionAr: 'ضوء فوق بنفسجي ومكنسة كهربائية متخصصة لقتل وإزالة عث الغبار' },
+      { icon: '🛡️', title: 'Sanitization', titleAr: 'التعقيم', description: 'Hospital-grade sanitization to kill bacteria and viruses', descriptionAr: 'تعقيم بدرجة المستشفيات لقتل البكتيريا والفيروسات' },
+      { icon: '☀️', title: 'Dry Process', titleAr: 'عملية جافة', description: 'Mostly dry process ensuring minimal downtime', descriptionAr: 'عملية جافة في الغالب تضمن الحد الأدنى من وقت التوقف' },
+      { icon: '💧', title: 'Urine & Liquid Stain Removal', titleAr: 'إزالة بقع البول والسوائل', description: 'Targeted enzyme treatments for tough organic stains and odors', descriptionAr: 'معالجات إنزيمية مستهدفة للبقع والروائح العضوية الصعبة' }
+    ],
+    process: [
+      { step: 1, title: 'High-Powered Vacuum', titleAr: 'مكنسة كهربائية عالية الطاقة', description: 'Removing surface debris and embedded dust', descriptionAr: 'إزالة الحطام السطحي والغبار المدمج' },
+      { step: 2, title: 'UV Treatment', titleAr: 'معالجة بالأشعة فوق البنفسجية', description: 'Sterilizing the mattress surface', descriptionAr: 'تعقيم سطح المرتبة' },
+      { step: 3, title: 'Stain & Odor Treatment', titleAr: 'معالجة البقع والروائح', description: 'Targeting specific stains and deep-set odors', descriptionAr: 'استهداف البقع المحددة والروائح العميقة' },
+      { step: 4, title: 'Final Sanitization Spray', titleAr: 'رش التعقيم النهائي', description: 'Application of a residual anti-allergen spray', descriptionAr: 'تطبيق رذاذ مضاد للحساسية ومتبق' }
+    ],
+    pricing: [
+      { type: 'Single Mattress', typeAr: 'مرتبة مفردة', price: 'AED 150', features: ['Mite removal', 'Basic stain treatment'] },
+      { type: 'Queen/King Mattress', typeAr: 'مرتبة كوين/كينج', price: 'AED 250-350', features: ['Full sanitization', 'Deep stain removal'], popular: true },
+      { type: 'Full Bedroom Set', typeAr: 'طقم غرفة نوم كامل', price: 'Custom Quote', features: ['Multi-mattress discount', 'Pillow treatment included'] }
+    ]
+  },
+  'water-tank-cleaning': {
+    title: 'Water Tank Cleaning & Disinfection',
+    titleAr: 'تنظيف وتعقيم خزانات المياه',
+    category: 'Essential Services',
+    categoryAr: 'الخدمات الأساسية',
+    heroIcon: '💧',
+    description: 'Professional cleaning and sterilization of residential and commercial water storage tanks.',
+    descriptionAr: 'تنظيف وتعقيم احترافي لخزانات تخزين المياه السكنية والتجارية.',
+    features: [
+      { icon: '🧪', title: 'Chlorination', titleAr: 'المعالجة بالكلور', description: 'Disinfection using approved chemicals and methods', descriptionAr: 'التطهير باستخدام مواد كيميائية وطرق معتمدة' },
+      { icon: '✅', title: 'Municipality Standards', titleAr: 'معايير البلدية', description: 'Compliance with local health and safety regulations', descriptionAr: 'الامتثال للوائح الصحة والسلامة المحلية' },
+      { icon: '🕳️', title: 'Sludge Removal', titleAr: 'إزالة الحمأة', description: 'Complete removal of sediment, silt, and bacterial build-up', descriptionAr: 'إزالة كاملة للرواسب والطمي والتراكم البكتيري' },
+      { icon: '📷', title: 'Pre/Post Photos', titleAr: 'صور قبل/بعد', description: 'Providing visual proof of the tank interior cleanliness', descriptionAr: 'توفير دليل مرئي لنظافة الخزان الداخلية' }
+    ],
+    process: [
+      { step: 1, title: 'Draining', titleAr: 'التفريغ', description: 'Complete draining of the old water', descriptionAr: 'التفريغ الكامل للمياه القديمة' },
+      { step: 2, title: 'Scrubbing', titleAr: 'التنظيف بالفرك', description: 'Manual scrubbing of all interior walls and floor', descriptionAr: 'الفرك اليدوي لجميع الجدران الداخلية والأرضية' },
+      { step: 3, title: 'High-Pressure Rinse', titleAr: 'الشطف بالضغط العالي', description: 'Rinsing to remove loosened residue', descriptionAr: 'الشطف لإزالة المخلفات المفكوكة' },
+      { step: 4, title: 'Disinfection & Refill', titleAr: 'التطهير وإعادة التعبئة', description: 'Application of disinfectant and refilling with fresh water', descriptionAr: 'تطبيق المطهر وإعادة التعبئة بالمياه العذبة' }
+    ],
+    pricing: [
+      { type: 'Small Tank (up to 500 Gal)', typeAr: 'خزان صغير (حتى 500 غالون)', price: 'AED 400-600', features: ['Single service', 'Chlorination included'] },
+      { type: 'Medium Tank (500-1500 Gal)', typeAr: 'خزان متوسط (500-1500 غالون)', price: 'AED 700-1200', features: ['Full inspection report', 'Deep cleaning'], popular: true },
+      { type: 'Large/Commercial Tank', typeAr: 'خزان كبير/تجاري', price: 'Custom Quote', features: ['Multiple tanks', 'Annual maintenance contract', 'Lab testing'] }
+    ]
+  },
+  'majlis-cleaning': {
+    title: 'Majlis & Traditional Seating Cleaning',
+    titleAr: 'تنظيف المجالس والجلسات التقليدية',
+    category: 'Specialized Cleaning',
+    categoryAr: 'التنظيف المتخصص',
+    heroIcon: '🕌',
+    description: 'Expert cleaning and sanitization of traditional Majlis, Arabic seating, and cushions.',
+    descriptionAr: 'تنظيف وتعقيم متخصص للمجالس التقليدية والجلسات العربية والوسائد.',
+    features: [
+      { icon: '✨', title: 'Fabric Brightening', titleAr: 'تفتيح الأقمشة', description: 'Specialized solutions to restore fabric color and texture', descriptionAr: 'محاليل متخصصة لاستعادة لون وملمس القماش' },
+      { icon: '👃', title: 'Deep Deodorization', titleAr: 'إزالة الروائح العميقة', description: 'Effective removal of heavy odors from shisha, food, and spills', descriptionAr: 'إزالة فعالة للروائح الثقيلة من الشيشة والطعام والانسكابات' },
+      { icon: '🚫', title: 'Stain Spotting', titleAr: 'معالجة البقع', description: 'Targeted treatment for oil, tea, and coffee stains', descriptionAr: 'معالجة مستهدفة لبقع الزيت والشاي والقهوة' },
+      { icon: '🕌', title: 'Curtain & Drape Cleaning', titleAr: 'تنظيف الستائر والمفروشات المعلقة', description: 'Cleaning of heavy drapes and curtains in the Majlis area', descriptionAr: 'تنظيف الستائر والمفروشات المعلقة الثقيلة في منطقة المجلس' }
+    ],
+    process: [
+      { step: 1, title: 'Pre-Vacuum', titleAr: 'الكنس المسبق', description: 'Thorough vacuuming of all cushions, pillows, and seating bases', descriptionAr: 'كنس شامل لجميع الوسائد والمقاعد والقواعد' },
+      { step: 2, title: 'Spot Treatment', titleAr: 'معالجة البقع', description: 'Applying tailored solutions to stained areas', descriptionAr: 'تطبيق محاليل مخصصة على المناطق الملطخة' },
+      { step: 3, title: 'Shampoo & Extract', titleAr: 'الغسيل والاستخلاص', description: 'Deep shampooing with hot water extraction for all upholstery', descriptionAr: 'غسيل عميق مع استخلاص بالماء الساخن لجميع المفروشات' },
+      { step: 4, title: 'Drying & Grooming', titleAr: 'التجفيف والترتيب', description: 'Speed drying and fluffing of cushions for immediate use', descriptionAr: 'تجفيف سريع ونفش للوسائد للاستخدام الفوري' }
+    ],
+    pricing: [
+      { type: 'Small Majlis (1 room)', typeAr: 'مجلس صغير (غرفة واحدة)', price: 'AED 400-700', features: ['Cushions and carpet included'] },
+      { type: 'Medium Majlis', typeAr: 'مجلس متوسط', price: 'AED 800-1200', features: ['Sofa and curtain cleaning options'], popular: true },
+      { type: 'Large/Full Floor Majlis', typeAr: 'مجلس كبير/طابق كامل', price: 'Custom Quote', features: ['Volume discount', 'Full room sanitization'] }
+    ]
+  },
+  'marble-polishing': {
+    title: 'Marble Floor Polishing & Restoration',
+    titleAr: 'تلميع واستعادة أرضيات الرخام',
+    category: 'Floor & Surface Care',
+    categoryAr: 'العناية بالأرضيات والأسطح',
+    heroIcon: '💎',
+    description: 'Professional grinding, honing, and polishing to restore the shine and beauty of marble floors.',
+    descriptionAr: 'صقل وتنعيم وتلميع احترافي لاستعادة لمعان وجمال أرضيات الرخام.',
+    features: [
+      { icon: '✨', title: 'High Gloss Finish', titleAr: 'لمسة نهائية عالية اللمعان', description: 'Achieving a mirror-like shine through expert polishing', descriptionAr: 'الحصول على لمعان شبيه بالمرآة من خلال التلميع الخبير' },
+      { icon: '🔨', title: 'Scratch & Etch Removal', titleAr: 'إزالة الخدوش والحفر', description: 'Grinding away surface damage and deep scratches', descriptionAr: 'طحن وإزالة التلف السطحي والخدوش العميقة' },
+      { icon: '🛡️', title: 'Sealing', titleAr: 'الختم والحماية', description: 'Application of a protective sealant to prevent future staining', descriptionAr: 'تطبيق مادة مانعة للتسرب واقية لمنع التبقع في المستقبل' },
+      { icon: '🔨', title: 'Grout Line Filling', titleAr: 'ملء خطوط الجص', description: 'Filling and leveling gaps between marble slabs for a seamless look', descriptionAr: 'ملء وتسوية الفجوات بين ألواح الرخام للحصول على مظهر سلس' }
+    ],
+    process: [
+      { step: 1, title: 'Grinding', titleAr: 'الطحن', description: 'Removing the top layer to level the floor and remove deep scratches', descriptionAr: 'إزالة الطبقة العليا لتسوية الأرضية وإزالة الخدوش العميقة' },
+      { step: 2, title: 'Honing', titleAr: 'التنعيم', description: 'Smoothing the surface with progressively finer abrasives', descriptionAr: 'تنعيم السطح باستخدام مواد كاشطة أدق تدريجياً' },
+      { step: 3, title: 'Polishing', titleAr: 'التلميع', description: 'Using polishing powder and machinery to achieve the desired shine', descriptionAr: 'استخدام مسحوق التلميع والآلات لتحقيق اللمعان المطلوب' },
+      { step: 4, title: 'Sealing', titleAr: 'الختم', description: 'Applying a high-quality impregnating sealer', descriptionAr: 'تطبيق مادة مانعة للتسرب عالية الجودة' }
+    ],
+    pricing: [
+      { type: 'Basic Polishing (Light Shine)', typeAr: 'تلميع أساسي (لمعان خفيف)', price: 'AED 15-20/sqm', features: ['Honing and basic polishing'] },
+      { type: 'Full Restoration (High Gloss)', typeAr: 'استعادة كاملة (لمعان عالي)', price: 'AED 25-40/sqm', features: ['Grinding, honing, and mirror polish'], popular: true },
+      { type: 'Sealing & Maintenance', typeAr: 'الختم والصيانة', price: 'Custom Quote', features: ['Annual contract', 'Minor chip repair'] }
+    ]
+  },
+  'granite-polishing': {
+    title: 'Granite Polishing & Sealing',
+    titleAr: 'تلميع وختم الجرانيت',
+    category: 'Floor & Surface Care',
+    categoryAr: 'العناية بالأرضيات والأسطح',
+    heroIcon: '⛏️',
+    description: 'Specialized polishing and sealing for granite floors, countertops, and surfaces.',
+    descriptionAr: 'تلميع وختم متخصص لأرضيات وأسطح الجرانيت والمطابخ.',
+    features: [
+      { icon: '💪', title: 'Hard Surface Treatment', titleAr: 'معالجة الأسطح الصلبة', description: 'Techniques optimized for the hardness of granite', descriptionAr: 'تقنيات مُحسَّنة لصلابة الجرانيت' },
+      { icon: '💧', title: 'Stain Protection', titleAr: 'الحماية من البقع', description: 'Application of a penetrating sealer to resist liquids', descriptionAr: 'تطبيق مادة مانعة للتسرب متغلغلة لمقاومة السوائل' },
+      { icon: '🚧', title: 'Chip Repair', titleAr: 'إصلاح الشقوق', description: 'Minor crack and chip repair using epoxy resin', descriptionAr: 'إصلاح الشقوق والكسور الصغيرة باستخدام راتنج الإيبوكسي' },
+      { icon: '💎', title: 'Clarity Enhancement', titleAr: 'تعزيز الوضوح', description: 'Bringing out the natural depth and color of the granite stone', descriptionAr: 'إظهار العمق واللون الطبيعي لحجر الجرانيت' }
+    ],
+    process: [
+      { step: 1, title: 'Deep Clean', titleAr: 'التنظيف العميق', description: 'Thorough cleaning to remove oil and grime build-up', descriptionAr: 'تنظيف شامل لإزالة تراكم الزيوت والأوساخ' },
+      { step: 2, title: 'Grinding (if needed)', titleAr: 'الطحن (إذا لزم الأمر)', description: 'Light grinding for significant scratch removal', descriptionAr: 'طحن خفيف لإزالة الخدوش الكبيرة' },
+      { step: 3, title: 'Polishing', titleAr: 'التلميع', description: 'Polishing with diamond pads to enhance natural shine', descriptionAr: 'التلميع باستخدام وسادات الألماس لتعزيز اللمعان الطبيعي' },
+      { step: 4, title: 'Sealing', titleAr: 'الختم', description: 'Application of a high-performance granite sealer', descriptionAr: 'تطبيق مادة مانعة للتسرب عالية الأداء للجرانيت' }
+    ],
+    pricing: [
+      { type: 'Countertop Polishing', typeAr: 'تلميع أسطح العمل', price: 'AED 300+', features: ['Single countertop service'] },
+      { type: 'Floor Polishing', typeAr: 'تلميع الأرضيات', price: 'AED 20-35/sqm', features: ['Full floor treatment', 'Sealing included'], popular: true },
+      { type: 'Maintenance Contract', typeAr: 'عقد صيانة', price: 'Custom Quote', features: ['Bi-annual check-up', 'Small repair included'] }
+    ]
+  },
+  'marble-floor-cleaning': {
+    title: 'Marble Floor Deep Cleaning (Non-Polishing)',
+    titleAr: 'تنظيف أرضيات الرخام العميق (غير التلميع)',
+    category: 'Floor & Surface Care',
+    categoryAr: 'العناية بالأرضيات والأسطح',
+    heroIcon: '🧼',
+    description: 'Safe and effective deep cleaning for marble floors without the need for full re-polishing.',
+    descriptionAr: 'تنظيف عميق آمن وفعال لأرضيات الرخام دون الحاجة إلى إعادة تلميع كاملة.',
+    features: [
+      { icon: 'pH', title: 'pH Neutral Cleaners', titleAr: 'منظفات محايدة لدرجة الحموضة', description: 'Use of specialized, non-acidic cleaners safe for marble', descriptionAr: 'استخدام منظفات متخصصة وغير حمضية وآمنة للرخام' },
+      { icon: '🧹', title: 'Grout Line Cleaning', titleAr: 'تنظيف خطوط الجص', description: 'Detailed cleaning of the grout between marble tiles', descriptionAr: 'تنظيف مفصل للجص بين بلاط الرخام' },
+      { icon: '🦠', title: 'Deep Sanitization', titleAr: 'التعقيم العميق', description: 'Sanitizing the surface without damaging the finish', descriptionAr: 'تعقيم السطح دون إتلاف اللمسة النهائية' },
+      { icon: '✨', title: 'Restorative Waxing', titleAr: 'تشميع ترميمي', description: 'Optional application of a gentle, non-yellowing wax for subtle shine', descriptionAr: 'تطبيق اختياري لشمع لطيف وغير مصفر للمعان خفيف' }
+    ],
+    process: [
+      { step: 1, title: 'Pre-Wet', titleAr: 'التبليل المسبق', description: 'Preparing the floor surface for cleaning', descriptionAr: 'تحضير سطح الأرضية للتنظيف' },
+      { step: 2, title: 'Gentle Scrub', titleAr: 'فرك لطيف', description: 'Mechanical scrubbing with soft pads and neutral cleaner', descriptionAr: 'فرك ميكانيكي بوسادات ناعمة ومنظف محايد' },
+      { step: 3, title: 'Wet Vacuum', titleAr: 'مكنسة كهربائية رطبة', description: 'Removing the dirty water and residue completely', descriptionAr: 'إزالة المياه القذرة والمخلفات بالكامل' },
+      { step: 4, title: 'Neutral Rinse', titleAr: 'شطف محايد', description: 'Final rinse to ensure no cleaner residue remains', descriptionAr: 'شطف نهائي لضمان عدم بقاء أي بقايا منظف' }
+    ],
+    pricing: [
+      { type: 'Small Area (up to 50 sqm)', typeAr: 'منطقة صغيرة (حتى 50 متر مربع)', price: 'AED 8/sqm', features: ['Basic clean'] },
+      { type: 'Medium Area (50-150 sqm)', typeAr: 'منطقة متوسطة (50-150 متر مربع)', price: 'AED 10-15/sqm', features: ['Grout cleaning included'], popular: true },
+      { type: 'Full Villa/Large Area', typeAr: 'فيلا كاملة/منطقة كبيرة', price: 'Custom Quote', features: ['Volume discount', 'Sealing check'] }
+    ]
+  },
+  'post-construction-cleaning': {
+    title: 'Post Construction & Renovation Cleaning',
+    titleAr: 'تنظيف ما بعد البناء والتجديد',
+    category: 'Specialized Cleaning',
+    categoryAr: 'التنظيف المتخصص',
+    heroIcon: '🚧',
+    description: 'Thorough cleaning and debris removal after construction or renovation projects for handover.',
+    descriptionAr: 'تنظيف شامل وإزالة المخلفات بعد مشاريع البناء أو التجديد لتسليمها.',
+    features: [
+      { icon: '🗑️', title: 'Heavy Debris Removal', titleAr: 'إزالة المخلفات الثقيلة', description: 'Clearing of construction waste, dust, and materials', descriptionAr: 'إزالة نفايات البناء والغبار والمواد' },
+      { icon: '🛡️', title: 'Window Scrapping', titleAr: 'كشط النوافذ', description: 'Removing paint, plaster, and stickers from glass surfaces', descriptionAr: 'إزالة الطلاء والجص والملصقات من الأسطح الزجاجية' },
+      { icon: '🌬️', title: 'Fine Dust Mitigation', titleAr: 'تخفيف الغبار الناعم', description: 'Multi-stage cleaning to eliminate fine construction dust', descriptionAr: 'تنظيف متعدد المراحل للقضاء على غبار البناء الناعم' },
+      { icon: '🪜', title: 'High Access Cleaning', titleAr: 'تنظيف الأماكن المرتفعة', description: 'Cleaning of high ceilings, fixtures, and exterior facades (where accessible)', descriptionAr: 'تنظيف الأسقف العالية والتجهيزات والواجهات الخارجية (حيث يمكن الوصول إليها)' }
+    ],
+    process: [
+      { step: 1, title: 'Rough Clean', titleAr: 'تنظيف خشن', description: 'Removing large debris, trash, and protective coverings', descriptionAr: 'إزالة المخلفات الكبيرة والقمامة والأغطية الواقية' },
+      { step: 2, title: 'Light Clean', titleAr: 'تنظيف خفيف', description: 'Wiping down surfaces, cleaning windows, and basic floor cleaning', descriptionAr: 'مسح الأسطح وتنظيف النوافذ والتنظيف الأساسي للأرضيات' },
+      { step: 3, title: 'Final Detail Clean', titleAr: 'تنظيف التفاصيل النهائي', description: 'Sanitizing, polishing, and dusting for a move-in condition', descriptionAr: 'التعقيم والتلميع وإزالة الغبار لحالة جاهزة للسكن' },
+      { step: 4, title: 'Client Inspection', titleAr: 'فحص العميل', description: 'Final walkthrough with the client or site manager', descriptionAr: 'جولة نهائية مع العميل أو مدير الموقع' }
+    ],
+    pricing: [
+      { type: 'Studio/Apartment Renovation', typeAr: 'تجديد استوديو/شقة', price: 'AED 800-1500', features: ['Single-day service', 'Small team'] },
+      { type: 'Villa/Large Commercial', typeAr: 'فيلا/تجاري كبير', price: 'AED 2500-8000', features: ['Large team and equipment', 'Multi-day service'], popular: true },
+      { type: 'Full Building Handover', typeAr: 'تسليم مبنى كامل', price: 'Custom Quote', features: ['Long-term contract', 'Industrial cleaning equipment'] }
+    ]
+  },
+  'move-in-move-out-cleaning': {
+    title: 'Move-In / Move-Out Cleaning',
+    titleAr: 'تنظيف عند الانتقال (دخول/خروج)',
+    category: 'Residential',
+    categoryAr: 'السكني',
+    heroIcon: '📦',
+    description: 'Comprehensive, deep cleaning services essential for property handover or before moving into a new home.',
+    descriptionAr: 'خدمات تنظيف عميقة وشاملة ضرورية لتسليم الممتلكات أو قبل الانتقال إلى منزل جديد.',
+    features: [
+      { icon: '🚪', title: 'Empty Home Focus', titleAr: 'التركيز على المنزل الفارغ', description: 'Deep cleaning with full access to empty rooms and closets', descriptionAr: 'تنظيف عميق مع وصول كامل للغرف والخزائن الفارغة' },
+      { icon: '🔥', title: 'Kitchen Appliance Clean', titleAr: 'تنظيف أجهزة المطبخ', description: 'Deep cleaning inside the oven, fridge, and cabinets', descriptionAr: 'تنظيف عميق داخل الفرن والثلاجة والخزائن' },
+      { icon: '💰', title: 'Security Deposit Ready', titleAr: 'جاهز لاسترداد التأمين', description: 'Ensuring cleanliness meets landlord/agency standards', descriptionAr: 'ضمان أن النظافة تلبي معايير المالك/الوكالة' },
+      { icon: '🚿', title: 'Disinfection', titleAr: 'تطهير', description: 'Sanitization of all high-touch surfaces in bathrooms and kitchen', descriptionAr: 'تعقيم جميع الأسطح عالية التلامس في الحمامات والمطبخ' }
+    ],
+    process: [
+      { step: 1, title: 'Pre-Clean Checklist', titleAr: 'قائمة مراجعة ما قبل التنظيف', description: 'Confirming all personal belongings are removed', descriptionAr: 'التأكد من إزالة جميع المتعلقات الشخصية' },
+      { step: 2, title: 'High-Level Cleaning', titleAr: 'تنظيف المستوى العالي', description: 'Dusting ceilings, fixtures, and air vents', descriptionAr: 'إزالة الغبار عن الأسقف والتركيبات وفتحات التهوية' },
+      { step: 3, title: 'Appliance & Wet Area Clean', titleAr: 'تنظيف الأجهزة والمناطق الرطبة', description: 'Intensive cleaning of bathrooms and kitchen appliances', descriptionAr: 'تنظيف مكثف للحمامات وأجهزة المطبخ' },
+      { step: 4, title: 'Floor & Final Wipe Down', titleAr: 'الأرضيات والمسح النهائي', description: 'Floor scrubbing and final surface wipe-down', descriptionAr: 'فرك الأرضيات والمسح النهائي للأسطح' }
+    ],
+    pricing: [
+      { type: 'Studio/1 BR', typeAr: 'استوديو/غرفة نوم واحدة', price: 'AED 450-700', features: ['2 cleaners, 4-6 hours'] },
+      { type: '2-3 BR Apartment', typeAr: 'شقة 2-3 غرف نوم', price: 'AED 800-1400', features: ['Oven/Fridge deep clean included'], popular: true },
+      { type: 'Villa/Townhouse', typeAr: 'فيلا/تاون هاوس', price: 'Custom Quote', features: ['Team of 4-6 cleaners', 'External areas cleaning'] }
+    ]
+  },
+  'pest-control': {
+    title: 'Pest Control & Extermination Services',
+    titleAr: 'خدمات مكافحة الآفات والإبادة',
+    category: 'Essential Services',
+    categoryAr: 'الخدمات الأساسية',
+    heroIcon: '🐜',
+    description: 'Licensed and professional pest control for residential and commercial properties against common pests.',
+    descriptionAr: 'مكافحة آفات مرخصة واحترافية للعقارات السكنية والتجارية ضد الآفات الشائعة.',
+    features: [
+      { icon: '🦎', title: 'General Pest Control', titleAr: 'مكافحة الآفات العامة', description: 'Treatment for cockroaches, ants, and common insects', descriptionAr: 'معالجة للصراصير والنمل والحشرات الشائعة' },
+      { icon: '🐀', title: 'Rodent & Termite', titleAr: 'القوارض والنمل الأبيض', description: 'Targeted treatment and prevention for rats, mice, and termites', descriptionAr: 'معالجة ووقاية مستهدفة للفئران والجرذان والنمل الأبيض' },
+      { icon: '🌿', title: 'Safe Chemicals', titleAr: 'مواد كيميائية آمنة', description: 'Use of non-toxic, government-approved pesticides', descriptionAr: 'استخدام مبيدات حشرية غير سامة ومعتمدة من الحكومة' },
+      { icon: '🔑', title: 'Extended Guarantee', titleAr: 'ضمان ممتد', description: 'Follow-up service included in case of re-infestation within the guarantee period', descriptionAr: 'خدمة متابعة مضمنة في حالة إعادة الإصابة ضمن فترة الضمان' }
+    ],
+    process: [
+      { step: 1, title: 'Inspection', titleAr: 'التفتيش', description: 'Identification of pest type, infestation level, and entry points', descriptionAr: 'تحديد نوع الآفة ومستوى الإصابة ونقاط الدخول' },
+      { step: 2, title: 'Treatment Plan', titleAr: 'خطة العلاج', description: 'Development of a customized, targeted extermination plan', descriptionAr: 'تطوير خطة إبادة مخصصة ومستهدفة' },
+      { step: 3, title: 'Application', titleAr: 'التطبيق', description: 'Professional application of gels, sprays, or baiting systems', descriptionAr: 'تطبيق احترافي للجل أو البخاخات أو أنظمة الطعم' },
+      { step: 4, title: 'Follow-up', titleAr: 'المتابعة', description: 'Post-treatment inspection and guarantee period', descriptionAr: 'فحص ما بعد العلاج وفترة الضمان' }
+    ],
+    pricing: [
+      { type: 'Apartment (General)', typeAr: 'شقة (عام)', price: 'AED 250-400', features: ['Single treatment', '3-month guarantee'] },
+      { type: 'Villa/Termite Control', typeAr: 'فيلا/مكافحة النمل الأبيض', price: 'AED 500-1500', features: ['Full house treatment', 'Longer guarantee'], popular: true },
+      { type: 'Commercial Annual Contract', typeAr: 'عقد سنوي تجاري', price: 'Custom Quote', features: ['Monthly/Quarterly visits', 'Full compliance reporting'] }
+    ]
+  },
+  'interior-design': {
+    title: 'Interior Design Consultancy & Execution',
+    titleAr: 'استشارات وتصميم وتنفيذ الديكور الداخلي',
+    category: 'Design & Fitout',
+    categoryAr: 'التصميم والتجهيز',
+    heroIcon: '🖼️',
+    description: 'Full-service interior design from concept creation to final execution for residential and commercial spaces.',
+    descriptionAr: 'خدمة تصميم داخلي شاملة من إنشاء المفهوم إلى التنفيذ النهائي للمساحات السكنية والتجارية.',
+    features: [
+      { icon: '💡', title: 'Concept Development', titleAr: 'تطوير المفهوم', description: 'Mood boards, color palettes, and theme selection', descriptionAr: 'لوحات المزاج، لوحات الألوان، واختيار الموضوع' },
+      { icon: '📐', title: '3D Visualization', titleAr: 'تصور ثلاثي الأبعاد', description: 'Realistic 3D renders to visualize the final design', descriptionAr: 'تصييرات ثلاثية الأبعاد واقعية لتصور التصميم النهائي' },
+      { icon: '🛍️', title: 'Material Sourcing', titleAr: 'تأمين المواد', description: 'Sourcing and procurement of furniture, fixtures, and materials', descriptionAr: 'تأمين وشراء الأثاث والتجهيزات والمواد' },
+      { icon: '🎨', title: 'Lighting & Color Theory', titleAr: 'نظرية الإضاءة والألوان', description: 'Expert consultation on ambient, task, and accent lighting', descriptionAr: 'استشارة متخصصة في الإضاءة المحيطة والعمل والتركيز' }
+    ],
+    process: [
+      { step: 1, title: 'Briefing', titleAr: 'الاجتماع الأولي', description: 'Understanding client needs, budget, and timeline', descriptionAr: 'فهم احتياجات العميل والميزانية والجدول الزمني' },
+      { step: 2, title: 'Design & Approvals', titleAr: 'التصميم والموافقات', description: 'Presenting initial designs, revisions, and final sign-off', descriptionAr: 'تقديم التصاميم الأولية والمراجعات والموافقة النهائية' },
+      { step: 3, title: 'Execution', titleAr: 'التنفيذ', description: 'Project management, site supervision, and fit-out completion', descriptionAr: 'إدارة المشروع، والإشراف على الموقع، وإكمال التجهيز' },
+      { step: 4, title: 'Handover', titleAr: 'التسليم', description: 'Final staging, quality check, and project handover', descriptionAr: 'التجهيز النهائي، فحص الجودة، وتسليم المشروع' }
+    ],
+    pricing: [
+      { type: 'Consultation Only (Hourly)', typeAr: 'استشارة فقط (بالساعة)', price: 'AED 450/hour', features: ['Design advice', 'Space planning'] },
+      { type: 'Single Room Design', typeAr: 'تصميم غرفة واحدة', price: 'AED 3000+', features: ['Full concept and 3D render', 'Shopping list provided'], popular: true },
+      { type: 'Full Home/Office Project', typeAr: 'مشروع منزل/مكتب كامل', price: 'Custom Quote', features: ['Full execution and fit-out management', 'Premium material sourcing'] }
+    ]
+  },
+  'interior-fitout': {
+    title: 'Interior Fitout & Contracting',
+    titleAr: 'تجهيزات وعقود الديكور الداخلي',
+    category: 'Design & Fitout',
+    categoryAr: 'التصميم والتجهيز',
+    heroIcon: '🏗️',
+    description: 'Complete commercial and residential interior fitout services, including civil works, MEP, and finishes.',
+    descriptionAr: 'خدمات تجهيز داخلي تجاري وسكني كاملة، بما في ذلك الأعمال المدنية، الميكانيكية والكهربائية والسباكة، والتشطيبات.',
+    features: [
+      { icon: '👷', title: 'Turnkey Solution', titleAr: 'حل متكامل (تسليم مفتاح)', description: 'Full project management from shell-and-core to final finish', descriptionAr: 'إدارة مشروع كاملة من الهيكل والأساس إلى التشطيب النهائي' },
+      { icon: '🔌', title: 'MEP Works', titleAr: 'أعمال الميكانيكا والكهرباء والسباكة', description: 'Installation of electrical, plumbing, and HVAC systems', descriptionAr: 'تركيب أنظمة الكهرباء والسباكة والتدفئة والتهوية وتكييف الهواء' },
+      { icon: '🔥', title: 'Authority Approvals', titleAr: 'موافقات السلطات', description: 'Handling all government approvals and NOCs (e.g., DM, DEWA)', descriptionAr: 'التعامل مع جميع الموافقات الحكومية وشهادات عدم الممانعة (مثل بلدية دبي، هيئة كهرباء ومياه دبي)' },
+      { icon: '🪜', title: 'Civil & Partitions', titleAr: 'أعمال مدنية وقواطع', description: 'Construction of drywall, masonry, and gypsum ceilings', descriptionAr: 'بناء الجدران الجافة، أعمال البناء، والأسقف الجبسية' }
+    ],
+    process: [
+      { step: 1, title: 'Technical Assessment', titleAr: 'التقييم الفني', description: 'Review of site conditions, drawings, and scope', descriptionAr: 'مراجعة شروط الموقع والرسومات والنطاق' },
+      { step: 2, title: 'Permits & Planning', titleAr: 'التصاريح والتخطيط', description: 'Securing all necessary permits and detailed project scheduling', descriptionAr: 'تأمين جميع التصاريح اللازمة وجدولة المشروع التفصيلية' },
+      { step: 3, title: 'Construction & Installation', titleAr: 'البناء والتركيب', description: 'Execution of civil works, installations, and finishes', descriptionAr: 'تنفيذ الأعمال المدنية والتركيبات والتشطيبات' },
+      { step: 4, title: 'Testing & Handover', titleAr: 'الاختبار والتسليم', description: 'Commissioning, authority inspection, and project handover', descriptionAr: 'التكليف، فحص السلطة، وتسليم المشروع' }
+    ],
+    pricing: [
+      { type: 'Small Commercial Refurbishment', typeAr: 'تجديد تجاري صغير', price: 'AED 50,000+', features: ['Partitioning', 'Basic finishes'] },
+      { type: 'Office/Retail Fitout', typeAr: 'تجهيز مكتب/محل تجاري', price: 'AED 800-1500/sqm', features: ['MEP, Flooring, Ceiling, Walls'], popular: true },
+      { type: 'Luxury Villa/Full Building', typeAr: 'فيلا فاخرة/مبنى كامل', price: 'Custom Quote', features: ['High-end finishes', 'Integrated smart home systems', 'Extended warranty'] }
+    ]
+  },
+  'canopy-construction': {
+    title: 'Canopy & Shade Structure Construction',
+    titleAr: 'إنشاء مظلات وهياكل تظليل',
+    category: 'Structural & Outdoor',
+    categoryAr: 'هيكلية وخارجية',
+    heroIcon: '⛱️',
+    description: 'Design and installation of custom canopies, pergolas, and outdoor shade structures for various applications.',
+    descriptionAr: 'تصميم وتركيب مظلات مخصصة وعرشات وهياكل تظليل خارجية لمختلف الاستخدامات.',
+    features: [
+      { icon: '🌞', title: 'UV Protection', titleAr: 'حماية من الأشعة فوق البنفسجية', description: 'Use of high-grade, UV-stabilized fabric or materials', descriptionAr: 'استخدام قماش أو مواد عالية الجودة ومقاومة للأشعة فوق البنفسجية' },
+      { icon: '🛠️', title: 'Variety of Materials', titleAr: 'تنوع المواد', description: 'Fabric, tensile, aluminum, and wooden structures available', descriptionAr: 'هياكل من القماش، الشد الإنشائي، الألومنيوم، والخشب متوفرة' },
+      { icon: '🏗️', title: 'Engineered Design', titleAr: 'تصميم هندسي', description: 'Structurally certified designs to withstand local weather conditions', descriptionAr: 'تصاميم معتمدة إنشائياً لتحمل الظروف الجوية المحلية' },
+      { icon: '✅', title: 'Municipality Approved', titleAr: 'معتمد من البلدية', description: 'Designs comply with local municipality building codes and standards', descriptionAr: 'التصاميم تتوافق مع قوانين ومعايير البناء البلدية المحلية' }
+    ],
+    process: [
+      { step: 1, title: 'Site Survey & Design', titleAr: 'مسح الموقع والتصميم', description: 'Measuring the area and generating 2D/3D design proposals', descriptionAr: 'قياس المنطقة وتوليد مقترحات تصميم ثنائية/ثلاثية الأبعاد' },
+      { step: 2, title: 'Material Fabrication', titleAr: 'تصنيع المواد', description: 'In-house or outsourced fabrication of the frame and covering material', descriptionAr: 'تصنيع الإطار ومادة التغطية داخلياً أو خارجياً' },
+      { step: 3, title: 'Installation', titleAr: 'التركيب', description: 'On-site foundation work and structure assembly', descriptionAr: 'أعمال الأساس في الموقع وتجميع الهيكل' },
+      { step: 4, title: 'Finishing & Handover', titleAr: 'الانتهاء والتسليم', description: 'Final tensioning, clean-up, and client handover', descriptionAr: 'الشد النهائي، التنظيف، وتسليم العميل' }
+    ],
+    pricing: [
+      { type: 'Small Awning/Patio Shade', typeAr: 'مظلة صغيرة/تظليل فناء', price: 'AED 5,000+', features: ['Basic aluminum frame'] },
+      { type: 'Large Car Shade/Pergola', typeAr: 'مظلة سيارات كبيرة/عرشة', price: 'AED 15,000+', features: ['Engineered design', 'PVC/HDPE fabric'], popular: true },
+      { type: 'Commercial Tensile Structure', typeAr: 'هيكل شد إنشائي تجاري', price: 'Custom Quote', features: ['Large spans', 'P.T.F.E fabric', 'Full authority approval'] }
+    ]
+  },
+  'car-shade-construction': {
+    title: 'Car Shade Construction & Installation',
+    titleAr: 'إنشاء وتركيب مظلات السيارات',
+    category: 'Structural & Outdoor',
+    categoryAr: 'هيكلية وخارجية',
+    heroIcon: '🚗',
+    description: 'Dedicated service for the design and construction of durable, customized car parking shades.',
+    descriptionAr: 'خدمة مخصصة لتصميم وإنشاء مظلات مواقف السيارات المتينة والمخصصة.',
+    features: [
+      { icon: '🅿️', title: 'Single/Multi-Bay', titleAr: 'موقف واحد/متعدد', description: 'Custom solutions for single villas or large residential/commercial lots', descriptionAr: 'حلول مخصصة للفلل الفردية أو قطع الأراضي السكنية/التجارية الكبيرة' },
+      { icon: '☀️', title: 'Heat Reduction', titleAr: 'تقليل الحرارة', description: 'Materials chosen for maximum heat and UV light blockage', descriptionAr: 'اختيار المواد لأقصى قدر من حجب الحرارة والأشعة فوق البنفسجية' },
+      { icon: '🛡️', title: 'Warranty', titleAr: 'الضمان', description: 'Structural and material warranty provided upon completion', descriptionAr: 'ضمان هيكلي ومادي مقدم عند الانتهاء' },
+      { icon: '🏗️', title: 'Custom Styles', titleAr: 'أنماط مخصصة', description: 'Available in cantilever, arch, pyramid, and wave designs', descriptionAr: 'متوفرة بتصاميم الذراع المعلقة، القوس، الهرم، والموجة' }
+    ],
+    process: [
+      { step: 1, title: 'Location Survey', titleAr: 'مسح الموقع', description: 'Assessing space, ground conditions, and entry/exit points', descriptionAr: 'تقييم المساحة، شروط الأرض، ونقاط الدخول/الخروج' },
+      { step: 2, title: 'Design & Drawing', titleAr: 'التصميم والرسم', description: 'Producing stamped structural and elevation drawings', descriptionAr: 'إنتاج رسومات إنشائية وارتفاعات مختومة' },
+      { step: 3, title: 'Civil & Fabrication', titleAr: 'المدني والتصنيع', description: 'Foundation casting and off-site steel fabrication', descriptionAr: 'صب الأساس وتصنيع الفولاذ خارج الموقع' },
+      { step: 4, title: 'Installation & Finishing', titleAr: 'التركيب والانتهاء', description: 'Erecting the structure, fixing the canopy, and final touch-ups', descriptionAr: 'إقامة الهيكل، تثبيت المظلة، واللمسات النهائية' }
+    ],
+    pricing: [
+      { type: 'Single Car Shade (Cantilever)', typeAr: 'مظلة سيارة واحدة (ذراع تعليق)', price: 'AED 6,000-9,000', features: ['Galvanized steel frame', 'HDPE fabric'] },
+      { type: 'Double Car Shade (Arch Design)', typeAr: 'مظلة سيارتين (تصميم قوسي)', price: 'AED 12,000-18,000', features: ['Full engineering approval', 'Durable PVC fabric'], popular: true },
+      { type: 'Multi-Bay Commercial Shade', typeAr: 'مظلة تجارية متعددة المواقف', price: 'Custom Quote', features: ['Volume discount', 'Lighting integration', 'Full project management'] }
+    ]
+  },
+  'structural-maintenance': {
+    title: 'Structural Repair & Maintenance',
+    titleAr: 'صيانة وإصلاح الهياكل',
+    category: 'Structural & Outdoor',
+    categoryAr: 'هيكلية وخارجية',
+    heroIcon: '🧱',
+    description: 'Expert repair and maintenance services for building structural components, including concrete, masonry, and steel.',
+    descriptionAr: 'خدمات إصلاح وصيانة متخصصة للمكونات الهيكلية للمباني، بما في ذلك الخرسانة والبناء والصلب.',
+    features: [
+      { icon: '🩹', title: 'Concrete Repair', titleAr: 'إصلاح الخرسانة', description: 'Fixing cracks, spalling, and rebar corrosion treatment', descriptionAr: 'إصلاح التشققات، التآكل، ومعالجة صدأ حديد التسليح' },
+      { icon: '💦', title: 'Waterproofing', titleAr: 'العزل المائي', description: 'Leak detection and application of protective waterproofing membranes', descriptionAr: 'كشف التسربات وتطبيق أغشية العزل المائي الواقية' },
+      { icon: '🛡️', title: 'Structural Strengthening', titleAr: 'تقوية الهياكل', description: 'Carbon fiber wrapping and plate bonding for load-bearing elements', descriptionAr: 'تغليف بألياف الكربون وربط الألواح للعناصر الحاملة' },
+      { icon: '🧱', title: 'Masonry & Plaster Repair', titleAr: 'إصلاح البناء والجبس', description: 'Repairing damaged blockwork, brickwork, and external/internal plaster', descriptionAr: 'إصلاح أعمال البلوك والطوب المتضررة والجبس الداخلي/الخارجي' }
+    ],
+    process: [
+      { step: 1, title: 'Defect Assessment', titleAr: 'تقييم العيوب', description: 'Engineering inspection and root cause analysis of structural issues', descriptionAr: 'فحص هندسي وتحليل السبب الجذري للمشاكل الهيكلية' },
+      { step: 2, title: 'Methodology & Approval', titleAr: 'المنهجية والموافقة', description: 'Proposing a repair methodology and getting client/authority approval', descriptionAr: 'اقتراح منهجية إصلاح والحصول على موافقة العميل/الجهة المختصة' },
+      { step: 3, title: 'Execution', titleAr: 'التنفيذ', description: 'Specialized application of repair and protective materials by certified technicians', descriptionAr: 'تطبيق متخصص لمواد الإصلاح والحماية من قبل فنيين معتمدين' },
+      { step: 4, title: 'Testing & Certification', titleAr: 'الاختبار والاعتماد', description: 'Quality control testing and issuance of a final structural certificate', descriptionAr: 'اختبار مراقبة الجودة وإصدار شهادة هيكلية نهائية' }
+    ],
+    pricing: [
+      { type: 'Minor Concrete Repair (Balcony/Slab)', typeAr: 'إصلاح خرساني بسيط (شرفة/بلاطة)', price: 'AED 3,000+', features: ['Localized repair', 'Epoxy injection'] },
+      { type: 'Full Villa Structural Waterproofing', typeAr: 'عزل مائي هيكلي للفيلا بالكامل', price: 'AED 15,000+', features: ['Roof, basement, and wet areas'], popular: true },
+      { type: 'Facade/Industrial Structure Repair', typeAr: 'إصلاح الواجهة/الهياكل الصناعية', price: 'Custom Quote', features: ['High-rise access equipment', 'Engineering supervision', 'Long-term warranty'] }
     ]
   }
-};
-
+}
 // Generate metadata for SEO
 export async function generateMetadata({ params }) {
   const service = servicesData[params.service];
@@ -232,29 +605,31 @@ export default function ServicePage({ params }) {
     notFound();
   }
 
+  
+
   return (
-    <div className="py-16">
+    <div className="">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+      <section className="bg-gradient-to-r from-red-800 to-red-600 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="mb-4">
-                <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                <span className="bg-white text-black px-3 py-1 rounded-full text-sm font-medium">
                   {service.category}
                 </span>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 {service.title}
               </h1>
-              <p className="text-xl text-blue-100 mb-8">
+              <p className="text-xl text-white mb-8">
                 {service.description}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-colors duration-200">
+                <button className="bg-white text-red-600 hover:bg-gray-100 hover:text-black px-8 py-3 rounded-lg font-semibold transition-colors duration-200">
                   Book Now
                 </button>
-                <button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-lg font-semibold transition-all duration-200">
+                <button className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-3 rounded-lg font-semibold transition-all duration-200">
                   Get Quote
                 </button>
               </div>
@@ -307,7 +682,7 @@ export default function ServicePage({ params }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {service.process.map((step, index) => (
               <div key={index} className="bg-white rounded-lg p-6 shadow-lg text-center">
-                <div className="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                <div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                   {step.step}
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">{step.title}</h3>
@@ -319,7 +694,7 @@ export default function ServicePage({ params }) {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-300/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -332,15 +707,15 @@ export default function ServicePage({ params }) {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {service.pricing.map((plan, index) => (
-              <div key={index} className={`bg-white rounded-lg p-6 shadow-lg text-center ${plan.popular ? 'border-2 border-blue-600 relative' : ''}`}>
+              <div key={index} className={`bg-white rounded-lg p-6 shadow-lg text-center ${plan.popular ? 'border-2 border-red-600 relative' : ''}`}>
                 {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium">
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-black text-white px-4 py-1 rounded-full text-sm font-medium">
                     Most Popular
                   </div>
                 )}
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{plan.type}</h3>
-                <div className="text-3xl font-bold text-blue-600 mb-4">{plan.price}</div>
-                <ul className="space-y-2 text-gray-600 mb-6">
+                <h3 className="text-xl font-semibold text-black mb-4">{plan.type}</h3>
+                <div className="text-3xl font-bold text-black mb-4">{plan.price}</div>
+                <ul className="space-y-2 text-black mb-6">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center justify-center">
                       <span className="text-green-500 mr-2">✓</span>
@@ -348,7 +723,7 @@ export default function ServicePage({ params }) {
                     </li>
                   ))}
                 </ul>
-                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-medium transition-colors duration-200">
+                <button className="w-full bg-red-600 hover:bg-black text-white py-2 rounded-lg font-medium transition-colors duration-200">
                   Book Now
                 </button>
               </div>
@@ -358,7 +733,7 @@ export default function ServicePage({ params }) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-600">
+      <section className="py-16 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Experience Professional {service.category}?
@@ -368,15 +743,16 @@ export default function ServicePage({ params }) {
             exceptional results with our expert team.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-colors duration-200">
+            <button className="bg-white text-black hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-colors duration-200">
               Book Service Now
             </button>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-lg font-semibold transition-all duration-200">
+            <button className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-3 rounded-lg font-semibold transition-all duration-200">
               Call (555) 123-4567
             </button>
           </div>
         </div>
       </section>
+      <HomeFAQ customFaqs={service.faqs}/>
     </div>
   );
 }

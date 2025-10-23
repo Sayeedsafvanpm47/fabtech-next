@@ -1,11 +1,20 @@
 import Hero from './components/Hero';
-import ServiceCard from './components/ServiceCard';
+
 import ServiceCarousel from './components/ServiceCarousel';
 import Image from 'next/image';
 import FlipWord from './components/FlipWord';
 import TypingTextContainer from './components/TypingTextContainer';
 import IntroComponent from './components/IntroComponent';
+import GoogleReviews from './components/GoogleReviews';
 import { WavyBackground } from '@/components/ui/shadcn-io/wavy-background';
+import { clientLogos } from './constants/Clientlogos';
+import { 
+  OptimizedTrustSignals,
+  OptimizedHomeFAQ,
+  OptimizedClients,
+  OptimizedContactEmergencySection,
+  OptimizedFloatingCTA
+} from './components/LazyWrapper';
 
 
 
@@ -18,10 +27,10 @@ export const metadata = {
     title: 'FabTech - Professional Facility Management Services',
     description: 'Comprehensive facility management solutions for businesses nationwide. 24/7 support, 500+ satisfied clients.',
     type: 'website',
-    url: 'https://fabtech-services.com',
+    url: 'https://fabtechqatar.com',
     images: [
       {
-        url: 'https://fabtech-services.com/og-image.jpg',
+        url: 'https://fabtechqatar.com/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'FabTech Facility Management Services',
@@ -32,7 +41,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'FabTech - Professional Facility Management Services',
     description: 'Comprehensive facility management solutions for businesses nationwide.',
-    images: ['https://fabtech-services.com/og-image.jpg'],
+    images: ['https://fabtechqatar.com/og-image.jpg'],
   },
   robots: {
     index: true,
@@ -46,7 +55,7 @@ export const metadata = {
     },
   },
   alternates: {
-    canonical: 'https://fabtech-services.com',
+    canonical: 'https://fabtechqatar.com',
   },
 };
 
@@ -56,10 +65,10 @@ const structuredData = {
   "@type": "Organization",
   "name": "FabTech Facility Management",
   "alternateName": "FabTech Services",
-  "url": "https://fabtech-services.com",
+  "url": "https://fabtechqatar.com",
   "logo": {
     "@type": "ImageObject",
-    "url": "https://fabtech-services.com/logo.png",
+    "url": "https://fabtechqatar.com/logo.png",
     "width": "250",
     "height": "60"
   },
@@ -106,7 +115,7 @@ const structuredData = {
           "areaServed": "US",
           "availableChannel": {
             "@type": "ServiceChannel",
-            "serviceUrl": "https://fabtech-services.com/services/maintenance"
+            "serviceUrl": "https://fabtechqatar.com/services/maintenance"
           }
         }
       },
@@ -123,7 +132,7 @@ const structuredData = {
           "areaServed": "US",
           "availableChannel": {
             "@type": "ServiceChannel",
-            "serviceUrl": "https://fabtech-services.com/services/cleaning"
+            "serviceUrl": "https://fabtechqatar.com/services/cleaning"
           }
         }
       },
@@ -140,7 +149,7 @@ const structuredData = {
           "areaServed": "US",
           "availableChannel": {
             "@type": "ServiceChannel",
-            "serviceUrl": "https://fabtech-services.com/services/security"
+            "serviceUrl": "https://fabtechqatar.com/services/security"
           }
         }
       },
@@ -157,7 +166,7 @@ const structuredData = {
           "areaServed": "US",
           "availableChannel": {
             "@type": "ServiceChannel",
-            "serviceUrl": "https://fabtech-services.com/services/property-management"
+            "serviceUrl": "https://fabtechqatar.com/services/property-management"
           }
         }
       }
@@ -176,7 +185,7 @@ const breadcrumbData = {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://fabtech-services.com"
+      "item": "https://fabtechqatar.com"
     }
   ]
 };
@@ -217,85 +226,259 @@ export default function Home() {
 
   const carouselServices = [
     {
-      title: "Deep Cleaning",
-      description: "Comprehensive deep cleaning for homes and offices with professional-grade equipment and eco-friendly products.",
-      icon: "🧼",
-      href: "/services/deep-cleaning",
+      title: "Residential Deep Cleaning",
+      description: "Detailed home deep cleaning ensuring every corner is spotless using eco-friendly products and modern tools.",
+      href: "/services/residential-deep-cleaning",
       features: [
-        "Disinfection services",
-        "Carpet shampooing", 
-        "Window cleaning",
-        "Floor polishing",
-        "Sanitization protocols"
+        "Kitchen and bathroom deep cleaning",
+        "Floor scrubbing and polishing",
+        "Window and glass cleaning",
+        "Sanitization and disinfection",
+        "Odor removal"
       ]
     },
     {
-      title: "Landscaping",
-      description: "Complete garden design, lawn care and regular maintenance to keep your outdoor spaces beautiful year-round.",
-      icon: "🌿",
-      href: "/services/landscaping",
+      title: "Commercial Deep Cleaning",
+      description: "Professional deep cleaning for offices, shops, and commercial facilities to maintain hygiene and presentation.",
+      href: "/services/commercial-deep-cleaning",
       features: [
-        "Lawn mowing & edging",
-        "Hedge trimming",
-        "Irrigation setup",
-        "Seasonal planting",
-        "Garden design"
+        "Office and workspace detailing",
+        "Carpet and upholstery cleaning",
+        "Restroom sanitization",
+        "Window and facade cleaning",
+        "Scheduled maintenance plans"
+      ]
+    },
+    {
+      title: "General Cleaning",
+      description: "Regular cleaning service designed to keep your spaces consistently clean and fresh.",
+      href: "/services/general-cleaning",
+      features: [
+        "Daily and weekly cleaning options",
+        "Dusting and mopping",
+        "Garbage disposal",
+        "Restroom maintenance",
+        "Surface sanitization"
+      ]
+    },
+    {
+      title: "Cleaner Supply - Commercial",
+      description: "Reliable, trained, and professional cleaning staff for commercial buildings and facilities.",
+      href: "/services/cleaner-supply-commercial",
+      features: [
+        "Trained and experienced cleaners",
+        "Flexible shift availability",
+        "Uniformed and supervised staff",
+        "On-site quality monitoring",
+        "Custom workforce planning"
+      ]
+    },
+    {
+      title: "Cleaner Supply - Residential",
+      description: "Experienced residential cleaners available on demand for part-time or full-time services.",
+      href: "/services/cleaner-supply-residential",
+      features: [
+        "Verified and trained cleaners",
+        "Flexible hourly or monthly plans",
+        "All cleaning equipment provided",
+        "Eco-friendly cleaning products",
+        "Reliable and punctual staff"
+      ]
+    },
+    {
+      title: "Sofa Cleaning",
+      description: "Deep sofa cleaning and stain removal using safe, fabric-friendly techniques.",
+      href: "/services/sofa-cleaning",
+      features: [
+        "Steam and dry cleaning",
+        "Stain and odor removal",
+        "Leather and fabric care",
+        "Dust mite elimination",
+        "Quick drying process"
+      ]
+    },
+    {
+      title: "Carpet Cleaning",
+      description: "Professional carpet shampooing and steam cleaning for a renewed, fresh look.",
+      href: "/services/carpet-cleaning",
+      features: [
+        "Deep shampooing and extraction",
+        "Stain and odor removal",
+        "Allergen control treatment",
+        "Quick drying process",
+        "Safe for all fabric types"
+      ]
+    },
+    {
+      title: "Mattress Cleaning",
+      description: "Steam cleaning and sanitization to remove dust mites, stains, and bacteria for a healthier sleep.",
+      href: "/services/mattress-cleaning",
+      features: [
+        "Steam sanitization",
+        "Allergen and mite removal",
+        "Stain and odor treatment",
+        "UV disinfection available",
+        "Eco-friendly process"
+      ]
+    },
+    {
+      title: "Water Tank Cleaning",
+      description: "Professional cleaning and disinfection of water tanks to ensure water purity and safety.",
+      href: "/services/water-tank-cleaning",
+      features: [
+        "Tank draining and sludge removal",
+        "Scrubbing and pressure washing",
+        "Disinfection with approved chemicals",
+        "Final inspection and rinse",
+        "Safe and certified process"
+      ]
+    },
+    {
+      title: "Majlis Cleaning",
+      description: "Specialized cleaning for majlis areas with attention to upholstery, carpets, and decor.",
+      href: "/services/majlis-cleaning",
+      features: [
+        "Carpet and sofa cleaning",
+        "Curtain and drapery washing",
+        "Perfumed finishing",
+        "Spot and stain removal",
+        "Detailed dusting and vacuuming"
+      ]
+    },
+    {
+      title: "Marble Polishing",
+      description: "Expert marble polishing services to restore shine and remove dullness or scratches.",
+      href: "/services/marble-polishing",
+      features: [
+        "Surface grinding and buffing",
+        "Gloss and crystal finish",
+        "Scratch and stain removal",
+        "Sealing and protection",
+        "Shine restoration"
+      ]
+    },
+    {
+      title: "Granite Polishing",
+      description: "Professional granite polishing to restore its natural shine and smooth finish.",
+      href: "/services/granite-polishing",
+      features: [
+        "Surface refinement",
+        "Scratch removal",
+        "Buffing and sealing",
+        "Gloss finish restoration",
+        "Durability enhancement"
+      ]
+    },
+    {
+      title: "Marble Floor Cleaning",
+      description: "Comprehensive marble floor cleaning and maintenance to preserve its natural elegance.",
+      href: "/services/marble-floor-cleaning",
+      features: [
+        "Dust and grime removal",
+        "Mopping and buffing",
+        "Polishing treatment",
+        "Sealing and protection",
+        "Slip-resistant finish"
+      ]
+    },
+    {
+      title: "Post Construction Cleaning",
+      description: "Thorough cleaning after construction or renovation to make your space ready for use.",
+      href: "/services/post-construction-cleaning",
+      features: [
+        "Dust and debris removal",
+        "Floor and wall polishing",
+        "Window and glass cleaning",
+        "Final inspection cleanup",
+        "Move-in readiness"
+      ]
+    },
+    {
+      title: "Move In / Move Out Cleaning",
+      description: "Detailed cleaning for homes or apartments before moving in or after moving out.",
+      href: "/services/move-in-move-out-cleaning",
+      features: [
+        "Full home cleaning",
+        "Appliance and cabinet cleaning",
+        "Bathroom and kitchen detailing",
+        "Floor polishing",
+        "Odor and stain removal"
       ]
     },
     {
       title: "Pest Control",
-      description: "Safe and effective pest removal with comprehensive prevention plans to protect your property.",
-      icon: "🐜",
+      description: "Safe and effective pest control services for homes and commercial spaces.",
       href: "/services/pest-control",
       features: [
-        "Property inspection",
-        "Custom treatment plan",
-        "Follow-up visits",
-        "Prevention advice",
-        "Eco-friendly solutions"
+        "Inspection and assessment",
+        "Customized treatment plan",
+        "Eco-friendly chemicals",
+        "Rodent and insect removal",
+        "Follow-up treatments"
       ]
     },
     {
-      title: "Post Construction Cleanup",
-      description: "Professional post-construction cleanup services to make your newly built or renovated space move-in ready.",
-      icon: "🏗️",
-      href: "/services/post-construction-cleanup",
+      title: "Interior Design",
+      description: "Creative interior design solutions to transform your spaces with style and functionality.",
+      href: "/services/interior-design",
       features: [
-        "Debris removal",
-        "Dust cleaning",
-        "Final polishing",
-        "Safety inspection",
-        "Move-in preparation"
+        "3D visualization and layout",
+        "Furniture and decor selection",
+        "Color and lighting planning",
+        "Customized design themes",
+        "Project consultation"
       ]
     },
     {
-      title: "HVAC Services",
-      description: "Complete heating, ventilation, and air conditioning services to maintain optimal indoor climate control.",
-      icon: "❄️",
-      href: "/services/hvac-services",
+      title: "Interior Fitout",
+      description: "Complete interior fitout services from planning to finishing for homes and offices.",
+      href: "/services/interior-fitout",
       features: [
-        "System installation",
-        "Regular maintenance",
-        "Emergency repairs",
-        "Energy efficiency optimization",
-        "Air quality improvement"
+        "Partition and ceiling works",
+        "Flooring and lighting setup",
+        "Custom joinery and furniture",
+        "Electrical and HVAC integration",
+        "Turnkey project delivery"
       ]
     },
     {
-      title: "Electrical Services",
-      description: "Professional electrical services for commercial and residential properties with certified technicians.",
-      icon: "⚡",
-      href: "/services/electrical-services",
+      title: "Canopy Construction",
+      description: "Durable and stylish canopy construction for shading and protection.",
+      href: "/services/canopy-construction",
       features: [
-        "Wiring installation",
-        "Electrical repairs",
-        "Safety inspections",
-        "Lighting solutions",
-        "Power system upgrades"
+        "Steel and fabric structures",
+        "Custom size and design",
+        "UV and weather protection",
+        "Professional installation",
+        "Maintenance support"
+      ]
+    },
+    {
+      title: "Car Shade Construction",
+      description: "High-quality car shade solutions for residential and commercial properties.",
+      href: "/services/car-shade-construction",
+      features: [
+        "Steel and tensile structures",
+        "UV-resistant materials",
+        "Custom design options",
+        "Fast installation",
+        "Durable and long-lasting"
+      ]
+    },
+    {
+      title: "Structural Maintenance",
+      description: "Comprehensive structural maintenance and repair services for buildings and facilities.",
+      href: "/services/structural-maintenance",
+      features: [
+        "Crack and leak repairs",
+        "Preventive maintenance",
+        "Waterproofing solutions",
+        "Painting and coating",
+        "Inspection and reporting"
       ]
     }
   ];
-
+  
   return (
     <div>
       {/* Structured Data for SEO */}
@@ -345,7 +528,7 @@ export default function Home() {
                 <TypingTextContainer text={introTextPhrases} />
               
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Since 2016, we've been transforming spaces across Qatar with expert services in Cleaning, Facility Management, Civil Works, Pest Control, Hospitality, and more. From spotless homes to smart buildings, we make spaces cleaner, safer, and more efficient, all with a team that gets things done right. Clean. Build. Manage. Simplify. That's Fabtech.
+                    Since 2016, we&apos;ve been transforming spaces across Qatar with expert services in Cleaning, Facility Management, Civil Works, Pest Control, Hospitality, and more. From spotless homes to smart buildings, we make spaces cleaner, safer, and more efficient, all with a team that gets things done right. Clean. Build. Manage. Simplify. That&apos;s Fabtech.
                 </p>
             </div>
         </div>
@@ -354,15 +537,15 @@ export default function Home() {
 
 
 
-     <section className="py-16 bg-red-700 text-white" aria-labelledby="services-heading">
+     <section className="py-16 bg-white text-black" aria-labelledby="services-heading">
        
        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
          
          <div className="text-center mb-12">
-           <h2 id="services-heading" className="text-3xl md:text-4xl font-bold text-white mb-4">
+           <h2 id="services-heading" className="text-3xl md:text-4xl font-bold text-black mb-4">
              We Do It All, <FlipWord words={serviceFlipWords} />
            </h2>
-           <p className="text-xl text-white max-w-3xl mx-auto">
+           <p className="text-xl text-black max-w-3xl mx-auto">
              We provide comprehensive facility management solutions tailored to meet 
              the unique needs of your business across maintenance, cleaning, security, and property management.
            </p>
@@ -395,21 +578,21 @@ export default function Home() {
       className="max-w-4xl"
     >
       {/* Why Choose Us Section */}
-      <section className=" rounded-full" aria-labelledby="benefits-heading">
+      <section className="rounded-full" aria-labelledby="benefits-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 id="benefits-heading" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Why Choose FabTech Facility Management?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              With over 15 years of experience serving 500+ clients nationwide, we deliver exceptional facility management 
+              With over 10 years of experience serving 500+ clients nationwide, we deliver exceptional facility management 
               services that exceed expectations.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <article className="text-center">
-              <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4" aria-hidden="true">
+              <div className="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4" aria-hidden="true">
                 <span className="text-2xl">⭐</span>
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Proven Excellence</h3>
@@ -420,7 +603,7 @@ export default function Home() {
             </article>
             
             <article className="text-center">
-              <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4" aria-hidden="true">
+              <div className="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4" aria-hidden="true">
                 <span className="text-2xl">🕒</span>
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">24/7 Support & Emergency Response</h3>
@@ -431,7 +614,7 @@ export default function Home() {
             </article>
             
             <article className="text-center">
-              <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4" aria-hidden="true">
+              <div className="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4" aria-hidden="true">
                 <span className="text-2xl">💰</span>
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Cost-Effective Solutions</h3>
@@ -444,34 +627,29 @@ export default function Home() {
         </div>
       </section>
       </WavyBackground>
-      {/* CTA Section */}
-      <section className="py-16 bg-blue-600" aria-labelledby="cta-heading">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 id="cta-heading" className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ready to Transform Your Facility Management?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Contact us today for a free consultation and discover how we can optimize 
-            your facility operations with our comprehensive management services.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="/contact" 
-              className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-colors duration-200 inline-block"
-              aria-label="Get a free quote for facility management services"
-            >
-              Get Free Quote
-        </a>
-        <a
-              href="/contact" 
-              className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-lg font-semibold transition-all duration-200 inline-block"
-              aria-label="Schedule a consultation with our facility management team"
-            >
-              Schedule Consultation
-            </a>
-          </div>
-        </div>
+
+      {/* <GoogleReviews /> */}    
+      <section className="py-16 bg-yellow-300">
+      <h2 className="text-3xl md:text-4xl font-bold text-red-600 mb-4 text-center">Reviews on Google</h2> 
+      {/* <GoogleReviews />  */}
       </section>
+
+      {/* Trust Signals & Credentials */}
+      <OptimizedTrustSignals />
+
+      {/* FAQ Section */}
+      <OptimizedHomeFAQ />
+
+      {/* Clients Section */}
+      <OptimizedClients logos={clientLogos} />
+
+      {/* Contact & Emergency Information */}
+      <OptimizedContactEmergencySection />
+
+    
+
+      {/* Floating CTA Components */}
+      <OptimizedFloatingCTA />
     </div>
   );
 }

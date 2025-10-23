@@ -157,12 +157,12 @@ export default function ServiceCarousel({ services }) {
                       {service.href && (
                         <Link
                           href={service.href}
-                          className="block w-full bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white text-center py-2.5 px-4 rounded-lg font-semibold transition-all duration-300 text-sm shadow-lg hover:shadow-2xl hover:scale-105 active:scale-95"
+                          className="block w-full bg-gradient-to-r from-red-600 via-red-700 to-red-800 hover:from-red-700 hover:via-red-800 hover:to-red-900 text-white text-center py-2.5 px-4 rounded-lg font-semibold transition-all duration-300 text-sm shadow-lg hover:shadow-2xl hover:scale-105 active:scale-95"
                         >
                           Learn More
                         </Link>
                       )}
-                      <button className="w-full border-2 border-blue-600 text-blue-600 hover:bg-gradient-to-r hover:from-blue-600 hover:to-blue-700 hover:text-white py-2.5 px-4 rounded-lg font-semibold transition-all duration-300 text-sm hover:shadow-lg hover:scale-105 active:scale-95 hover:border-transparent">
+                      <button className="w-full border-2 border-white-600 text-white-600 hover:bg-gradient-to-r hover:from-red-600 hover:to-red-700 hover:text-white py-2.5 px-4 rounded-lg font-semibold transition-all duration-300 text-sm hover:shadow-lg hover:scale-105 active:scale-95 hover:border-transparent">
                         Get Quote
                       </button>
                     </div>
@@ -175,7 +175,7 @@ export default function ServiceCarousel({ services }) {
         
         {/* Navigation */}
         <div className="flex items-center justify-center mt-10 space-x-8">
-          <CarouselPrevious className="relative left-0 top-0 translate-y-0 h-14 w-14 rounded-full bg-gradient-to-br from-red to-red-500 border-2 border-red-700 text-black hover:bg-gradient-to-br hover:from-red-600 hover:to-red-700 hover:text-white hover:border-red-700 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-125 active:scale-95 backdrop-blur-sm" />
+          <CarouselPrevious className="relative left-0 top-0 translate-y-0 h-14 w-14 rounded-full bg-white text-black hover:bg-black hover:text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-125 active:scale-95 backdrop-blur-sm" />
           
           <div className="flex space-x-2.5 bg-white/50 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
             {Array.from({ length: count }).map((_, index) => (
@@ -183,8 +183,8 @@ export default function ServiceCarousel({ services }) {
                 key={index}
                 className={`h-2.5 rounded-full transition-all duration-500 ${
                   index === current 
-                    ? 'w-10 bg-gradient-to-r from-red-600 to-red-800 shadow-lg scale-110' 
-                    : 'w-2.5 bg-red-600 hover:bg-blue-400 hover:scale-125'
+                    ? 'w-10 bg-gradient-to-r from-gray-400 to-black shadow-lg scale-110' 
+                    : 'w-2.5 bg-black hover:bg-black hover:scale-125'
                 }`}
                 onClick={() => api?.scrollTo(index)}
                 aria-label={`Go to slide ${index + 1}`}
@@ -192,7 +192,7 @@ export default function ServiceCarousel({ services }) {
             ))}
           </div>
           
-          <CarouselNext className="relative right-0 top-0 translate-y-0 h-14 w-14 rounded-full bg-gradient-to-br from-red to-red-500 border-2 border-red-700 text-black hover:bg-gradient-to-br hover:from-red-600 hover:to-red-700 hover:text-white hover:border-red-700 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-125 active:scale-95 backdrop-blur-sm" />
+          <CarouselNext className="relative right-0 top-0 translate-y-0 h-14 w-14 rounded-full bg-white text-black  hover:bg-black hover:text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-125 active:scale-95 backdrop-blur-sm" />
         </div>
       </Carousel>
     </div>

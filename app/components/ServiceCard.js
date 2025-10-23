@@ -11,7 +11,7 @@ export default function ServiceCard({ title, description, icon, features, href }
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6 h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:transform hover:scale-105">
+    <div className="bg-white cursor-pointer rounded-lg shadow-lg p-6 h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:transform hover:scale-105">
       {/* Header */}
       <div className="flex items-center mb-4">
         <div className="text-4xl mr-4" role="img" aria-label={`${title} icon`}>
@@ -30,7 +30,7 @@ export default function ServiceCard({ title, description, icon, features, href }
         <div className="mb-4">
           <button
             onClick={toggleExpand}
-            className="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200 mb-2 flex items-center"
+            className="text-black hover:text-red-800 font-medium transition-colors duration-200 mb-2 flex items-center"
             aria-expanded={isExpanded}
           >
             {isExpanded ? 'Show Less' : 'Key Features'}
@@ -64,14 +64,12 @@ export default function ServiceCard({ title, description, icon, features, href }
         {href && (
           <Link
             href={href}
-            className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 px-4 rounded-lg font-medium transition-colors duration-200"
+            className="block w-full bg-black hover:bg-red-700 text-white text-center py-3 px-4 rounded-lg font-medium transition-colors duration-200"
           >
             Learn More
           </Link>
         )}
-        <button className="w-full border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white py-2 px-4 rounded-lg font-medium transition-all duration-200">
-          Request Quote
-        </button>
+        
       </div>
     </div>
   );

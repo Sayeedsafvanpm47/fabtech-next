@@ -1,4 +1,5 @@
 import ServiceCard from '../components/ServiceCard';
+import TypingTextContainer from '../components/TypingTextContainer';
 
 export const metadata = {
   title: 'Services',
@@ -8,98 +9,275 @@ export const metadata = {
     description: 'Explore our comprehensive range of facility management services designed to keep your business running smoothly.',
   },
 };
+const serviceTitles = ["We Do It All","Comprehensive Facility Management","Fabulous Interior Designing","Professional Cleaning Services","Post Construction Cleaning","Move-In / Move-Out Cleaning","Pest Control","Interior Design","Interior Fit-Out","Canopy Construction","Car Shade Construction","Structural Maintenance"];
 
 export default function Services() {
+
+
   const mainServices = [
     {
-      title: "Facility Maintenance",
-      description: "Comprehensive maintenance services including preventive, corrective, and emergency repairs to ensure optimal facility performance.",
-      icon: "🔧",
+      title: "Residential Deep Cleaning",
+      description: "Thorough top-to-bottom cleaning for homes, villas, and apartments — ensuring spotless hygiene and a fresh living environment.",
+      icon: "🏠",
       features: [
-        "Preventive maintenance programs",
-        "Emergency repair services 24/7",
-        "HVAC system maintenance and repair",
-        "Electrical system maintenance",
-        "Plumbing services and repairs",
-        "Equipment lifecycle management",
-        "Energy efficiency optimization",
-        "Compliance and safety inspections"
-      ]
+        "Complete home deep cleaning",
+        "Kitchen and bathroom sanitization",
+        "Floor, wall, and ceiling cleaning",
+        "Furniture dusting and polishing",
+        "Appliance and switchboard cleaning",
+        "Door, window, and glass cleaning",
+        "Balcony and outdoor cleaning",
+        "Eco-friendly cleaning materials"
+      ],
+      href: "/services/residential-deep-cleaning"
     },
     {
-      title: "Commercial Cleaning",
-      description: "Professional cleaning services that create healthy, productive work environments while maintaining the highest standards of cleanliness.",
-      icon: "🧹",
-      features: [
-        "Daily office cleaning services",
-        "Deep cleaning and sanitization",
-        "Carpet and upholstery cleaning",
-        "Window cleaning (interior/exterior)",
-        "Floor care and maintenance",
-        "Restroom sanitization",
-        "Kitchen and break room cleaning",
-        "Post-construction cleanup"
-      ]
-    },
-    {
-      title: "Security Services",
-      description: "Comprehensive security solutions to protect your property, assets, and personnel with state-of-the-art technology and trained professionals.",
-      icon: "🛡️",
-      features: [
-        "24/7 security monitoring",
-        "Access control systems",
-        "Professional security guards",
-        "CCTV installation and monitoring",
-        "Alarm system management",
-        "Emergency response protocols",
-        "Visitor management systems",
-        "Security risk assessments"
-      ]
-    },
-    {
-      title: "Property Management",
-      description: "Complete property management services designed to maximize property value while minimizing operational costs and administrative burden.",
+      title: "Commercial Deep Cleaning",
+      description: "Comprehensive cleaning for offices, malls, and commercial spaces to maintain a hygienic, professional, and productive environment.",
       icon: "🏢",
       features: [
-        "Tenant relations and communication",
-        "Lease administration and renewals",
-        "Financial reporting and budgeting",
-        "Vendor management and coordination",
-        "Compliance and regulatory monitoring",
-        "Property inspections and assessments",
-        "Maintenance coordination",
-        "Emergency response management"
-      ]
+        "Office deep cleaning and sanitization",
+        "Carpet and upholstery deep cleaning",
+        "Window and glass façade cleaning",
+        "Restroom and pantry sanitization",
+        "Floor scrubbing and polishing",
+        "High-dust and air vent cleaning",
+        "Post-renovation and event cleanup",
+        "Scheduled maintenance cleaning"
+      ],
+      href: "/services/commercial-deep-cleaning"
     },
     {
-      title: "Landscaping & Grounds",
-      description: "Professional landscaping and grounds maintenance services to enhance your property's curb appeal and create welcoming outdoor spaces.",
-      icon: "🌿",
+      title: "General Cleaning",
+      description: "Regular cleaning solutions to keep your home or office neat, fresh, and presentable every day.",
+      icon: "🧹",
       features: [
-        "Lawn care and maintenance",
-        "Seasonal landscaping design",
-        "Tree and shrub care",
-        "Irrigation system management",
-        "Snow removal and ice management",
-        "Parking lot maintenance",
-        "Outdoor lighting maintenance",
-        "Pest control services"
-      ]
+        "Daily and weekly cleaning services",
+        "Dusting and mopping",
+        "Kitchen and restroom cleaning",
+        "Trash removal and deodorizing",
+        "Furniture and glass cleaning",
+        "Custom schedules available"
+      ],
+      href: "/services/general-cleaning"
     },
     {
-      title: "Energy Management",
-      description: "Comprehensive energy management solutions to reduce costs, improve efficiency, and support your sustainability goals.",
-      icon: "⚡",
+      title: "Cleaner Supply – Commercial",
+      description: "Reliable supply of trained professional cleaners for offices, malls, and commercial establishments.",
+      icon: "👷‍♂️",
       features: [
-        "Energy audits and assessments",
-        "Utility bill analysis and optimization",
-        "LED lighting upgrades",
-        "Smart building automation",
-        "HVAC optimization programs",
-        "Renewable energy solutions",
-        "Energy monitoring systems",
-        "Sustainability reporting"
-      ]
+        "Trained and uniformed cleaners",
+        "Flexible contract durations",
+        "Full-time and part-time availability",
+        "Supervised workforce management",
+        "Health and safety compliant staff"
+      ],
+      href: "/services/cleaner-supply-commercial"
+    },
+    {
+      title: "Cleaner Supply – Residential",
+      description: "Dedicated and experienced housekeepers for villas, apartments, and residential properties.",
+      icon: "🧑‍🔧",
+      features: [
+        "Daily, weekly, or monthly hiring options",
+        "Background-verified staff",
+        "Cleaning tools and materials available",
+        "Flexible scheduling",
+        "Replacement guarantee available"
+      ],
+      href: "/services/cleaner-supply-residential"
+    },
+    {
+      title: "Sofa Cleaning",
+      description: "Professional sofa and upholstery cleaning to remove stains, dust, and odors — restoring comfort and freshness.",
+      icon: "🛋️",
+      features: [
+        "Steam and dry cleaning methods",
+        "Fabric-safe and eco-friendly products",
+        "Odor and stain removal",
+        "Leather sofa care and polishing"
+      ],
+      href: "/services/sofa-cleaning"
+    },
+    {
+      title: "Carpet Cleaning",
+      description: "Deep carpet cleaning using steam extraction and advanced tools to revive colors and remove allergens.",
+      icon: "🧶",
+      features: [
+        "Hot water extraction cleaning",
+        "Spot and stain treatment",
+        "Odor removal and deodorization",
+        "Fast drying technology"
+      ],
+      href: "/services/carpet-cleaning"
+    },
+    {
+      title: "Mattress Cleaning",
+      description: "Deep sanitization service to eliminate dust mites, bacteria, and odors for a healthier sleep environment.",
+      icon: "🛏️",
+      features: [
+        "Vacuum and steam sanitization",
+        "Anti-allergen treatment",
+        "Odor and stain removal",
+        "Quick drying system"
+      ],
+      href: "/services/mattress-cleaning"
+    },
+    {
+      title: "Water Tank Cleaning",
+      description: "Safe and hygienic cleaning of overhead and underground water tanks using non-toxic disinfectants.",
+      icon: "🚰",
+      features: [
+        "Tank draining and sludge removal",
+        "High-pressure cleaning",
+        "Disinfection and rinsing",
+        "Water quality safety check"
+      ],
+      href: "/services/water-tank-cleaning"
+    },
+    {
+      title: "Majlis Cleaning",
+      description: "Premium cleaning for majlis spaces — restoring carpets, sofas, and interiors to pristine condition.",
+      icon: "🕌",
+      features: [
+        "Fabric and carpet cleaning",
+        "Odor removal and disinfection",
+        "Detailed furniture cleaning",
+        "Gentle care for luxury materials"
+      ],
+      href: "/services/majlis-cleaning"
+    },
+    {
+      title: "Marble Polishing",
+      description: "Restore the shine and elegance of marble surfaces through professional polishing and buffing.",
+      icon: "💎",
+      features: [
+        "Crystallization and grinding",
+        "Scratch and stain removal",
+        "Shine restoration and sealing",
+        "Marble maintenance plans"
+      ],
+      href: "/services/marble-polishing"
+    },
+    {
+      title: "Granite Polishing",
+      description: "Enhance the natural beauty of granite floors and surfaces with expert polishing techniques.",
+      icon: "🧱",
+      features: [
+        "Deep cleaning and restoration",
+        "Scratch removal and sealing",
+        "Gloss and finish enhancement",
+        "Long-lasting protective layer"
+      ],
+      href: "/services/granite-polishing"
+    },
+    {
+      title: "Marble Floor Cleaning",
+      description: "Professional cleaning for marble floors to preserve their shine and durability.",
+      icon: "🧽",
+      features: [
+        "Stain and dirt removal",
+        "Buffing and gloss restoration",
+        "Eco-safe cleaning materials",
+        "Regular maintenance options"
+      ],
+      href: "/services/marble-floor-cleaning"
+    },
+    {
+      title: "Post-Construction Cleaning",
+      description: "Detailed cleaning after construction or renovation — removing dust, paint marks, and debris for a move-in-ready finish.",
+      icon: "🏗️",
+      features: [
+        "Debris and dust removal",
+        "Window and glass cleaning",
+        "Floor and surface polishing",
+        "Final inspection-ready finish"
+      ],
+      href: "/services/post-construction-cleaning"
+    },
+    {
+      title: "Move-In / Move-Out Cleaning",
+      description: "Comprehensive cleaning for tenants and property owners during relocation — ensuring spotless transitions.",
+      icon: "🚚",
+      features: [
+        "Full property cleaning and sanitization",
+        "Cabinet and wardrobe cleaning",
+        "Wall mark and stain removal",
+        "Appliance and fixture cleaning"
+      ],
+      href: "/services/move-in-move-out-cleaning"
+    },
+    {
+      title: "Pest Control",
+      description: "Safe and effective pest control services for homes and businesses — protecting your space from unwanted guests.",
+      icon: "🐜",
+      features: [
+        "General pest control treatments",
+        "Bed bug and cockroach control",
+        "Rodent and termite management",
+        "Eco-safe and odorless solutions"
+      ],
+      href: "/services/pest-control"
+    },
+    {
+      title: "Interior Design",
+      description: "Creative and functional interior design services that bring your vision to life with style and comfort.",
+      icon: "🎨",
+      features: [
+        "Residential and commercial design",
+        "Space planning and 3D visualization",
+        "Material and furniture selection",
+        "Turnkey project management"
+      ],
+      href: "/services/interior-design"
+    },
+    {
+      title: "Interior Fit-Out",
+      description: "Professional interior fit-out services covering design, construction, and finishing for commercial and residential spaces.",
+      icon: "🛠️",
+      features: [
+        "Full project execution and management",
+        "Custom furniture and joinery work",
+        "Electrical, HVAC, and plumbing fit-out",
+        "Turnkey office and retail solutions"
+      ],
+      href: "/services/interior-fitout"
+    },
+    {
+      title: "Canopy Construction",
+      description: "Durable and aesthetic canopy solutions for parking areas, walkways, and outdoor spaces.",
+      icon: "⛺",
+      features: [
+        "Custom design and fabrication",
+        "Metal and tensile structure options",
+        "UV and weather protection materials",
+        "Installation and maintenance services"
+      ],
+      href: "/services/canopy-construction"
+    },
+    {
+      title: "Car Shade Construction",
+      description: "High-quality car shade structures that combine protection, style, and durability.",
+      icon: "🚗",
+      features: [
+        "Steel and tensile fabric shades",
+        "Custom size and color options",
+        "UV protection and ventilation",
+        "Residential and commercial installation"
+      ],
+      href: "/services/car-shade-construction"
+    },
+    {
+      title: "Structural Maintenance",
+      description: "Reliable maintenance and repair services to preserve the structural integrity of buildings and facilities.",
+      icon: "🏗️",
+      features: [
+        "Concrete crack repair and waterproofing",
+        "Painting and coating maintenance",
+        "Facade restoration and sealing",
+        "Preventive inspection and upkeep"
+      ],
+      href: "/services/structural-maintenance"
     }
   ];
 
@@ -127,15 +305,16 @@ export default function Services() {
   ];
 
   return (
-    <div className="py-16">
+    <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Comprehensive Facility Management Services
+      <section className="bg-gradient-to-r from-red-800 to-red-600 text-white py-20">
+        <div className="max-w-8xl mx-auto px-8 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 ">
+            <TypingTextContainer text={serviceTitles} colors={['#ffffff', '#ffffff', '#ffffff']} />
+       
           </h1>
-          <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
-            From maintenance and cleaning to security and property management, 
+          <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto">
+            From maintenance and cleaning to interior designing and property management, 
             we provide end-to-end solutions for all your facility needs.
           </p>
         </div>
@@ -162,6 +341,7 @@ export default function Services() {
                 description={service.description}
                 icon={service.icon}
                 features={service.features}
+                href={service.href}
               />
             ))}
           </div>
@@ -169,7 +349,7 @@ export default function Services() {
       </section>
 
       {/* Additional Services */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -181,7 +361,7 @@ export default function Services() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 cursor-pointer">
             {additionalServices.map((service, index) => (
               <div key={index} className="bg-gray-50 rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
                 <div className="text-4xl mb-4">{service.icon}</div>
@@ -194,7 +374,7 @@ export default function Services() {
       </section>
 
       {/* Service Process */}
-      <section className="py-16 bg-blue-50">
+      <section className="py-16 bg-gray-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -208,7 +388,7 @@ export default function Services() {
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+              <div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                 1
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Assessment</h3>
@@ -218,7 +398,7 @@ export default function Services() {
             </div>
             
             <div className="text-center">
-              <div className="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+              <div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                 2
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Planning</h3>
@@ -228,7 +408,7 @@ export default function Services() {
             </div>
             
             <div className="text-center">
-              <div className="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+              <div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                 3
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Implementation</h3>
@@ -238,7 +418,7 @@ export default function Services() {
             </div>
             
             <div className="text-center">
-              <div className="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+              <div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                 4
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Monitoring</h3>
@@ -261,7 +441,7 @@ export default function Services() {
             a customized solution proposal.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200">
+            <button className="bg-red-600 hover:bg-white text-white hover:text-black px-8 py-3 rounded-lg font-semibold transition-colors duration-200">
               Request Service Quote
             </button>
             <button className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3 rounded-lg font-semibold transition-all duration-200">

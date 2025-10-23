@@ -45,67 +45,70 @@ export default function Navigation() {
 
   const serviceCategories = [
     {
-      title: 'Cleaning',
-      titleAr: 'التنظيف',
+      title: 'Cleaning Services',
+      titleAr: 'خدمات التنظيف',
       services: [
-        { name: 'Sofa Cleaning Services', nameAr: 'خدمات تنظيف الأرائك', href: '/services/sofa-cleaning' },
-        { name: 'Carpet Cleaning Services', nameAr: 'خدمات تنظيف السجاد', href: '/services/carpet-cleaning' },
-        { name: 'Mattress Cleaning Services', nameAr: 'خدمات تنظيف المراتب', href: '/services/mattress-cleaning' },
-        { name: 'Curtain Cleaning Services', nameAr: 'خدمات تنظيف الستائر', href: '/services/curtain-cleaning' },
-        { name: 'Water Tank Cleaning Services', nameAr: 'خدمات تنظيف خزانات المياه', href: '/services/water-tank-cleaning' },
-        { name: 'Oven Cleaning Services', nameAr: 'خدمات تنظيف الأفران', href: '/services/oven-cleaning' },
-        { name: 'Majlis Cleaning', nameAr: 'تنظيف المجالس', href: '/services/majlis-cleaning' }
+        { name: 'Residential Deep Cleaning', nameAr: 'تنظيف عميق سكني', href: '/services/residential-deep-cleaning' },
+        { name: 'Commercial Deep Cleaning', nameAr: 'تنظيف عميق تجاري', href: '/services/commercial-deep-cleaning' },
+        { name: 'General Cleaning', nameAr: 'تنظيف عام', href: '/services/general-cleaning' },
+       
+        { name: 'Post Construction Cleaning', nameAr: 'تنظيف ما بعد البناء', href: '/services/post-construction-cleaning' },
+        { name: 'Move In / Move Out Cleaning', nameAr: 'تنظيف الانتقال', href: '/services/move-in-move-out-cleaning' }
       ]
     },
     {
-      title: 'Marble',
-      titleAr: 'الرخام',
+      title: 'Special Cleaning Services',
+      titleAr: 'خدمات تنظيف خاصة',
       services: [
-        { name: 'Marble Polishing & Restoration', nameAr: 'تلميع وترميم الرخام', href: '/services/marble-polishing' },
-        { name: 'Crystallization', nameAr: 'التبلور', href: '/services/crystallization' },
+        { name: 'Sofa Cleaning', nameAr: 'تنظيف الأرائك', href: '/services/sofa-cleaning' },
+        { name: 'Carpet Cleaning', nameAr: 'تنظيف السجاد', href: '/services/carpet-cleaning' },
+        { name: 'Mattress Cleaning', nameAr: 'تنظيف المراتب', href: '/services/mattress-cleaning' },
+        { name: 'Water Tank Cleaning', nameAr: 'تنظيف خزانات المياه', href: '/services/water-tank-cleaning' },
+        { name: 'Majlis Cleaning', nameAr: 'تنظيف المجالس', href: '/services/majlis-cleaning' },
+      ]
+    },
+    {
+      title: 'Construction & Fitout',
+      titleAr: 'الإنشاءات والتجهيزات الداخلية',
+      services: [
+        { name: 'Interior Design', nameAr: 'تصميم داخلي', href: '/services/interior-design' },
+        { name: 'Interior Fitout', nameAr: 'تجهيز داخلي', href: '/services/interior-fitout' },
+        { name: 'Canopy Construction', nameAr: 'بناء المظلات', href: '/services/canopy-construction' },
+        { name: 'Car Shade Construction', nameAr: 'بناء مظلات السيارات', href: '/services/car-shade-construction' },
+        { name: 'Structural Maintenance', nameAr: 'صيانة هيكلية', href: '/services/structural-maintenance' }
+      ]
+    },
+    {
+      title: 'Marble & Granite Services',
+      titleAr: 'خدمات الرخام والجرانيت',
+      services: [
+        { name: 'Marble Polishing', nameAr: 'تلميع الرخام', href: '/services/marble-polishing' },
         { name: 'Granite Polishing', nameAr: 'تلميع الجرانيت', href: '/services/granite-polishing' },
-        { name: 'Marble Stain Removal', nameAr: 'إزالة بقع الرخام', href: '/services/marble-stain-removal' },
-        { name: 'Stone Polishing', nameAr: 'تلميع الحجر', href: '/services/stone-polishing' },
         { name: 'Marble Floor Cleaning', nameAr: 'تنظيف أرضيات الرخام', href: '/services/marble-floor-cleaning' }
       ]
     },
     {
-      title: 'Pest Control Services',
-      titleAr: 'خدمات مكافحة الآفات',
+      title: 'Pest Control',
+      titleAr: 'مكافحة الآفات',
       services: [
-        { name: 'Cockroach Control', nameAr: 'مكافحة الصراصير', href: '/services/cockroach-control' },
-        { name: 'Bedbug Control', nameAr: 'مكافحة بق الفراش', href: '/services/bedbug-control' },
-        { name: 'Termite Control', nameAr: 'مكافحة النمل الأبيض', href: '/services/termite-control' },
-        { name: 'Snake Control', nameAr: 'مكافحة الثعابين', href: '/services/snake-control' },
-        { name: 'Scorpion Control', nameAr: 'مكافحة العقارب', href: '/services/scorpion-control' }
+        { name: 'Cockroach Control', nameAr: 'تلميع الرخام', href: '/services/cockroach-control' },
+        { name: 'Bedbug Control', nameAr: 'تلميع الجرانيت', href: '/services/bedbug-control' },
+        { name: 'Termite Control', nameAr: 'تنظيف أرضيات الرخام', href: '/services/termite-control' }
       ]
     },
     {
-      title: 'Car',
-      titleAr: 'السيارات',
+      title: 'Manpower Supply',
+      titleAr: 'توفير العمالة',
       services: [
-        { name: 'Car Interior Detailing', nameAr: 'تفصيل داخلي للسيارة', href: '/services/car-interior-detailing' },
-        { name: 'Car Exterior Polishing', nameAr: 'تلميع خارجي للسيارة', href: '/services/car-exterior-polishing' },
-        { name: 'Full Car Detailing', nameAr: 'تفصيل كامل للسيارة', href: '/services/full-car-detailing' },
-        { name: 'Car Waxing', nameAr: 'تشميع السيارة', href: '/services/car-waxing' }
+        { name: 'Cleaner Supply - Commercial', nameAr: 'توفير عمال تنظيف - تجاري', href: '/services/cleaner-supply-commercial' },
+        { name: 'Cleaner Supply - Residential', nameAr: 'توفير عمال تنظيف - سكني', href: '/services/cleaner-supply-residential' }
       ]
     },
-    {
-      title: 'Commercial & Residential Cleaning',
-      titleAr: 'التنظيف التجاري والسكني',
-      services: [
-        { name: 'Commercial Cleaning', nameAr: 'التنظيف التجاري', href: '/services/commercial-cleaning' },
-        { name: 'Residential Cleaning', nameAr: 'التنظيف السكني', href: '/services/residential-cleaning' },
-        { name: 'After Construction Cleaning', nameAr: 'تنظيف ما بعد البناء', href: '/services/after-construction-cleaning' },
-        { name: 'Floor Cleaning', nameAr: 'تنظيف الأرضيات', href: '/services/floor-cleaning' },
-        { name: 'Move In / Move Out Cleaning', nameAr: 'تنظيف الانتقال', href: '/services/move-cleaning' }
-      ]
-    }
+    
   ];
-
   return (
     <nav className="bg-white-100 shadow-lg sticky top-0 z-[9998] relative">
-     <div className="flex flex-col sm:flex-row justify-evenly items-center bg-red-800 text-white text-sm py-2 px-4">
+     <div className="flex flex-col sm:flex-row justify-evenly items-center bg-gradient-to-br from-red-900 via-red-700 to-red-900 text-white text-sm py-2 px-4">
       <div className="flex items-center gap-2">
         <Phone size={16} />
         <Link href="tel:+97455187619" className="hover:underline">
