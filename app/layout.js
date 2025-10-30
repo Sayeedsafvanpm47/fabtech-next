@@ -3,6 +3,7 @@ import "./globals.css";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import PerformanceMonitor from "./components/PerformanceMonitor";
+import GoogleMapsProvider from "./components/GoogleMapsProvider";
 
 // Optimized font loading with display swap and preload
 const geistSans = Geist({
@@ -87,16 +88,18 @@ export default function RootLayout({ children }) {
           `
         }} />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased fonts-loaded`}
-        suppressHydrationWarning={true}
-      >
-        <Navigation />
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
-        <PerformanceMonitor />
+          <body
+            className={`${geistSans.variable} ${geistMono.variable} antialiased fonts-loaded`}
+            suppressHydrationWarning={true}
+          >
+            <GoogleMapsProvider>
+              <Navigation />
+              <main className="min-h-screen">
+                {children}
+              </main>
+              <Footer />
+              <PerformanceMonitor />
+            </GoogleMapsProvider>
         
         {/* Performance monitoring script */}
         <script dangerouslySetInnerHTML={{

@@ -1,6 +1,7 @@
 import HomeFAQ from '@/app/components/HomeFAQ';
 import ServiceHeroImage from '@/app/components/ServiceHeroImage';
 import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 // Service data structure
@@ -664,12 +665,18 @@ export default function ServicePage({ params }) {
 
             {/* Call-to-Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="bg-white text-red-700 hover:bg-red-50 hover:text-red-800 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 min-w-[200px]">
+              <Link 
+                href={`/booking?service=${params.service}`}
+                className="bg-white text-red-700 hover:bg-red-50 hover:text-red-800 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 min-w-[200px] text-center"
+              >
                 Book Service Now
-              </button>
-              <button className="border-3 border-white text-white hover:bg-white hover:text-red-700 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 min-w-[200px]">
+              </Link>
+              <Link 
+                href="/contact"
+                className="border-3 border-white text-white hover:bg-white hover:text-red-700 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 min-w-[200px] text-center"
+              >
                 Get Free Quote
-              </button>
+              </Link>
             </div>
 
             {/* Trust Indicators */}

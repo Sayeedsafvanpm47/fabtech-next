@@ -1,0 +1,16 @@
+# Copy this content to .env.local file
+
+# Supabase Configuration
+NEXT_PUBLIC_SUPABASE_URL=https://gzqenpdavooyghpcwgtb.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd6cWVucGRhdm9veWdocGN3Z3RiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE4MTExMjksImV4cCI6MjA3NzM4NzEyOX0.9l83ubwVTpVCJMaA5kJxn8W1a-K3NMs2o7GHghaS-PY
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd6cWVucGRhdm9veWdocGN3Z3RiIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2MTgxMTEyOSwiZXhwIjoyMDc3Mzg3MTI5fQ.KjtgpofQ4-NoWQTJFvxW0SQdRO_AMqBtKhDWtx33Npk
+
+# Email Configuration (Gmail SMTP)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=bizzaura1@gmail.com
+SMTP_PASS=Fabtech@123
+
+# Google Maps API Key
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=AIzaSyBbX_0Hb6cELpb0URO5P4er-g9kXN5l6rw
