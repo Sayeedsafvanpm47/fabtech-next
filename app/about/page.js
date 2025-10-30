@@ -1,3 +1,6 @@
+import Clients from "../components/Clients";
+import { clientLogos } from "../constants/Clientlogos"
+
 export const metadata = {
   title: 'About Us',
   description: 'Learn about FabTech&apos;s 15+ years of experience in facility management. Our mission, values, and commitment to excellence in serving businesses nationwide.',
@@ -8,58 +11,29 @@ export const metadata = {
 };
 
 export default function About() {
-  const teamMembers = [
-    {
-      name: "John Smith",
-      position: "Chief Executive Officer",
-      experience: "20+ years in facility management",
-      image: "👨‍💼"
-    },
-    {
-      name: "Sarah Johnson",
-      position: "Operations Director",
-      experience: "15+ years in operations management",
-      image: "👩‍💼"
-    },
-    {
-      name: "Michael Brown",
-      position: "Technical Services Manager",
-      experience: "18+ years in maintenance and engineering",
-      image: "👨‍🔧"
-    },
-    {
-      name: "Lisa Davis",
-      position: "Client Relations Manager",
-      experience: "12+ years in customer service",
-      image: "👩‍💻"
-    }
-  ];
+  
 
   const milestones = [
     {
-      year: "2008",
-      title: "Company Founded",
-      description: "FabTech was established with a vision to revolutionize facility management services."
-    },
-    {
-      year: "2012",
-      title: "100 Clients Milestone",
-      description: "Reached our first major milestone of serving 100+ satisfied clients."
-    },
-    {
       year: "2016",
-      title: "Regional Expansion",
-      description: "Expanded operations to serve clients across multiple states."
+      title: "Company Founded",
+      description: "Fabtech Services W.L.L was established with a vision to provide the best services to our clients."
     },
     {
       year: "2020",
-      title: "Technology Integration",
-      description: "Launched our smart facility management platform with IoT integration."
+      title: "Active participation during covid-19 pandemic",
+      description: "We provided disinfection services to the government and private sector to help them during the pandemic."
     },
     {
-      year: "2023",
-      title: "500+ Clients",
-      description: "Proudly serving over 500 clients with comprehensive facility solutions."
+      year: "2022",
+      title: "Team Expansion",
+      description: "Grew our team and gained more satisfied clients. "
+    },
+   
+    {
+      year: "2025",
+      title: "Future Vision",
+      description: "Continuing to lead with awesome facility management services and grow our team."
     }
   ];
 
@@ -97,15 +71,15 @@ export default function About() {
   ];
 
   return (
-    <div className="py-16">
+    <div className="">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+      <section className="bg-gradient-to-r from-red-600 to-red-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               About FabTech
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto">
               Leading the industry in comprehensive facility management solutions 
               for over 15 years.
             </p>
@@ -122,7 +96,7 @@ export default function About() {
                 Our Story
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Founded in 2008, FabTech began with a simple mission: to provide exceptional 
+                Founded in 2016, FabTech began with a simple mission: to provide exceptional 
                 facility management services that allow businesses to focus on what they do best. 
                 What started as a small local operation has grown into a trusted partner for 
                 over 500 businesses nationwide.
@@ -139,22 +113,22 @@ export default function About() {
                 environments where businesses can thrive.
               </p>
             </div>
-            <div className="bg-gray-100 rounded-lg p-8">
+            <div className="bg-gray-50 rounded-lg p-8">
               <div className="grid grid-cols-2 gap-6 text-center">
                 <div>
-                  <div className="text-3xl font-bold text-blue-600 mb-2">15+</div>
+                  <div className="text-3xl font-bold text-red-700 mb-2">10+</div>
                   <div className="text-gray-600">Years of Experience</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-blue-600 mb-2">500+</div>
+                  <div className="text-3xl font-bold text-red-700 mb-2">500+</div>
                   <div className="text-gray-600">Satisfied Clients</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-blue-600 mb-2">24/7</div>
+                  <div className="text-3xl font-bold text-red-700 mb-2">24/7</div>
                   <div className="text-gray-600">Support Available</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-blue-600 mb-2">99.9%</div>
+                  <div className="text-3xl font-bold text-red-700 mb-2">99.9%</div>
                   <div className="text-gray-600">Client Satisfaction</div>
                 </div>
               </div>
@@ -202,9 +176,9 @@ export default function About() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 cursor-pointer">
             {values.map((value, index) => (
-              <div key={index} className="text-center p-6 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+              <div key={index} className="text-center p-6 rounded-lg hover:bg-red-50 transition-colors duration-200">
                 <div className="text-4xl mb-4">{value.icon}</div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">{value.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{value.description}</p>
@@ -228,19 +202,19 @@ export default function About() {
           </div>
           
           <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-200"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-red-400"></div>
             <div className="space-y-12">
               {milestones.map((milestone, index) => (
                 <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
                   <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
                     <div className="bg-white rounded-lg p-6 shadow-lg">
-                      <div className="text-2xl font-bold text-blue-600 mb-2">{milestone.year}</div>
+                      <div className="text-2xl font-bold text-red-700 mb-2">{milestone.year}</div>
                       <h3 className="text-xl font-semibold text-gray-900 mb-2">{milestone.title}</h3>
                       <p className="text-gray-600">{milestone.description}</p>
                     </div>
                   </div>
                   <div className="relative z-10">
-                    <div className="w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg"></div>
+                    <div className="w-4 h-4 bg-red-600 rounded-full border-4 border-white shadow-lg"></div>
                   </div>
                   <div className="w-1/2"></div>
                 </div>
@@ -251,51 +225,32 @@ export default function About() {
       </section>
 
       {/* Leadership Team */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Leadership Team
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Meet the experienced professionals who lead FabTech and drive 
-              our commitment to excellence.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="text-center bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
-                <div className="text-6xl mb-4">{member.image}</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{member.name}</h3>
-                <p className="text-blue-600 font-medium mb-2">{member.position}</p>
-                <p className="text-gray-600 text-sm">{member.experience}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+     
+    
       {/* CTA Section */}
-      <section className="py-16 bg-blue-600">
+      <section className="py-16 bg-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             Partner with FabTech Today
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-800 mb-8 max-w-2xl mx-auto">
             Join hundreds of satisfied clients who trust FabTech for their 
             facility management needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-colors duration-200">
+            <button className="bg-red-700 text-white hover:bg-white hover:text-black px-8 py-3 rounded-lg font-semibold transition-colors duration-200">
               Start Partnership
             </button>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-lg font-semibold transition-all duration-200">
+            <button className="border-2 border-black text-black hover:bg-white hover:text-red-600 px-8 py-3 rounded-lg font-semibold transition-all duration-200">
               Learn More
             </button>
           </div>
         </div>
       </section>
+      <section>
+        <Clients logos={clientLogos}/>
+      </section>
     </div>
+    
   );
 }
