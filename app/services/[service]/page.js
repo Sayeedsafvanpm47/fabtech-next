@@ -1,4 +1,6 @@
 import HomeFAQ from '@/app/components/HomeFAQ';
+import ServiceHeroImage from '@/app/components/ServiceHeroImage';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 // Service data structure
@@ -8,7 +10,7 @@ const servicesData = {
     titleAr: 'التنظيف العميق للمنازل',
     category: 'Residential',
     categoryAr: 'السكني',
-    heroIcon: '🏠',
+    heroImage: 'https://res.cloudinary.com/diunkrydn/image/upload/v1760529483/professional-cleaning-service-person-using-steam-cleaner-office_1_tfno1o.jpg',
     description: 'Thorough, top-to-bottom deep cleaning for homes and apartments, focusing on neglected areas.',
     descriptionAr: 'تنظيف عميق شامل للمنازل والشقق، مع التركيز على المناطق المهملة.',
     features: [
@@ -48,7 +50,7 @@ const servicesData = {
     titleAr: 'خدمات التنظيف العميق التجاري',
     category: 'Commercial',
     categoryAr: 'التجاري',
-    heroIcon: '🏭',
+    heroImage: 'https://res.cloudinary.com/diunkrydn/image/upload/v1753270157/commercial-cleaning_hero.jpg',
     description: 'Intensive deep cleaning for commercial kitchens, industrial facilities, and large offices.',
     descriptionAr: 'تنظيف عميق مكثف للمطابخ التجارية والمرافق الصناعية والمكاتب الكبيرة.',
     features: [
@@ -80,7 +82,7 @@ const servicesData = {
     titleAr: 'خدمات التنظيف العامة والعمالة المنزلية',
     category: 'Commercial & Residential',
     categoryAr: 'التجاري والسكني',
-    heroIcon: '🧹',
+    heroImage: 'https://res.cloudinary.com/diunkrydn/image/upload/v1753270157/general-cleaning_hero.jpg',
     description: 'Routine and recurring general cleaning services for homes and small businesses.',
     descriptionAr: 'خدمات تنظيف عامة روتينية ومتكررة للمنازل والشركات الصغيرة.',
     features: [
@@ -106,7 +108,7 @@ const servicesData = {
     titleAr: 'توريد وتوظيف عمال النظافة التجاريين',
     category: 'Commercial',
     categoryAr: 'التجاري',
-    heroIcon: '👔',
+    heroImage: 'https://res.cloudinary.com/diunkrydn/image/upload/v1753270157/cleaner-supply-commercial_hero.jpg',
     description: 'Outsourcing and supply of dedicated, vetted cleaning staff for long-term commercial contracts.',
     descriptionAr: 'استعانة بمصادر خارجية وتوريد موظفي نظافة متخصصين وموثوقين للعقود التجارية طويلة الأجل.',
     features: [
@@ -132,7 +134,7 @@ const servicesData = {
     titleAr: 'توريد عمال النظافة السكنيين (غير مقيمين)',
     category: 'Residential',
     categoryAr: 'السكني',
-    heroIcon: '🏡',
+    heroImage: 'https://res.cloudinary.com/diunkrydn/image/upload/v1753270157/cleaner-supply-residential_hero.jpg',
     description: 'Long-term supply of live-out domestic helpers/maids for residential clients on contract.',
     descriptionAr: 'توريد طويل الأجل لعاملات منازل غير مقيمات/مساعدات للمنازل للعملاء بعقود.',
     features: [
@@ -158,7 +160,7 @@ const servicesData = {
     titleAr: 'تنظيف الأرائك والمفروشات',
     category: 'Specialized Cleaning',
     categoryAr: 'التنظيف المتخصص',
-    heroIcon: '🛋️',
+    heroImage: 'https://res.cloudinary.com/diunkrydn/image/upload/v1753270157/sofa-cleaning_hero.jpg',
     description: 'Professional deep cleaning and sanitization for sofas, chairs, and all types of upholstery.',
     descriptionAr: 'تنظيف عميق وتعقيم احترافي للأرائك والكراسي وجميع أنواع المفروشات.',
     features: [
@@ -184,7 +186,7 @@ const servicesData = {
     titleAr: 'خدمات تنظيف السجاد والموكيت',
     category: 'Specialized Cleaning',
     categoryAr: 'التنظيف المتخصص',
-    heroIcon: '🧶',
+    heroImage: 'https://res.cloudinary.com/diunkrydn/image/upload/v1753270157/carpet-cleaning_hero.jpg',
     description: 'Professional cleaning for all types of carpets and rugs, removing dirt, allergens, and stains.',
     descriptionAr: 'تنظيف احترافي لجميع أنواع السجاد والبسط، وإزالة الأوساخ والمواد المسببة للحساسية والبقع.',
     features: [
@@ -210,7 +212,7 @@ const servicesData = {
     titleAr: 'تنظيف وتعقيم المراتب العميق',
     category: 'Specialized Cleaning',
     categoryAr: 'التنظيف المتخصص',
-    heroIcon: '🛏️',
+    heroImage: 'https://res.cloudinary.com/diunkrydn/image/upload/v1753270157/mattress-cleaning_hero.jpg',
     description: 'Eliminate dust mites, allergens, dead skin, and stains from your mattress for a healthier sleep.',
     descriptionAr: 'القضاء على عث الغبار ومسببات الحساسية والجلد الميت والبقع من مرتبتك لنوم أكثر صحة.',
     features: [
@@ -236,7 +238,7 @@ const servicesData = {
     titleAr: 'تنظيف وتعقيم خزانات المياه',
     category: 'Essential Services',
     categoryAr: 'الخدمات الأساسية',
-    heroIcon: '💧',
+    heroImage: 'https://res.cloudinary.com/diunkrydn/image/upload/v1753270157/water-tank-cleaning_hero.jpg',
     description: 'Professional cleaning and sterilization of residential and commercial water storage tanks.',
     descriptionAr: 'تنظيف وتعقيم احترافي لخزانات تخزين المياه السكنية والتجارية.',
     features: [
@@ -262,7 +264,7 @@ const servicesData = {
     titleAr: 'تنظيف المجالس والجلسات التقليدية',
     category: 'Specialized Cleaning',
     categoryAr: 'التنظيف المتخصص',
-    heroIcon: '🕌',
+    heroImage: 'https://res.cloudinary.com/diunkrydn/image/upload/v1753270157/majlis-cleaning_hero.jpg',
     description: 'Expert cleaning and sanitization of traditional Majlis, Arabic seating, and cushions.',
     descriptionAr: 'تنظيف وتعقيم متخصص للمجالس التقليدية والجلسات العربية والوسائد.',
     features: [
@@ -288,7 +290,7 @@ const servicesData = {
     titleAr: 'تلميع واستعادة أرضيات الرخام',
     category: 'Floor & Surface Care',
     categoryAr: 'العناية بالأرضيات والأسطح',
-    heroIcon: '💎',
+    heroImage: 'https://res.cloudinary.com/diunkrydn/image/upload/v1753270157/marble-polishing_hero.jpg',
     description: 'Professional grinding, honing, and polishing to restore the shine and beauty of marble floors.',
     descriptionAr: 'صقل وتنعيم وتلميع احترافي لاستعادة لمعان وجمال أرضيات الرخام.',
     features: [
@@ -314,7 +316,7 @@ const servicesData = {
     titleAr: 'تلميع وختم الجرانيت',
     category: 'Floor & Surface Care',
     categoryAr: 'العناية بالأرضيات والأسطح',
-    heroIcon: '⛏️',
+    heroImage: 'https://res.cloudinary.com/diunkrydn/image/upload/v1753270157/granite-polishing_hero.jpg',
     description: 'Specialized polishing and sealing for granite floors, countertops, and surfaces.',
     descriptionAr: 'تلميع وختم متخصص لأرضيات وأسطح الجرانيت والمطابخ.',
     features: [
@@ -340,7 +342,7 @@ const servicesData = {
     titleAr: 'تنظيف أرضيات الرخام العميق (غير التلميع)',
     category: 'Floor & Surface Care',
     categoryAr: 'العناية بالأرضيات والأسطح',
-    heroIcon: '🧼',
+    heroImage: 'https://res.cloudinary.com/diunkrydn/image/upload/v1753270157/marble-floor-cleaning_hero.jpg',
     description: 'Safe and effective deep cleaning for marble floors without the need for full re-polishing.',
     descriptionAr: 'تنظيف عميق آمن وفعال لأرضيات الرخام دون الحاجة إلى إعادة تلميع كاملة.',
     features: [
@@ -366,7 +368,7 @@ const servicesData = {
     titleAr: 'تنظيف ما بعد البناء والتجديد',
     category: 'Specialized Cleaning',
     categoryAr: 'التنظيف المتخصص',
-    heroIcon: '🚧',
+    heroImage: 'https://res.cloudinary.com/diunkrydn/image/upload/v1753270157/post-construction-cleaning_hero.jpg',
     description: 'Thorough cleaning and debris removal after construction or renovation projects for handover.',
     descriptionAr: 'تنظيف شامل وإزالة المخلفات بعد مشاريع البناء أو التجديد لتسليمها.',
     features: [
@@ -392,7 +394,7 @@ const servicesData = {
     titleAr: 'تنظيف عند الانتقال (دخول/خروج)',
     category: 'Residential',
     categoryAr: 'السكني',
-    heroIcon: '📦',
+    heroImage: 'https://res.cloudinary.com/diunkrydn/image/upload/v1753270157/move-in-move-out-cleaning_hero.jpg',
     description: 'Comprehensive, deep cleaning services essential for property handover or before moving into a new home.',
     descriptionAr: 'خدمات تنظيف عميقة وشاملة ضرورية لتسليم الممتلكات أو قبل الانتقال إلى منزل جديد.',
     features: [
@@ -418,7 +420,7 @@ const servicesData = {
     titleAr: 'خدمات مكافحة الآفات والإبادة',
     category: 'Essential Services',
     categoryAr: 'الخدمات الأساسية',
-    heroIcon: '🐜',
+    heroImage: 'https://res.cloudinary.com/diunkrydn/image/upload/v1753270157/pest-control_hero.jpg',
     description: 'Licensed and professional pest control for residential and commercial properties against common pests.',
     descriptionAr: 'مكافحة آفات مرخصة واحترافية للعقارات السكنية والتجارية ضد الآفات الشائعة.',
     features: [
@@ -444,7 +446,7 @@ const servicesData = {
     titleAr: 'استشارات وتصميم وتنفيذ الديكور الداخلي',
     category: 'Design & Fitout',
     categoryAr: 'التصميم والتجهيز',
-    heroIcon: '🖼️',
+    heroImage: 'https://res.cloudinary.com/diunkrydn/image/upload/v1753270157/interior-design_hero.jpg',
     description: 'Full-service interior design from concept creation to final execution for residential and commercial spaces.',
     descriptionAr: 'خدمة تصميم داخلي شاملة من إنشاء المفهوم إلى التنفيذ النهائي للمساحات السكنية والتجارية.',
     features: [
@@ -470,7 +472,7 @@ const servicesData = {
     titleAr: 'تجهيزات وعقود الديكور الداخلي',
     category: 'Design & Fitout',
     categoryAr: 'التصميم والتجهيز',
-    heroIcon: '🏗️',
+    heroImage: 'https://res.cloudinary.com/diunkrydn/image/upload/v1753270157/interior-fitout_hero.jpg',
     description: 'Complete commercial and residential interior fitout services, including civil works, MEP, and finishes.',
     descriptionAr: 'خدمات تجهيز داخلي تجاري وسكني كاملة، بما في ذلك الأعمال المدنية، الميكانيكية والكهربائية والسباكة، والتشطيبات.',
     features: [
@@ -496,7 +498,7 @@ const servicesData = {
     titleAr: 'إنشاء مظلات وهياكل تظليل',
     category: 'Structural & Outdoor',
     categoryAr: 'هيكلية وخارجية',
-    heroIcon: '⛱️',
+    heroImage: 'https://res.cloudinary.com/diunkrydn/image/upload/v1753270157/canopy-construction_hero.jpg',
     description: 'Design and installation of custom canopies, pergolas, and outdoor shade structures for various applications.',
     descriptionAr: 'تصميم وتركيب مظلات مخصصة وعرشات وهياكل تظليل خارجية لمختلف الاستخدامات.',
     features: [
@@ -522,7 +524,7 @@ const servicesData = {
     titleAr: 'إنشاء وتركيب مظلات السيارات',
     category: 'Structural & Outdoor',
     categoryAr: 'هيكلية وخارجية',
-    heroIcon: '🚗',
+    heroImage: 'https://res.cloudinary.com/diunkrydn/image/upload/v1753270157/car-shade-construction_hero.jpg',
     description: 'Dedicated service for the design and construction of durable, customized car parking shades.',
     descriptionAr: 'خدمة مخصصة لتصميم وإنشاء مظلات مواقف السيارات المتينة والمخصصة.',
     features: [
@@ -548,7 +550,7 @@ const servicesData = {
     titleAr: 'صيانة وإصلاح الهياكل',
     category: 'Structural & Outdoor',
     categoryAr: 'هيكلية وخارجية',
-    heroIcon: '🧱',
+    heroImage: 'https://res.cloudinary.com/diunkrydn/image/upload/v1753270157/structural-maintenance_hero.jpg',
     description: 'Expert repair and maintenance services for building structural components, including concrete, masonry, and steel.',
     descriptionAr: 'خدمات إصلاح وصيانة متخصصة للمكونات الهيكلية للمباني، بما في ذلك الخرسانة والبناء والصلب.',
     features: [
@@ -605,40 +607,97 @@ export default function ServicePage({ params }) {
     notFound();
   }
 
-  
+  // Auto-assign color schemes based on service category
+  const getColorScheme = (category) => {
+    const categoryColorMap = {
+      'Residential': 'blue',
+      'Commercial': 'orange', 
+      'Specialized Cleaning': 'green',
+      'Essential Services': 'purple',
+      'Floor & Surface Care': 'blue',
+      'Design & Fitout': 'orange',
+      'Structural & Outdoor': 'green',
+      'Commercial & Residential': 'purple'
+    };
+    return categoryColorMap[category] || 'blue';
+  };
 
   return (
     <div className="">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-red-800 to-red-600 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="mb-4">
-                <span className="bg-white text-black px-3 py-1 rounded-full text-sm font-medium">
-                  {service.category}
-                </span>
-              </div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                {service.title}
-              </h1>
-              <p className="text-xl text-white mb-8">
-                {service.description}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-white text-red-600 hover:bg-gray-100 hover:text-black px-8 py-3 rounded-lg font-semibold transition-colors duration-200">
-                  Book Now
-                </button>
-                <button className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-3 rounded-lg font-semibold transition-all duration-200">
-                  Get Quote
-                </button>
-              </div>
+      {/* Hero Section with Background Image */}
+      <section className="relative min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={service.heroImage}
+            alt={`${service.title} Background`}
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority
+          />
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-red-900/85 via-red-800/80 to-red-700/85"></div>
+          {/* Additional overlay for better contrast */}
+          <div className="absolute inset-0 bg-black/20"></div>
+        </div>
+
+        {/* Content Container */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+          <div className="max-w-4xl mx-auto">
+            {/* Service Category Badge */}
+            <div className="mb-6">
+              <span className="inline-block bg-white/95 text-red-800 px-4 py-2 rounded-full text-sm font-semibold shadow-lg backdrop-blur-sm">
+                {service.category}
+              </span>
             </div>
-            <div className="text-center">
-              <div className="text-9xl">{service.heroIcon}</div>
+
+            {/* Main Title - SEO Optimized H1 */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+              {service.title}
+            </h1>
+
+            {/* Description - Clear and Readable */}
+            <p className="text-xl sm:text-2xl md:text-3xl text-white/95 mb-10 leading-relaxed max-w-3xl mx-auto drop-shadow-md font-light">
+              {service.description}
+            </p>
+
+            {/* Call-to-Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <button className="bg-white text-red-700 hover:bg-red-50 hover:text-red-800 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 min-w-[200px]">
+                Book Service Now
+              </button>
+              <button className="border-3 border-white text-white hover:bg-white hover:text-red-700 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 min-w-[200px]">
+                Get Free Quote
+              </button>
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="mt-12 flex flex-wrap justify-center items-center gap-6 text-white/90">
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <span className="font-semibold">4.9/5 Rating</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span className="font-semibold">Licensed & Insured</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+                </svg>
+                <span className="font-semibold">24/7 Available</span>
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Subtle Bottom Border */}
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-red-600 via-red-500 to-red-600"></div>
       </section>
 
       {/* Service Features */}
