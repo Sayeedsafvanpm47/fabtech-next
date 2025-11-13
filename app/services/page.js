@@ -1,6 +1,6 @@
 import ServiceCard from '../components/ServiceCard';
 import TypingTextContainer from '../components/TypingTextContainer';
-
+import GoToContact from '../components/GoToContact';
 export const metadata = {
   title: 'Services',
   description: 'Comprehensive facility management services including maintenance, cleaning, security, and property management. Professional solutions for businesses of all sizes.',
@@ -441,12 +441,9 @@ export default function Services() {
             a customized solution proposal.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-red-600 hover:bg-white text-white hover:text-black px-8 py-3 rounded-lg font-semibold transition-colors duration-200">
-              Request Service Quote
-            </button>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3 rounded-lg font-semibold transition-all duration-200">
-              Schedule Consultation
-            </button>
+            <GoToContact color="red" name="Request Service Quote" href="/contact" />
+            <GoToContact color="white" name="Schedule Consultation" href="/contact" />
+            
           </div>
         </div>
       </section>

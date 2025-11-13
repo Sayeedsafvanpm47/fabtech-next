@@ -27,8 +27,8 @@ const servicesData = {
       { step: 4, title: 'Client Walkthrough', titleAr: 'جولة مع العميل', description: 'Final inspection and client approval', descriptionAr: 'الفحص النهائي وموافقة العميل' }
     ],
     pricing: [
-      { type: 'Studio/1 Bedroom', typeAr: 'استوديو/غرفة نوم واحدة', price: 'AED 350', features: ['4-6 hours service', 'All chemicals included'] },
-      { type: '2 Bedroom', typeAr: 'غرفتا نوم', price: 'AED 500', features: ['6-8 hours service', 'Inside fridge/oven included'], popular: true },
+      { type: 'Studio/1 Bedroom', typeAr: 'استوديو/غرفة نوم واحدة', price: 'QAR 350', features: ['4-6 hours service', 'All chemicals included'] },
+      { type: '2 Bedroom', typeAr: 'غرفتا نوم', price: 'QAR 500', features: ['6-8 hours service', 'Inside fridge/oven included'], popular: true },
       { type: 'Villa/Large House', typeAr: 'فيلا/منزل كبير', price: 'Custom Quote', features: ['Team of cleaners', 'Specialized equipment', 'Full day service'] }
     ],
     faqs: [
@@ -67,8 +67,8 @@ const servicesData = {
       { step: 4, title: 'Hygiene Certification', titleAr: 'شهادة النظافة', description: 'Post-service hygiene certificate and report', descriptionAr: 'تقرير وشهادة النظافة بعد الخدمة' }
     ],
     pricing: [
-      { type: 'Retail Store', typeAr: 'متجر بيع بالتجزئة', price: 'AED 1200+', features: ['Quarterly service', 'Window cleaning'] },
-      { type: 'Restaurant Kitchen', typeAr: 'مطبخ مطعم', price: 'AED 2500+', features: ['Monthly/Bi-annual service', 'Hood cleaning included'], popular: true },
+      { type: 'Retail Store', typeAr: 'متجر بيع بالتجزئة', price: 'QAR 1200+', features: ['Quarterly service', 'Window cleaning'] },
+      { type: 'Restaurant Kitchen', typeAr: 'مطبخ مطعم', price: 'QAR 2500+', features: ['Monthly/Bi-annual service', 'Hood cleaning included'], popular: true },
       { type: 'Warehouse/Factory', typeAr: 'مستودع/مصنع', price: 'Custom Quote', features: ['Large scale machinery cleaning', 'Oil stain removal', 'Safety compliance'] }
     ],
     faqs: [
@@ -99,8 +99,8 @@ const servicesData = {
       { step: 4, title: 'Feedback', titleAr: 'الملاحظات', description: 'Quick check and feedback collection', descriptionAr: 'فحص سريع وجمع الملاحظات' }
     ],
     pricing: [
-      { type: '2-hour Session', typeAr: 'جلسة ساعتين', price: 'AED 70/hour', features: ['Quick clean', 'Focus on 1-2 areas'] },
-      { type: '4-hour Session', typeAr: 'جلسة 4 ساعات', price: 'AED 65/hour', features: ['Standard home clean', 'All rooms covered'], popular: true },
+      { type: '2-hour Session', typeAr: 'جلسة ساعتين', price: 'QAR 70/hour', features: ['Quick clean', 'Focus on 1-2 areas'] },
+      { type: '4-hour Session', typeAr: 'جلسة 4 ساعات', price: 'QAR 65/hour', features: ['Standard home clean', 'All rooms covered'], popular: true },
       { type: 'Full Day/Contract', typeAr: 'يوم كامل/عقد', price: 'Custom Quote', features: ['Discounted rates', 'Dedicated cleaner', 'Weekly/Bi-weekly schedule'] }
     ]
   },
@@ -125,8 +125,8 @@ const servicesData = {
       { step: 4, title: 'Management', titleAr: 'الإدارة', description: 'Ongoing management, payroll, and performance monitoring', descriptionAr: 'الإدارة المستمرة، كشوف المرتبات، ومراقبة الأداء' }
     ],
     pricing: [
-      { type: 'Single Cleaner (Full-time)', typeAr: 'عامل نظافة واحد (دوام كامل)', price: 'AED 3500/month', features: ['8 hours/day', '6 days/week', 'Client supervision'] },
-      { type: 'Team of Cleaners', typeAr: 'فريق من عمال النظافة', price: 'AED 12,000+/month', features: ['Dedicated supervisor', 'Shift coverage', 'All amenities covered'], popular: true },
+      { type: 'Single Cleaner (Full-time)', typeAr: 'عامل نظافة واحد (دوام كامل)', price: 'QAR 3500/month', features: ['8 hours/day', '6 days/week', 'Client supervision'] },
+      { type: 'Team of Cleaners', typeAr: 'فريق من عمال النظافة', price: 'QAR 12,000+/month', features: ['Dedicated supervisor', 'Shift coverage', 'All amenities covered'], popular: true },
       { type: 'Specialist Staff', typeAr: 'موظفون متخصصون', price: 'Custom Quote', features: ['Hygiene/technical cleaning focus', 'Special certification required'] }
     ]
   },
@@ -151,8 +151,8 @@ const servicesData = {
       { step: 4, title: 'Onboarding', titleAr: 'الترحيب والبدء', description: 'Introduction to the household and service commencement', descriptionAr: 'التعريف بالمنزل وبدء الخدمة' }
     ],
     pricing: [
-      { type: 'Part-Time Live-out', typeAr: 'دوام جزئي غير مقيمة', price: 'AED 2500/month', features: ['4 hours/day', '5 days/week', 'Basic house help'] },
-      { type: 'Full-Time Live-out', typeAr: 'دوام كامل غير مقيمة', price: 'AED 4000/month', features: ['8 hours/day', '6 days/week', 'All household tasks'], popular: true },
+      { type: 'Part-Time Live-out', typeAr: 'دوام جزئي غير مقيمة', price: 'QAR 2500/month', features: ['4 hours/day', '5 days/week', 'Basic house help'] },
+      { type: 'Full-Time Live-out', typeAr: 'دوام كامل غير مقيمة', price: 'QAR 4000/month', features: ['8 hours/day', '6 days/week', 'All household tasks'], popular: true },
       { type: 'Specialized Nanny/Elder Care', typeAr: 'متخصصة في رعاية الأطفال/كبار السن', price: 'Custom Quote', features: ['Specialized training required', 'Extended hours'] }
     ]
   },
@@ -177,8 +177,8 @@ const servicesData = {
       { step: 4, title: 'Quick Dry', titleAr: 'تجفيف سريع', description: 'Speed up drying time with specialized air movers', descriptionAr: 'تسريع وقت التجفيف باستخدام منفاخ هواء متخصص' }
     ],
     pricing: [
-      { type: 'Single Seat/Armchair', typeAr: 'مقعد واحد/كرسي بذراعين', price: 'AED 80-150', features: ['Spot treatment included'] },
-      { type: '3-Seater Sofa', typeAr: 'أريكة 3 مقاعد', price: 'AED 250-400', features: ['Full extraction cleaning', 'Basic deodorizer'], popular: true },
+      { type: 'Single Seat/Armchair', typeAr: 'مقعد واحد/كرسي بذراعين', price: 'QAR 80-150', features: ['Spot treatment included'] },
+      { type: '3-Seater Sofa', typeAr: 'أريكة 3 مقاعد', price: 'QAR 250-400', features: ['Full extraction cleaning', 'Basic deodorizer'], popular: true },
       { type: 'L-Shape/Set', typeAr: 'أريكة على شكل L/طقم', price: 'Custom Quote', features: ['Full living room set cleaning', 'Anti-dust mite treatment'] }
     ]
   },
@@ -203,8 +203,8 @@ const servicesData = {
       { step: 4, title: 'Grooming', titleAr: 'التمشيط والتسريح', description: 'Setting the pile for faster drying and better appearance', descriptionAr: 'تجهيز الوبر لتجفيف أسرع ومظهر أفضل' }
     ],
     pricing: [
-      { type: 'Small Area Rug', typeAr: 'بساط منطقة صغيرة', price: 'AED 50-100', features: ['In-house/drop-off service'] },
-      { type: 'Standard Room', typeAr: 'غرفة قياسية', price: 'AED 150-300', features: ['Full deep cleaning', 'Quick drying'], popular: true },
+      { type: 'Small Area Rug', typeAr: 'بساط منطقة صغيرة', price: 'QAR 50-100', features: ['In-house/drop-off service'] },
+      { type: 'Standard Room', typeAr: 'غرفة قياسية', price: 'QAR 150-300', features: ['Full deep cleaning', 'Quick drying'], popular: true },
       { type: 'Full House/Commercial', typeAr: 'منزل كامل/تجاري', price: 'Custom Quote', features: ['Volume discounts', 'Specialized rug handling', 'Stain protection'] }
     ]
   },
@@ -229,8 +229,8 @@ const servicesData = {
       { step: 4, title: 'Final Sanitization Spray', titleAr: 'رش التعقيم النهائي', description: 'Application of a residual anti-allergen spray', descriptionAr: 'تطبيق رذاذ مضاد للحساسية ومتبق' }
     ],
     pricing: [
-      { type: 'Single Mattress', typeAr: 'مرتبة مفردة', price: 'AED 150', features: ['Mite removal', 'Basic stain treatment'] },
-      { type: 'Queen/King Mattress', typeAr: 'مرتبة كوين/كينج', price: 'AED 250-350', features: ['Full sanitization', 'Deep stain removal'], popular: true },
+      { type: 'Single Mattress', typeAr: 'مرتبة مفردة', price: 'QAR 150', features: ['Mite removal', 'Basic stain treatment'] },
+      { type: 'Queen/King Mattress', typeAr: 'مرتبة كوين/كينج', price: 'QAR 250-350', features: ['Full sanitization', 'Deep stain removal'], popular: true },
       { type: 'Full Bedroom Set', typeAr: 'طقم غرفة نوم كامل', price: 'Custom Quote', features: ['Multi-mattress discount', 'Pillow treatment included'] }
     ]
   },
@@ -255,8 +255,8 @@ const servicesData = {
       { step: 4, title: 'Disinfection & Refill', titleAr: 'التطهير وإعادة التعبئة', description: 'Application of disinfectant and refilling with fresh water', descriptionAr: 'تطبيق المطهر وإعادة التعبئة بالمياه العذبة' }
     ],
     pricing: [
-      { type: 'Small Tank (up to 500 Gal)', typeAr: 'خزان صغير (حتى 500 غالون)', price: 'AED 400-600', features: ['Single service', 'Chlorination included'] },
-      { type: 'Medium Tank (500-1500 Gal)', typeAr: 'خزان متوسط (500-1500 غالون)', price: 'AED 700-1200', features: ['Full inspection report', 'Deep cleaning'], popular: true },
+      { type: 'Small Tank (up to 500 Gal)', typeAr: 'خزان صغير (حتى 500 غالون)', price: 'QAR 400-600', features: ['Single service', 'Chlorination included'] },
+      { type: 'Medium Tank (500-1500 Gal)', typeAr: 'خزان متوسط (500-1500 غالون)', price: 'QAR 700-1200', features: ['Full inspection report', 'Deep cleaning'], popular: true },
       { type: 'Large/Commercial Tank', typeAr: 'خزان كبير/تجاري', price: 'Custom Quote', features: ['Multiple tanks', 'Annual maintenance contract', 'Lab testing'] }
     ]
   },
@@ -281,8 +281,8 @@ const servicesData = {
       { step: 4, title: 'Drying & Grooming', titleAr: 'التجفيف والترتيب', description: 'Speed drying and fluffing of cushions for immediate use', descriptionAr: 'تجفيف سريع ونفش للوسائد للاستخدام الفوري' }
     ],
     pricing: [
-      { type: 'Small Majlis (1 room)', typeAr: 'مجلس صغير (غرفة واحدة)', price: 'AED 400-700', features: ['Cushions and carpet included'] },
-      { type: 'Medium Majlis', typeAr: 'مجلس متوسط', price: 'AED 800-1200', features: ['Sofa and curtain cleaning options'], popular: true },
+      { type: 'Small Majlis (1 room)', typeAr: 'مجلس صغير (غرفة واحدة)', price: 'QAR 400-700', features: ['Cushions and carpet included'] },
+      { type: 'Medium Majlis', typeAr: 'مجلس متوسط', price: 'QAR 800-1200', features: ['Sofa and curtain cleaning options'], popular: true },
       { type: 'Large/Full Floor Majlis', typeAr: 'مجلس كبير/طابق كامل', price: 'Custom Quote', features: ['Volume discount', 'Full room sanitization'] }
     ]
   },
@@ -307,8 +307,8 @@ const servicesData = {
       { step: 4, title: 'Sealing', titleAr: 'الختم', description: 'Applying a high-quality impregnating sealer', descriptionAr: 'تطبيق مادة مانعة للتسرب عالية الجودة' }
     ],
     pricing: [
-      { type: 'Basic Polishing (Light Shine)', typeAr: 'تلميع أساسي (لمعان خفيف)', price: 'AED 15-20/sqm', features: ['Honing and basic polishing'] },
-      { type: 'Full Restoration (High Gloss)', typeAr: 'استعادة كاملة (لمعان عالي)', price: 'AED 25-40/sqm', features: ['Grinding, honing, and mirror polish'], popular: true },
+      { type: 'Basic Polishing (Light Shine)', typeAr: 'تلميع أساسي (لمعان خفيف)', price: 'QAR 15-20/sqm', features: ['Honing and basic polishing'] },
+      { type: 'Full Restoration (High Gloss)', typeAr: 'استعادة كاملة (لمعان عالي)', price: 'QAR 25-40/sqm', features: ['Grinding, honing, and mirror polish'], popular: true },
       { type: 'Sealing & Maintenance', typeAr: 'الختم والصيانة', price: 'Custom Quote', features: ['Annual contract', 'Minor chip repair'] }
     ]
   },
@@ -333,8 +333,8 @@ const servicesData = {
       { step: 4, title: 'Sealing', titleAr: 'الختم', description: 'Application of a high-performance granite sealer', descriptionAr: 'تطبيق مادة مانعة للتسرب عالية الأداء للجرانيت' }
     ],
     pricing: [
-      { type: 'Countertop Polishing', typeAr: 'تلميع أسطح العمل', price: 'AED 300+', features: ['Single countertop service'] },
-      { type: 'Floor Polishing', typeAr: 'تلميع الأرضيات', price: 'AED 20-35/sqm', features: ['Full floor treatment', 'Sealing included'], popular: true },
+      { type: 'Countertop Polishing', typeAr: 'تلميع أسطح العمل', price: 'QAR 300+', features: ['Single countertop service'] },
+      { type: 'Floor Polishing', typeAr: 'تلميع الأرضيات', price: 'QAR 20-35/sqm', features: ['Full floor treatment', 'Sealing included'], popular: true },
       { type: 'Maintenance Contract', typeAr: 'عقد صيانة', price: 'Custom Quote', features: ['Bi-annual check-up', 'Small repair included'] }
     ]
   },
@@ -359,8 +359,8 @@ const servicesData = {
       { step: 4, title: 'Neutral Rinse', titleAr: 'شطف محايد', description: 'Final rinse to ensure no cleaner residue remains', descriptionAr: 'شطف نهائي لضمان عدم بقاء أي بقايا منظف' }
     ],
     pricing: [
-      { type: 'Small Area (up to 50 sqm)', typeAr: 'منطقة صغيرة (حتى 50 متر مربع)', price: 'AED 8/sqm', features: ['Basic clean'] },
-      { type: 'Medium Area (50-150 sqm)', typeAr: 'منطقة متوسطة (50-150 متر مربع)', price: 'AED 10-15/sqm', features: ['Grout cleaning included'], popular: true },
+      { type: 'Small Area (up to 50 sqm)', typeAr: 'منطقة صغيرة (حتى 50 متر مربع)', price: 'QAR 8/sqm', features: ['Basic clean'] },
+      { type: 'Medium Area (50-150 sqm)', typeAr: 'منطقة متوسطة (50-150 متر مربع)', price: 'QAR 10-15/sqm', features: ['Grout cleaning included'], popular: true },
       { type: 'Full Villa/Large Area', typeAr: 'فيلا كاملة/منطقة كبيرة', price: 'Custom Quote', features: ['Volume discount', 'Sealing check'] }
     ]
   },
@@ -385,8 +385,8 @@ const servicesData = {
       { step: 4, title: 'Client Inspection', titleAr: 'فحص العميل', description: 'Final walkthrough with the client or site manager', descriptionAr: 'جولة نهائية مع العميل أو مدير الموقع' }
     ],
     pricing: [
-      { type: 'Studio/Apartment Renovation', typeAr: 'تجديد استوديو/شقة', price: 'AED 800-1500', features: ['Single-day service', 'Small team'] },
-      { type: 'Villa/Large Commercial', typeAr: 'فيلا/تجاري كبير', price: 'AED 2500-8000', features: ['Large team and equipment', 'Multi-day service'], popular: true },
+      { type: 'Studio/Apartment Renovation', typeAr: 'تجديد استوديو/شقة', price: 'QAR 800-1500', features: ['Single-day service', 'Small team'] },
+      { type: 'Villa/Large Commercial', typeAr: 'فيلا/تجاري كبير', price: 'QAR 2500-8000', features: ['Large team and equipment', 'Multi-day service'], popular: true },
       { type: 'Full Building Handover', typeAr: 'تسليم مبنى كامل', price: 'Custom Quote', features: ['Long-term contract', 'Industrial cleaning equipment'] }
     ]
   },
@@ -411,8 +411,8 @@ const servicesData = {
       { step: 4, title: 'Floor & Final Wipe Down', titleAr: 'الأرضيات والمسح النهائي', description: 'Floor scrubbing and final surface wipe-down', descriptionAr: 'فرك الأرضيات والمسح النهائي للأسطح' }
     ],
     pricing: [
-      { type: 'Studio/1 BR', typeAr: 'استوديو/غرفة نوم واحدة', price: 'AED 450-700', features: ['2 cleaners, 4-6 hours'] },
-      { type: '2-3 BR Apartment', typeAr: 'شقة 2-3 غرف نوم', price: 'AED 800-1400', features: ['Oven/Fridge deep clean included'], popular: true },
+      { type: 'Studio/1 BR', typeAr: 'استوديو/غرفة نوم واحدة', price: 'QAR 450-700', features: ['2 cleaners, 4-6 hours'] },
+      { type: '2-3 BR Apartment', typeAr: 'شقة 2-3 غرف نوم', price: 'QAR 800-1400', features: ['Oven/Fridge deep clean included'], popular: true },
       { type: 'Villa/Townhouse', typeAr: 'فيلا/تاون هاوس', price: 'Custom Quote', features: ['Team of 4-6 cleaners', 'External areas cleaning'] }
     ]
   },
@@ -437,8 +437,8 @@ const servicesData = {
       { step: 4, title: 'Follow-up', titleAr: 'المتابعة', description: 'Post-treatment inspection and guarantee period', descriptionAr: 'فحص ما بعد العلاج وفترة الضمان' }
     ],
     pricing: [
-      { type: 'Apartment (General)', typeAr: 'شقة (عام)', price: 'AED 250-400', features: ['Single treatment', '3-month guarantee'] },
-      { type: 'Villa/Termite Control', typeAr: 'فيلا/مكافحة النمل الأبيض', price: 'AED 500-1500', features: ['Full house treatment', 'Longer guarantee'], popular: true },
+      { type: 'Apartment (General)', typeAr: 'شقة (عام)', price: 'QAR 250-400', features: ['Single treatment', '3-month guarantee'] },
+      { type: 'Villa/Termite Control', typeAr: 'فيلا/مكافحة النمل الأبيض', price: 'QAR 500-1500', features: ['Full house treatment', 'Longer guarantee'], popular: true },
       { type: 'Commercial Annual Contract', typeAr: 'عقد سنوي تجاري', price: 'Custom Quote', features: ['Monthly/Quarterly visits', 'Full compliance reporting'] }
     ]
   },
@@ -463,8 +463,8 @@ const servicesData = {
       { step: 4, title: 'Handover', titleAr: 'التسليم', description: 'Final staging, quality check, and project handover', descriptionAr: 'التجهيز النهائي، فحص الجودة، وتسليم المشروع' }
     ],
     pricing: [
-      { type: 'Consultation Only (Hourly)', typeAr: 'استشارة فقط (بالساعة)', price: 'AED 450/hour', features: ['Design advice', 'Space planning'] },
-      { type: 'Single Room Design', typeAr: 'تصميم غرفة واحدة', price: 'AED 3000+', features: ['Full concept and 3D render', 'Shopping list provided'], popular: true },
+      { type: 'Consultation Only (Hourly)', typeAr: 'استشارة فقط (بالساعة)', price: 'QAR 450/hour', features: ['Design advice', 'Space planning'] },
+      { type: 'Single Room Design', typeAr: 'تصميم غرفة واحدة', price: 'QAR 3000+', features: ['Full concept and 3D render', 'Shopping list provided'], popular: true },
       { type: 'Full Home/Office Project', typeAr: 'مشروع منزل/مكتب كامل', price: 'Custom Quote', features: ['Full execution and fit-out management', 'Premium material sourcing'] }
     ]
   },
@@ -489,8 +489,8 @@ const servicesData = {
       { step: 4, title: 'Testing & Handover', titleAr: 'الاختبار والتسليم', description: 'Commissioning, authority inspection, and project handover', descriptionAr: 'التكليف، فحص السلطة، وتسليم المشروع' }
     ],
     pricing: [
-      { type: 'Small Commercial Refurbishment', typeAr: 'تجديد تجاري صغير', price: 'AED 50,000+', features: ['Partitioning', 'Basic finishes'] },
-      { type: 'Office/Retail Fitout', typeAr: 'تجهيز مكتب/محل تجاري', price: 'AED 800-1500/sqm', features: ['MEP, Flooring, Ceiling, Walls'], popular: true },
+      { type: 'Small Commercial Refurbishment', typeAr: 'تجديد تجاري صغير', price: 'QAR 50,000+', features: ['Partitioning', 'Basic finishes'] },
+      { type: 'Office/Retail Fitout', typeAr: 'تجهيز مكتب/محل تجاري', price: 'QAR 800-1500/sqm', features: ['MEP, Flooring, Ceiling, Walls'], popular: true },
       { type: 'Luxury Villa/Full Building', typeAr: 'فيلا فاخرة/مبنى كامل', price: 'Custom Quote', features: ['High-end finishes', 'Integrated smart home systems', 'Extended warranty'] }
     ]
   },
@@ -515,8 +515,8 @@ const servicesData = {
       { step: 4, title: 'Finishing & Handover', titleAr: 'الانتهاء والتسليم', description: 'Final tensioning, clean-up, and client handover', descriptionAr: 'الشد النهائي، التنظيف، وتسليم العميل' }
     ],
     pricing: [
-      { type: 'Small Awning/Patio Shade', typeAr: 'مظلة صغيرة/تظليل فناء', price: 'AED 5,000+', features: ['Basic aluminum frame'] },
-      { type: 'Large Car Shade/Pergola', typeAr: 'مظلة سيارات كبيرة/عرشة', price: 'AED 15,000+', features: ['Engineered design', 'PVC/HDPE fabric'], popular: true },
+      { type: 'Small Awning/Patio Shade', typeAr: 'مظلة صغيرة/تظليل فناء', price: 'QAR 5,000+', features: ['Basic aluminum frame'] },
+      { type: 'Large Car Shade/Pergola', typeAr: 'مظلة سيارات كبيرة/عرشة', price: 'QAR 15,000+', features: ['Engineered design', 'PVC/HDPE fabric'], popular: true },
       { type: 'Commercial Tensile Structure', typeAr: 'هيكل شد إنشائي تجاري', price: 'Custom Quote', features: ['Large spans', 'P.T.F.E fabric', 'Full authority approval'] }
     ]
   },
@@ -541,8 +541,8 @@ const servicesData = {
       { step: 4, title: 'Installation & Finishing', titleAr: 'التركيب والانتهاء', description: 'Erecting the structure, fixing the canopy, and final touch-ups', descriptionAr: 'إقامة الهيكل، تثبيت المظلة، واللمسات النهائية' }
     ],
     pricing: [
-      { type: 'Single Car Shade (Cantilever)', typeAr: 'مظلة سيارة واحدة (ذراع تعليق)', price: 'AED 6,000-9,000', features: ['Galvanized steel frame', 'HDPE fabric'] },
-      { type: 'Double Car Shade (Arch Design)', typeAr: 'مظلة سيارتين (تصميم قوسي)', price: 'AED 12,000-18,000', features: ['Full engineering approval', 'Durable PVC fabric'], popular: true },
+      { type: 'Single Car Shade (Cantilever)', typeAr: 'مظلة سيارة واحدة (ذراع تعليق)', price: 'QAR 6,000-9,000', features: ['Galvanized steel frame', 'HDPE fabric'] },
+      { type: 'Double Car Shade (Arch Design)', typeAr: 'مظلة سيارتين (تصميم قوسي)', price: 'QAR 12,000-18,000', features: ['Full engineering approval', 'Durable PVC fabric'], popular: true },
       { type: 'Multi-Bay Commercial Shade', typeAr: 'مظلة تجارية متعددة المواقف', price: 'Custom Quote', features: ['Volume discount', 'Lighting integration', 'Full project management'] }
     ]
   },
@@ -567,8 +567,8 @@ const servicesData = {
       { step: 4, title: 'Testing & Certification', titleAr: 'الاختبار والاعتماد', description: 'Quality control testing and issuance of a final structural certificate', descriptionAr: 'اختبار مراقبة الجودة وإصدار شهادة هيكلية نهائية' }
     ],
     pricing: [
-      { type: 'Minor Concrete Repair (Balcony/Slab)', typeAr: 'إصلاح خرساني بسيط (شرفة/بلاطة)', price: 'AED 3,000+', features: ['Localized repair', 'Epoxy injection'] },
-      { type: 'Full Villa Structural Waterproofing', typeAr: 'عزل مائي هيكلي للفيلا بالكامل', price: 'AED 15,000+', features: ['Roof, basement, and wet areas'], popular: true },
+      { type: 'Minor Concrete Repair (Balcony/Slab)', typeAr: 'إصلاح خرساني بسيط (شرفة/بلاطة)', price: 'QAR 3,000+', features: ['Localized repair', 'Epoxy injection'] },
+      { type: 'Full Villa Structural Waterproofing', typeAr: 'عزل مائي هيكلي للفيلا بالكامل', price: 'QAR 15,000+', features: ['Roof, basement, and wet areas'], popular: true },
       { type: 'Facade/Industrial Structure Repair', typeAr: 'إصلاح الواجهة/الهياكل الصناعية', price: 'Custom Quote', features: ['High-rise access equipment', 'Engineering supervision', 'Long-term warranty'] }
     ]
   }
@@ -789,9 +789,12 @@ export default function ServicePage({ params }) {
                     </li>
                   ))}
                 </ul>
-                <button className="w-full bg-red-600 hover:bg-black text-white py-2 rounded-lg font-medium transition-colors duration-200">
-                  Book Now
-                </button>
+                <Link 
+                href={`/booking?service=${params.service}`}
+                className="bg-white text-red-700 hover:bg-red-50 hover:text-red-800 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 min-w-[200px] text-center"
+              >
+                Book Service Now
+              </Link>
               </div>
             ))}
           </div>
@@ -809,11 +812,14 @@ export default function ServicePage({ params }) {
             exceptional results with our expert team.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-black hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-colors duration-200">
-              Book Service Now
-            </button>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-3 rounded-lg font-semibold transition-all duration-200">
-              Call (555) 123-4567
+          <Link 
+                href={`/booking?service=${params.service}`}
+                className="bg-white text-red-700 hover:bg-red-50 hover:text-red-800 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 min-w-[200px] text-center"
+              >
+                Book Service Now
+              </Link>
+            <button className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-5 rounded-lg font-semibold transition-all duration-200">
+              Call (+974) 5518 7619
             </button>
           </div>
         </div>

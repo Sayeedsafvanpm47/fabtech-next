@@ -36,9 +36,9 @@ export default function Navigation() {
       labelAr: 'الخدمات',
       hasDropdown: true 
     },
-    { href: '/projects', label: 'Projects', labelAr: 'المشاريع' },
+    // { href: '/projects', label: 'Projects', labelAr: 'المشاريع' },
     { href: '/about', label: 'About', labelAr: 'من نحن' },
-    { href: '/blog', label: 'Blog', labelAr: 'المدونة' },
+    // { href: '/blog', label: 'Blog', labelAr: 'المدونة' },
     { href: '/faq', label: 'FAQ', labelAr: 'الأسئلة الشائعة' },
     { href: '/contact', label: 'Contact', labelAr: 'اتصل بنا' },
   ];
@@ -124,7 +124,7 @@ export default function Navigation() {
       <div className="flex items-center gap-2">
         <Mail size={16} />
         <Link href="mailto:info@fabtechqatar.com" className="hover:underline">
-          info@fabtechqatar.com
+          fms@fabtechqatar.com
         </Link>
       </div>
     </div>

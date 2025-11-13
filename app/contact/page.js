@@ -1,4 +1,5 @@
 import ContactForm from '../components/ContactForm';
+import GoToContact from '../components/GoToContact';
 
 export const metadata = {
   title: 'Contact Us',
@@ -13,26 +14,26 @@ export default function Contact() {
   const contactInfo = [
     {
       title: "Phone",
-      value: "(555) 123-4567",
+      value: "(+974) 5518 7619",
       description: "Call us for immediate assistance",
       icon: "📞"
     },
     {
       title: "Email",
-      value: "info@fabtech-services.com",
+      value: "fms@fabtechqatar.com",
       description: "Send us your questions anytime",
       icon: "✉️"
     },
     {
       title: "Address",
-      value: "123 Business Avenue, Suite 100",
-      description: "City, State 12345",
+      value: "Madina Khalifa South, Doha",
+      description: "Al Rabiah Building 1  Second floor S14",
       icon: "📍"
     },
     {
       title: "Hours",
       value: "24/7 Emergency Support",
-      description: "Mon-Fri: 8AM-6PM (Office)",
+      description: "Sat-Thu: 8AM-6PM (Office)",
       icon: "🕒"
     }
   ];
@@ -65,14 +66,14 @@ export default function Contact() {
   ];
 
   return (
-    <div className="py-16">
+    <div className="">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+      <section className="bg-gradient-to-r from-red-600 to-red-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Contact FabTech
+            Contact Fabtech Services
           </h1>
-          <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto">
             Ready to optimize your facility operations? Get in touch with our experts 
             for a free consultation and customized solution.
           </p>
@@ -117,7 +118,7 @@ export default function Contact() {
                   For urgent facility emergencies requiring immediate attention:
                 </p>
                 <div className="space-y-2">
-                  <p className="text-red-800 font-semibold">Emergency Hotline: (555) 911-HELP</p>
+                  <p className="text-red-800 font-semibold">Emergency Hotline: (+974) 7146 0844</p>
                   <p className="text-red-700 text-sm">Available 24/7 for critical facility issues</p>
                 </div>
               </div>
@@ -153,61 +154,34 @@ export default function Contact() {
                   Service Areas
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  We proudly serve businesses across the United States with 
+                  We proudly serve businesses across Qatar with 
                   comprehensive facility management solutions.
                 </p>
                 <div className="grid grid-cols-2 gap-2 text-sm text-gray-700">
-                  <div>• New York Metro</div>
-                  <div>• Los Angeles Area</div>
-                  <div>• Chicago Region</div>
-                  <div>• Houston Metro</div>
-                  <div>• Miami-Dade</div>
-                  <div>• Dallas-Fort Worth</div>
-                  <div>• San Francisco Bay</div>
-                  <div>• And More...</div>
-                </div>
+  <div>• Doha</div>
+  <div>• Al Rayyan</div>
+  <div>• Al Wakrah</div>
+  <div>• Lusail</div>
+  <div>• Umm Salal</div>
+  <div>• Al Khor</div>
+  <div>• Al Thumama</div>
+  <div>• The Pearl Qatar</div>
+  <div>• Industrial Area</div>
+  <div>• Ain Khaled</div>
+  <div>• Abu Hamour</div>
+  <div>• Al Gharafa</div>
+  <div>• Al Sadd</div>
+  <div>• Al Waab</div>
+  <div>• Al Messila</div>
+  <div>• And More Across Qatar...</div>
+</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Office Locations */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Office Locations
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              With offices nationwide, we&apos;re always close by to serve your 
-              facility management needs.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {officeLocations.map((office, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{office.city}</h3>
-                <div className="space-y-3 text-gray-600">
-                  <div className="flex items-start">
-                    <span className="text-blue-600 mr-2 mt-1">📍</span>
-                    <span className="text-sm">{office.address}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <span className="text-blue-600 mr-2">📞</span>
-                    <span className="text-sm">{office.phone}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <span className="text-blue-600 mr-2">✉️</span>
-                    <span className="text-sm">{office.email}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+   
 
       {/* FAQ Section */}
       <section className="py-16 bg-gray-50">
@@ -270,22 +244,20 @@ export default function Contact() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-600">
+      <section className="py-16 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Get Started?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Don&apos;t wait - contact us today and discover how FabTech can transform 
+          <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
+            Don&apos;t wait - contact us today and discover how Fabtech can transform 
             your facility management operations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-colors duration-200">
-              Call (555) 123-4567
+              Call (+974) 5518 7619
             </button>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-lg font-semibold transition-all duration-200">
-              Schedule Free Consultation
-            </button>
+            <GoToContact  name="Schedule Free Consultation" href="/contact" />
           </div>
         </div>
       </section>
