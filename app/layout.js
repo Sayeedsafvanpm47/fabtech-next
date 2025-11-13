@@ -34,13 +34,13 @@ export const metadata = {
   publisher: "FabTech",
   icons: {
     icon: [
-      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon.png', sizes: '16x16', type: 'image/png' }
+      { url: '/logo.png', sizes: '32x32', type: 'image/png' },
+      { url: '/logo.png', sizes: '16x16', type: 'image/png' }
     ],
     apple: [
-      { url: '/favicon.png', sizes: '180x180', type: 'image/png' }
+      { url: '/logo.png', sizes: '180x180', type: 'image/png' }
     ],
-    shortcut: '/favicon.png'
+    shortcut: '/logo.png'
   },
   robots: {
     index: true,
@@ -56,10 +56,18 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://fabtech-services.com',
+    url: 'https://fabtechqatar.com',
     title: 'FabTech - Professional Facility Management Services',
     description: 'Professional facility management services including maintenance, cleaning, security, and property management.',
-    siteName: 'FabTech',
+    siteName: 'FabTech Qatar',
+    images: [
+      {
+        url: 'https://fabtechqatar.com/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'FabTech Qatar - Professional Facility Management Services',
+      }
+    ],
   },
   twitter: {
     card: 'summary_large_image',
