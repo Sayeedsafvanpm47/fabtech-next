@@ -39,22 +39,33 @@ export default function ContactForm() {
     setSubmitStatus(null);
 
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // In a real application, you would send the data to your backend
-      console.log('Form submitted:', formData);
-      
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        service: '',
-        message: ''
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        console.log('Contact form submitted successfully:', result);
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          service: '',
+          message: ''
+        });
+      } else {
+        console.error('Contact form submission failed:', result);
+        setSubmitStatus('error');
+      }
     } catch (error) {
+      console.error('Contact form submission error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -67,13 +78,34 @@ export default function ContactForm() {
       
       {submitStatus === 'success' && (
         <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
-          Thank you for your message! We&apos;ll get back to you within 24 hours.
+          <div className="flex items-center mb-2">
+            <span className="text-green-500 mr-2">✓</span>
+            <strong>Message Sent Successfully!</strong>
+          </div>
+          <p className="text-sm">
+            Thank you for contacting FabTech! We&apos;ve received your message and will respond within 2 hours during business hours. 
+            You&apos;ll also receive a confirmation email shortly.
+          </p>
+          <p className="text-sm mt-2">
+            <strong>Need immediate assistance?</strong> Call our emergency hotline: (+974) 7146 0844
+          </p>
         </div>
       )}
       
       {submitStatus === 'error' && (
         <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
-          There was an error sending your message. Please try again or call us directly.
+          <div className="flex items-center mb-2">
+            <span className="text-red-500 mr-2">⚠</span>
+            <strong>Message Not Sent</strong>
+          </div>
+          <p className="text-sm">
+            There was an error sending your message. Please try again or contact us directly:
+          </p>
+          <div className="text-sm mt-2 space-y-1">
+            <p><strong>Phone:</strong> (+974) 5518 7619</p>
+            <p><strong>Email:</strong> fms@fabtechqatar.com</p>
+            <p><strong>Emergency:</strong> (+974) 7146 0844</p>
+          </div>
         </div>
       )}
 
