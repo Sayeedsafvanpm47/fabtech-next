@@ -97,3 +97,4 @@ export default function MapSelector({ onLocationSelect, onClose }) {
 // 4. Implement address geocoding
 // 5. Add search functionality
 // 6. Return selected coordinates and address
+

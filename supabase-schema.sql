@@ -68,3 +68,4 @@ CREATE POLICY "Users can insert bookings" ON bookings
 --   'Residential Deep Cleaning', '2bhk', 250.00, 
 --   CURRENT_DATE + INTERVAL '1 day', '10:00 AM', 'pending'
 -- );
+

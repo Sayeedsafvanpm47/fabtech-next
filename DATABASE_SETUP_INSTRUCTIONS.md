@@ -106,3 +106,4 @@ If you're still having issues:
 3. Test the database connection at `/api/test-db`
 
 The booking system will work perfectly once the database table is created!
+

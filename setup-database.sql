@@ -74,3 +74,4 @@ INSERT INTO public.bookings (
 
 -- Verify the table was created successfully
 SELECT 'Table created successfully!' as message, COUNT(*) as test_records FROM public.bookings;
+

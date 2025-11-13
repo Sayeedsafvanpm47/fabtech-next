@@ -112,3 +112,4 @@ catch (error) {
 ✅ **Accessible** - Proper color contrast and clear messaging
 
 The booking system now provides a **premium user experience** with clear visual feedback for both success and error states!
+

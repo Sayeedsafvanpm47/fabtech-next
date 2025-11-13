@@ -76,3 +76,4 @@ export const OptimizedFloatingCTA = (props) => (
     <LazyFloatingCTA {...props} />
   </LazySection>
 );
+

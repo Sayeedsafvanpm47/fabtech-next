@@ -141,3 +141,4 @@ SELECT * FROM bookings LIMIT 1;
 8. **Email** → Booking notification received
 
 The booking system should now provide detailed error messages and logging to help identify any issues!
+

@@ -107,3 +107,4 @@ curl http://localhost:3000/api/test-email
 ```
 
 The email system will work perfectly once Gmail is properly configured!
+

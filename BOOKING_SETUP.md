@@ -108,3 +108,4 @@ The booking system is fully functional and ready to accept customer bookings. Al
 4. Set up booking management dashboard (optional)
 
 The system is production-ready and will help streamline your booking process!
+

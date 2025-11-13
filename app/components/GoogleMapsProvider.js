@@ -47,3 +47,4 @@ export default function GoogleMapsProvider({ children }) {
     </GoogleMapsContext.Provider>
   );
 }
+
