@@ -32,6 +32,16 @@ export const metadata = {
   authors: [{ name: "FabTech" }],
   creator: "FabTech",
   publisher: "FabTech",
+  icons: {
+    icon: [
+      { url: '/logo.png', sizes: '32x32', type: 'image/png' },
+      { url: '/logo.png', sizes: '16x16', type: 'image/png' }
+    ],
+    apple: [
+      { url: '/logo.png', sizes: '180x180', type: 'image/png' }
+    ],
+    shortcut: '/logo.png'
+  },
   robots: {
     index: true,
     follow: true,
