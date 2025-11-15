@@ -106,12 +106,12 @@ export default function ServiceCarousel({ services }) {
         }}
         className="w-full"
       >
-        <CarouselContent className="-ml-2 md:-ml-4">
+        <CarouselContent className="-ml-1 sm:-ml-2 md:-ml-4">
           {serviceList.map((service, index) => (
-            <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={index} className="pl-1 sm:pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
               <div className="p-1 h-full perspective-1000">
                 <Card className="h-full transition-all duration-500 ease-out hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.3)] hover:-translate-y-3 hover:rotate-y-2 border-2 border-gray-100 bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/20 backdrop-blur-sm transform-gpu">
-                  <CardContent className="flex flex-col justify-between h-full p-6 relative">
+                  <CardContent className="flex flex-col justify-between h-full p-4 sm:p-6 relative">
                     {/* Decorative gradient overlay */}
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-t-lg opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
                     
@@ -121,7 +121,7 @@ export default function ServiceCarousel({ services }) {
                         <div className="text-4xl mr-3 transition-all duration-500 hover:scale-125 hover:rotate-12 filter drop-shadow-lg" role="img" aria-label={`${service.title} icon`}>
                           {service.icon}
                         </div>
-                        <h3 className="text-lg font-bold text-gray-900 leading-tight">
+                        <h3 className="text-base sm:text-lg font-bold text-gray-900 leading-tight">
                           {service.title}
                         </h3>
                       </div>
@@ -162,7 +162,7 @@ export default function ServiceCarousel({ services }) {
                           Learn More
                         </Link>
                       )}
-                      <button className="w-full border-2 border-white-600 text-white-600 hover:bg-gradient-to-r hover:from-red-600 hover:to-red-700 hover:text-white py-2.5 px-4 rounded-lg font-semibold transition-all duration-300 text-sm hover:shadow-lg hover:scale-105 active:scale-95 hover:border-transparent">
+                      <button className="w-full border-2 border-gray-300 text-gray-700 hover:bg-gradient-to-r hover:from-red-600 hover:to-red-700 hover:text-white py-2.5 px-4 rounded-lg font-semibold transition-all duration-300 text-sm hover:shadow-lg hover:scale-105 active:scale-95 hover:border-transparent">
                         Get Quote
                       </button>
                     </div>
@@ -174,7 +174,7 @@ export default function ServiceCarousel({ services }) {
         </CarouselContent>
         
         {/* Navigation */}
-        <div className="flex items-center justify-center mt-10 space-x-8">
+        {/* <div className="flex items-center justify-center mt-10 space-x-8">
           <CarouselPrevious className="relative left-0 top-0 translate-y-0 h-14 w-14 rounded-full bg-white text-black hover:bg-black hover:text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-125 active:scale-95 backdrop-blur-sm" />
           
           <div className="flex space-x-2.5 bg-white/50 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
@@ -193,7 +193,7 @@ export default function ServiceCarousel({ services }) {
           </div>
           
           <CarouselNext className="relative right-0 top-0 translate-y-0 h-14 w-14 rounded-full bg-white text-black  hover:bg-black hover:text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-125 active:scale-95 backdrop-blur-sm" />
-        </div>
+        </div> */}
       </Carousel>
     </div>
   );

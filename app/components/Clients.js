@@ -7,10 +7,13 @@ import dynamic from 'next/dynamic';
 const Slider = dynamic(() => import('react-slick'), {
   ssr: false,
   loading: () => (
-    <div className="flex justify-center items-center space-x-8 animate-pulse">
-      {[...Array(6)].map((_, i) => (
-        <div key={i} className="w-24 h-12 bg-gray-200 rounded"></div>
+    <div className="flex justify-center items-center space-x-2 sm:space-x-4 md:space-x-8 animate-pulse px-4">
+      {[...Array(3)].map((_, i) => (
+        <div key={i} className="w-16 h-8 sm:w-20 sm:h-10 md:w-24 md:h-12 bg-gray-200 rounded"></div>
       ))}
+      <div className="hidden sm:block w-20 h-10 md:w-24 md:h-12 bg-gray-200 rounded"></div>
+      <div className="hidden md:block w-24 h-12 bg-gray-200 rounded"></div>
+      <div className="hidden lg:block w-24 h-12 bg-gray-200 rounded"></div>
     </div>
   )
 });
@@ -19,34 +22,6 @@ const Slider = dynamic(() => import('react-slick'), {
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-// Optimized CSS-in-JS styles
-const styles = {
-  section: {
-    padding: '4rem 0',
-    backgroundColor: '#ffffff',
-    overflow: 'hidden',
-    maxWidth: '100%',
-    borderRadius: '15px',
-  },
-  title: {
-    textAlign: 'center',
-    fontSize: '2.5rem',
-    marginBottom: '3rem',
-    color: '#1f2937',
-    fontWeight: 'bold',
-  },
-  container: {
-    margin: '0 auto',
-    maxWidth: '1400px',
-    padding: '0 20px',
-  },
-  logoContainer: {
-    padding: '1rem',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-};
 
 const Clients = ({ logos = [] }) => {
   const settings = {
@@ -87,29 +62,39 @@ const Clients = ({ logos = [] }) => {
           slidesToShow: 2,
           speed: 3000,
         }
+      },
+      {
+        breakpoint: 360,
+        settings: {
+          slidesToShow: 1,
+          speed: 2500,
+        }
       }
     ]
   };
 
   // Loading component for slider
   const SliderLoading = () => (
-    <div style={styles.container}>
-      <div className="flex justify-center items-center space-x-8 animate-pulse">
-        {[...Array(6)].map((_, i) => (
-          <div key={i} className="w-24 h-12 bg-gray-200 rounded"></div>
+    <div className="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
+      <div className="flex justify-center items-center space-x-2 sm:space-x-4 md:space-x-8 animate-pulse">
+        {[...Array(3)].map((_, i) => (
+          <div key={i} className="w-16 h-8 sm:w-20 sm:h-10 md:w-24 md:h-12 bg-gray-200 rounded"></div>
         ))}
+        <div className="hidden sm:block w-20 h-10 md:w-24 md:h-12 bg-gray-200 rounded"></div>
+        <div className="hidden md:block w-24 h-12 bg-gray-200 rounded"></div>
+        <div className="hidden lg:block w-24 h-12 bg-gray-200 rounded"></div>
       </div>
     </div>
   );
 
   return (
-    <section style={styles.section}>
-      <h2 style={styles.title}>Our Clients</h2>
-      <div style={styles.container}>
+    <section className="py-8 sm:py-16 bg-white overflow-hidden max-w-full rounded-2xl">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 text-center mb-6 sm:mb-12 px-4">Our Clients</h2>
+      <div className="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
         <Suspense fallback={<SliderLoading />}>
           <Slider {...settings}>
             {logos.map((logo, index) => (
-              <div key={index} style={styles.logoContainer}>
+              <div key={index} className="p-2 sm:p-4 flex justify-center items-center">
                 <Image
                   src={logo.url}
                   alt={logo.name}
@@ -117,8 +102,8 @@ const Clients = ({ logos = [] }) => {
                   width={120}
                   height={60}
                   loading="lazy"
-                  className="max-w-[120px] h-[60px] object-contain filter grayscale opacity-70 transition-all duration-300 hover:filter-none hover:opacity-100 hover:scale-110"
-                  sizes="(max-width: 768px) 100px, 120px"
+                  className="w-16 h-8 sm:w-20 sm:h-10 md:max-w-[120px] md:h-[60px] object-contain filter grayscale opacity-70 transition-all duration-300 hover:filter-none hover:opacity-100 hover:scale-110"
+                  sizes="(max-width: 480px) 64px, (max-width: 768px) 80px, 120px"
                 />
               </div>
             ))}

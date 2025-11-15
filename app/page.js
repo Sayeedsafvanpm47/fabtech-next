@@ -499,35 +499,26 @@ export default function Home() {
       <Hero />
 
       {/* intro section */}
-      <section className="py-16 bg-gray-50" aria-labelledby="intro-heading">
+      <section className="py-8 sm:py-16 bg-gray-50" aria-labelledby="intro-heading">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* THIS IS THE LINE TO CHANGE:
-          - Default (mobile first): flex-col (stacked)
-          - sm:flex-row: switches to row layout at the 'sm' breakpoint (640px by default, which is close to your 600px target)
-        */}
-        <div className="flex flex-col sm:flex-row items-center justify-center">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
         
-            {/* Lottie Component Container 
-              - Default: w-full (for mobile)
-              - sm:w-1/2: takes half the width on screens >= sm
-            */}
-            <div className="w-full sm:w-1/2">
+            {/* Lottie Component Container */}
+            <div className="w-full sm:w-1/2 order-2 sm:order-1">
                 <IntroComponent
                     src={"https://res.cloudinary.com/diunkrydn/raw/upload/v1753185901/Meditation_u5y0oi.lottie"} 
-                    width={500}
-                    height={500}
+                    width={400}
+                    height={400}
                     loop={true}
                     autoplay={true}
                 />
             </div>
         
-            {/* Text Container 
-              - Default: text-center and takes full width
-            */}
-            <div className="w-full sm:w-1/2 text-center mb-12 sm:mb-0 sm:pl-8"> 
+            {/* Text Container */}
+            <div className="w-full sm:w-1/2 text-center sm:text-left order-1 sm:order-2 mb-6 sm:mb-0"> 
                 <TypingTextContainer text={introTextPhrases} />
               
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto sm:mx-0 leading-relaxed">
                     Since 2016, we&apos;ve been transforming spaces across Qatar with expert services in Cleaning, Facility Management, Civil Works, Pest Control, Hospitality, and more. From spotless homes to smart buildings, we make spaces cleaner, safer, and more efficient, all with a team that gets things done right. Clean. Build. Manage. Simplify. That&apos;s Fabtech.
                 </p>
             </div>
@@ -537,26 +528,21 @@ export default function Home() {
 
 
 
-     <section className="py-16 bg-white text-black" aria-labelledby="services-heading">
+     <section className="py-8 sm:py-16 bg-white text-black" aria-labelledby="services-heading">
        
        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
          
-         <div className="text-center mb-12">
-           <h2 id="services-heading" className="text-3xl md:text-4xl font-bold text-black mb-4">
+         <div className="text-center mb-8 sm:mb-12">
+           <h2 id="services-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4">
              We Do It All, <FlipWord words={serviceFlipWords} />
            </h2>
-           <p className="text-xl text-black max-w-3xl mx-auto">
+           <p className="text-base sm:text-xl text-black max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
              We provide comprehensive facility management solutions tailored to meet 
              the unique needs of your business across maintenance, cleaning, security, and property management.
            </p>
          </div>
          
-         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-          
-            
-          </div>
-          
+         <div className="max-w-7xl mx-auto">
           <ServiceCarousel services={carouselServices} />
         </div>
        </div>
@@ -569,56 +555,55 @@ export default function Home() {
      
       <WavyBackground
       backgroundFill="white"
-    
       waveWidth={30}
       blur={8}
       speed="fast"
       waveOpacity={0.3}
-      containerClassName="h-[90vh] w-full rounded-lg border overflow-hidden"
+      containerClassName="min-h-[60vh] sm:h-[90vh] w-full rounded-lg border overflow-hidden"
       className="max-w-4xl"
     >
       {/* Why Choose Us Section */}
-      <section className="rounded-full" aria-labelledby="benefits-heading">
+      <section className="py-8 sm:py-16" aria-labelledby="benefits-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 id="benefits-heading" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 id="benefits-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Why Choose FabTech Facility Management?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
               With over 10 years of experience serving 500+ clients nationwide, we deliver exceptional facility management 
               services that exceed expectations.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             <article className="text-center">
-              <div className="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4" aria-hidden="true">
-                <span className="text-2xl">⭐</span>
+              <div className="bg-white rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mx-auto mb-4" aria-hidden="true">
+                <span className="text-xl sm:text-2xl">⭐</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Proven Excellence</h3>
-              <p className="text-gray-600">
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Proven Excellence</h3>
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                 Over 500+ satisfied clients and 15 years of industry experience delivering 
                 exceptional facility management results with a 4.8-star rating.
               </p>
             </article>
             
             <article className="text-center">
-              <div className="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4" aria-hidden="true">
-                <span className="text-2xl">🕒</span>
+              <div className="bg-white rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mx-auto mb-4" aria-hidden="true">
+                <span className="text-xl sm:text-2xl">🕒</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">24/7 Support & Emergency Response</h3>
-              <p className="text-gray-600">
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">24/7 Support & Emergency Response</h3>
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                 Round-the-clock support and emergency response services to ensure your facilities 
                 never skip a beat, day or night.
               </p>
             </article>
             
-            <article className="text-center">
-              <div className="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4" aria-hidden="true">
-                <span className="text-2xl">💰</span>
+            <article className="text-center sm:col-span-2 md:col-span-1">
+              <div className="bg-white rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mx-auto mb-4" aria-hidden="true">
+                <span className="text-xl sm:text-2xl">💰</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Cost-Effective Solutions</h3>
-              <p className="text-gray-600">
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Cost-Effective Solutions</h3>
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                 Competitive pricing with transparent billing and no hidden costs. 
                 Get more value for your facility management investment.
               </p>
@@ -629,8 +614,8 @@ export default function Home() {
       </WavyBackground>
 
       {/* <GoogleReviews /> */}    
-      <section className="py-16 bg-yellow-300">
-      <h2 className="text-3xl md:text-4xl font-bold text-red-600 mb-4 text-center">Reviews on Google</h2> 
+      <section className="py-8 sm:py-16 bg-yellow-300">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-red-600 mb-4 text-center px-4">Reviews on Google</h2> 
       {/* <GoogleReviews />  */}
       </section>
 

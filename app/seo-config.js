@@ -144,3 +144,4 @@ export const generateLocalBusinessSchema = () => ({
   "priceRange": "$$",
   "servesCuisine": "Facility Management Services"
 });
+
