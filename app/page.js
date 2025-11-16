@@ -613,7 +613,7 @@ export default function Home() {
       </section>
       </WavyBackground>
 
-      {/* <GoogleReviews /> */}    
+      <GoogleReviews />    
       <section className="py-8 sm:py-16 bg-yellow-300">
       <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-red-600 mb-4 text-center px-4">Reviews on Google</h2> 
       {/* <GoogleReviews />  */}
