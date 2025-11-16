@@ -2,11 +2,48 @@ import ServiceCard from '../components/ServiceCard';
 import TypingTextContainer from '../components/TypingTextContainer';
 import GoToContact from '../components/GoToContact';
 export const metadata = {
-  title: 'Services',
-  description: 'Comprehensive facility management services including maintenance, cleaning, security, and property management. Professional solutions for businesses of all sizes.',
+  title: 'Our Services - FabTech Qatar | Deep Cleaning, Facility Management & Maintenance',
+  description: 'Comprehensive facility management services in Qatar including deep cleaning, commercial cleaning, pest control, maintenance, landscaping, and property management. Professional solutions for all property types.',
+  keywords: [
+    'facility management services qatar',
+    'deep cleaning services qatar',
+    'commercial cleaning doha',
+    'residential cleaning qatar',
+    'pest control services qatar',
+    'maintenance services doha',
+    'landscaping services qatar',
+    'property management qatar',
+    'cleaning company qatar',
+    'facility services doha'
+  ],
   openGraph: {
-    title: 'Our Services | FabTech Facility Management',
-    description: 'Explore our comprehensive range of facility management services designed to keep your business running smoothly.',
+    title: 'Our Services | FabTech Qatar Facility Management',
+    description: 'Explore our comprehensive range of facility management and cleaning services in Qatar designed to keep your property in perfect condition.',
+    url: 'https://fabtechqatar.com/services',
+    siteName: 'FabTech Qatar',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: 'https://fabtechqatar.com/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'FabTech Qatar Services',
+      }
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Our Services | FabTech Qatar Facility Management',
+    description: 'Comprehensive facility management and cleaning services in Qatar for all property types.',
+    images: ['https://fabtechqatar.com/logo.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: 'https://fabtechqatar.com/services',
   },
 };
 const serviceTitles = ["We Do It All","Comprehensive Facility Management","Fabulous Interior Designing","Professional Cleaning Services","Post Construction Cleaning","Move-In / Move-Out Cleaning","Pest Control","Interior Design","Interior Fit-Out","Canopy Construction","Car Shade Construction","Structural Maintenance"];

@@ -4,18 +4,27 @@ export default function sitemap() {
   
   // Define all service pages
   const services = [
-    'facility-maintenance',
-    'commercial-cleaning', 
-    'security-services',
-    'property-management',
-    'landscaping-grounds',
-    'energy-management',
-    'emergency-response',
-    'hvac-services',
-    'electrical-services',
-    'plumbing-services',
+    'residential-deep-cleaning',
+    'commercial-deep-cleaning',
+    'general-cleaning',
+    'cleaner-supply-commercial',
+    'cleaner-supply-residential',
+    'sofa-cleaning',
+    'carpet-cleaning',
+    'mattress-cleaning',
+    'water-tank-cleaning',
+    'majlis-cleaning',
+    'marble-polishing',
+    'granite-polishing',
+    'marble-floor-cleaning',
+    'post-construction-cleaning',
+    'move-in-move-out-cleaning',
     'pest-control',
-    'waste-management'
+    'interior-design',
+    'interior-fitout',
+    'canopy-construction',
+    'car-shade-construction',
+    'structural-maintenance'
   ];
 
   // Main pages

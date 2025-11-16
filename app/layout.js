@@ -58,13 +58,13 @@ export const metadata = {
   publisher: "Fabtech Services Trading & Contracting",
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
       { url: '/favicon.png', sizes: '16x16', type: 'image/png' }
     ],
     apple: [
-      { url: 'favicon.png', sizes: '180x180', type: 'image/png' }
+      { url: '/favicon.png', sizes: '180x180', type: 'image/png' }
     ],
-    shortcut: 'favicon.ico'
+    shortcut: '/favicon.ico'
   },
   robots: {
     index: true,
@@ -115,7 +115,16 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         
         {/* Theme color for mobile browsers */}
-        <meta name="theme-color" content="#1e40af" />
+        <meta name="theme-color" content="#dc2626" />
+        
+        {/* Additional SEO meta tags */}
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="FabTech Qatar" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://fabtechqatar.com" />
         
         {/* Prevent FOUC */}
         <style dangerouslySetInnerHTML={{

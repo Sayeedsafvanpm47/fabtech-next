@@ -2,11 +2,46 @@ import Clients from "../components/Clients";
 import { clientLogos } from "../constants/Clientlogos"
 
 export const metadata = {
-  title: 'About Us',
-  description: 'Learn about FabTech&apos;s 15+ years of experience in facility management. Our mission, values, and commitment to excellence in serving businesses nationwide.',
+  title: 'About Us - FabTech Qatar | Leading Facility Management Company Since 2016',
+  description: 'Learn about FabTech Qatar\'s 9+ years of experience in facility management and cleaning services. Our mission, values, and commitment to excellence in serving businesses across Qatar.',
+  keywords: [
+    'about fabtech qatar',
+    'facility management company qatar',
+    'cleaning company doha',
+    'fabtech services history',
+    'professional cleaning qatar',
+    'facility management experience',
+    'qatar cleaning services company',
+    'established cleaning company qatar'
+  ],
   openGraph: {
-    title: 'About FabTech | Leading Facility Management Company',
-    description: 'Discover our story, mission, and the experienced team behind FabTech&apos;s success in facility management.',
+    title: 'About FabTech Qatar | Leading Facility Management Company',
+    description: 'Discover our story, mission, and the experienced team behind FabTech Qatar\'s success in facility management and cleaning services since 2016.',
+    url: 'https://fabtechqatar.com/about',
+    siteName: 'FabTech Qatar',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: 'https://fabtechqatar.com/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'About FabTech Qatar',
+      }
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About FabTech Qatar | Leading Facility Management Company',
+    description: 'Learn about our 9+ years of experience in facility management and cleaning services across Qatar.',
+    images: ['https://fabtechqatar.com/logo.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: 'https://fabtechqatar.com/about',
   },
 };
 

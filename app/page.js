@@ -20,28 +20,42 @@ import {
 
 import { cn } from "@/lib/utils";
 export const metadata = {
-  title: 'FabTech - Professional Facility Management Services | Maintenance, Cleaning & Security',
-  description: 'Leading facility management company offering 24/7 maintenance, commercial cleaning, security services, and property management. Trusted by 500+ clients nationwide with 15 years of experience.',
-  keywords: 'facility management, commercial cleaning, property maintenance, security services, building management, HVAC maintenance, property management services',
+  title: 'FabTech Qatar - Professional Facility Management Services | Deep Cleaning & Maintenance',
+  description: 'Leading facility management company in Qatar offering 24/7 maintenance, deep cleaning, commercial cleaning, pest control, and property management. Trusted by 500+ clients with 9+ years of experience.',
+  keywords: [
+    'facility management qatar',
+    'deep cleaning qatar', 
+    'commercial cleaning doha',
+    'property maintenance qatar',
+    'pest control qatar',
+    'building management qatar',
+    'cleaning services qatar',
+    'facility services doha',
+    'maintenance services qatar',
+    'property management doha'
+  ],
   openGraph: {
-    title: 'FabTech - Professional Facility Management Services',
-    description: 'Comprehensive facility management solutions for businesses nationwide. 24/7 support, 500+ satisfied clients.',
+    title: 'FabTech Qatar - Professional Facility Management Services',
+    description: 'Leading facility management company in Qatar offering deep cleaning, maintenance, pest control, and property management services. Trusted by 500+ clients.',
     type: 'website',
     url: 'https://fabtechqatar.com',
+    siteName: 'FabTech Qatar',
+    locale: 'en_US',
     images: [
       {
-        url: 'https://fabtechqatar.com/og-image.jpg',
+        url: 'https://fabtechqatar.com/logo.png',
         width: 1200,
         height: 630,
-        alt: 'FabTech Facility Management Services',
+        alt: 'FabTech Qatar - Professional Facility Management Services',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'FabTech - Professional Facility Management Services',
-    description: 'Comprehensive facility management solutions for businesses nationwide.',
-    images: ['https://fabtechqatar.com/og-image.jpg'],
+    title: 'FabTech Qatar - Professional Facility Management Services',
+    description: 'Leading facility management company in Qatar offering deep cleaning, maintenance, pest control, and property management services.',
+    images: ['https://fabtechqatar.com/logo.png'],
+    creator: '@fabtechqatar',
   },
   robots: {
     index: true,
@@ -75,19 +89,27 @@ const structuredData = {
   "description": "Professional facility management services including maintenance, cleaning, security, and property management with over 15 years of experience serving 500+ clients.",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "123 Business Avenue, Suite 100",
-    "addressLocality": "City",
-    "addressRegion": "State",
-    "postalCode": "12345",
-    "addressCountry": "US"
+    "streetAddress": "Al Rabiah Building 1, Second floor S14",
+    "addressLocality": "Doha",
+    "addressRegion": "Madina Khalifa South",
+    "addressCountry": "Qatar"
   },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+1-555-123-4567",
-    "contactType": "customer service",
-    "availableLanguage": ["English"],
-    "areaServed": "US"
-  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+974-5518-7619",
+      "contactType": "customer service",
+      "availableLanguage": ["English", "Arabic"],
+      "areaServed": "Qatar"
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "+974-7146-0844",
+      "contactType": "emergency",
+      "availableLanguage": ["English", "Arabic"],
+      "areaServed": "Qatar"
+    }
+  ],
   "sameAs": [
     "https://www.facebook.com/fabtech",
     "https://www.linkedin.com/company/fabtech",
