@@ -25,22 +25,46 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: {
     default: "FabTech - Professional Facility Management Services",
-    template: "%s | FabTech Facility Management"
+    template: "%s | Fabtech Services Trading & Contracting | Deep Cleaning & Facility Management"
   },
-  description: "Professional facility management services including maintenance, cleaning, security, and property management. Trusted by businesses across the region.",
-  keywords: ["facility management", "property maintenance", "commercial cleaning", "security services", "building management"],
-  authors: [{ name: "FabTech" }],
-  creator: "FabTech",
-  publisher: "FabTech",
+  description: "Fabtech Services offers comprehensive facility management solutions in Qatar, covering deep cleaning, general cleaning, residential and commercial cleaning, post-construction cleaning, pest control, disinfection services, staffing supply, hospitality staffing, maintenance services, landscaping, civil works, MEP support, property management, and full facility management services. Trusted across Qatar for professional, reliable, and high-quality service delivery.",
+  keywords: [
+    "facility management",
+    "facility management qatar",
+    "property maintenance",
+    "commercial cleaning",
+    "residential cleaning",
+    "deep cleaning qatar",
+    "pest control qatar",
+    "post construction cleaning",
+    "building management",
+    "maintenance services qatar",
+    "landscaping services qatar",
+    "hospitality staffing qatar",
+    "staff supply qatar",
+    "civil works qatar",
+    "MEP services qatar",
+    "FM services qatar",
+    "cleaning company in qatar",
+    "security services qatar",
+    "property management qatar",
+    "disinfection services qatar",
+    "amc services qatar",
+    "general cleaning qatar",
+    "construction cleaning qatar"
+  ],
+  authors: [{ name: "Fabtech Services Trading & Contracting" }],
+  creator: "Fabtech Services Trading & Contracting",
+  publisher: "Fabtech Services Trading & Contracting",
   icons: {
     icon: [
-      { url: '/logo.png', sizes: '32x32', type: 'image/png' },
-      { url: '/logo.png', sizes: '16x16', type: 'image/png' }
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.png', sizes: '16x16', type: 'image/png' }
     ],
     apple: [
-      { url: '/logo.png', sizes: '180x180', type: 'image/png' }
+      { url: 'favicon.png', sizes: '180x180', type: 'image/png' }
     ],
-    shortcut: '/logo.png'
+    shortcut: 'favicon.ico'
   },
   robots: {
     index: true,
@@ -57,9 +81,9 @@ export const metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://fabtechqatar.com',
-    title: 'FabTech - Professional Facility Management Services',
-    description: 'Professional facility management services including maintenance, cleaning, security, and property management.',
-    siteName: 'FabTech Qatar',
+    title: 'Fabtech Services Trading & Contracting - Professional Facility Management Services',
+    description: "Fabtech Services offers comprehensive facility management solutions in Qatar, covering deep cleaning, general cleaning, residential and commercial cleaning, post-construction cleaning, pest control, disinfection services, staffing supply, hospitality staffing, maintenance services, landscaping, civil works, MEP support, property management, and full facility management services. Trusted across Qatar for professional, reliable, and high-quality service delivery.",
+    siteName: 'Fabtech Services Trading & Contracting Qatar',
     images: [
       {
         url: 'https://fabtechqatar.com/logo.png',
@@ -71,8 +95,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'FabTech - Professional Facility Management Services',
-    description: 'Professional facility management services including maintenance, cleaning, security, and property management.',
+    title: 'Fabtech Services Trading & Contracting - Professional Facility Management Services',
+    description: "Fabtech Services offers comprehensive facility management solutions in Qatar, covering deep cleaning, general cleaning, residential and commercial cleaning, post-construction cleaning, pest control, disinfection services, staffing supply, hospitality staffing, maintenance services, landscaping, civil works, MEP support, property management, and full facility management services. Trusted across Qatar for professional, reliable, and high-quality service delivery.",
   },
 };
 

@@ -2,8 +2,13 @@ import { NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase';
 import nodemailer from 'nodemailer';
 
-// Initialize Supabase client
-const supabase = createServerClient();
+// Initialize Supabase client with error handling
+let supabase;
+try {
+  supabase = createServerClient();
+} catch (error) {
+  console.error('Failed to initialize Supabase client:', error);
+}
 
 // Email configuration
 const emailConfig = {
@@ -21,6 +26,15 @@ const emailConfig = {
 
 export async function POST(request) {
   try {
+    // Check if Supabase client is initialized
+    if (!supabase) {
+      console.error('Supabase client not initialized');
+      return NextResponse.json(
+        { error: 'Database connection not available. Please check environment variables.' },
+        { status: 500 }
+      );
+    }
+
     const bookingData = await request.json();
     console.log('Received booking data:', bookingData);
     
@@ -62,13 +76,37 @@ export async function POST(request) {
 
     // Save to Supabase
     console.log('Attempting to save to database:', dbBookingData);
+    
+    // Test connection first
+    try {
+      const { error: testError } = await supabase.from('bookings').select('count', { count: 'exact', head: true });
+      if (testError) {
+        console.error('Supabase connection test failed:', testError);
+        return NextResponse.json(
+          { error: 'Database connection failed', details: testError.message },
+          { status: 500 }
+        );
+      }
+    } catch (connectionError) {
+      console.error('Supabase connection error:', connectionError);
+      return NextResponse.json(
+        { error: 'Database connection error', details: connectionError.message },
+        { status: 500 }
+      );
+    }
+
     const { data, error } = await supabase
       .from('bookings')
       .insert([dbBookingData])
       .select();
 
     if (error) {
-      console.error('Supabase error:', error);
+      console.error('Supabase insert error:', {
+        message: error.message,
+        details: error.details,
+        hint: error.hint,
+        code: error.code
+      });
       return NextResponse.json(
         { error: 'Failed to save booking to database', details: error.message },
         { status: 500 }
@@ -192,6 +230,15 @@ async function sendBookingEmail(bookingData, bookingId) {
 // GET method to retrieve bookings (optional, for admin panel)
 export async function GET(request) {
   try {
+    // Check if Supabase client is initialized
+    if (!supabase) {
+      console.error('Supabase client not initialized');
+      return NextResponse.json(
+        { error: 'Database connection not available. Please check environment variables.' },
+        { status: 500 }
+      );
+    }
+
     const { searchParams } = new URL(request.url);
     const status = searchParams.get('status');
     const limit = parseInt(searchParams.get('limit')) || 50;
