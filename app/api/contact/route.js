@@ -214,3 +214,4 @@ async function sendContactEmail(contactData, contactId) {
   await transporter.sendMail(confirmationOptions);
 }
 
+
