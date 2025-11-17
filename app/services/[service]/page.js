@@ -588,9 +588,50 @@ export async function generateMetadata({ params }) {
   return {
     title: service.title,
     description: service.description,
+    keywords: [
+      service.title.toLowerCase(),
+      `${service.title.toLowerCase()} qatar`,
+      `${service.title.toLowerCase()} doha`,
+      service.category.toLowerCase(),
+      'fabtech services',
+      'professional cleaning',
+      'facility management'
+    ],
+    alternates: {
+      canonical: `https://fabtechqatar.com/services/${resolvedParams.service}`,
+    },
     openGraph: {
-      title: `${service.title} | FabTech`,
+      title: `${service.title} | FabTech Qatar`,
       description: service.description,
+      url: `https://fabtechqatar.com/services/${resolvedParams.service}`,
+      type: 'website',
+      locale: 'en_US',
+      siteName: 'FabTech Qatar',
+      images: [
+        {
+          url: service.heroImage,
+          width: 1200,
+          height: 630,
+          alt: `${service.title} - FabTech Qatar`,
+        }
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${service.title} | FabTech Qatar`,
+      description: service.description,
+      images: [service.heroImage],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
   };
 }
@@ -625,8 +666,51 @@ export default async function ServicePage({ params }) {
     return categoryColorMap[category] || 'blue';
   };
 
+  // Generate structured data for this service
+  const serviceStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": service.title,
+    "description": service.description,
+    "provider": {
+      "@type": "Organization",
+      "name": "FabTech Services Trading & Contracting",
+      "url": "https://fabtechqatar.com",
+      "logo": "https://fabtechqatar.com/logo.png",
+      "telephone": "+974-5518-7619",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Madina Khalifa (S) Building 138, Zone 34, Street 362",
+        "addressLocality": "Doha",
+        "addressCountry": "Qatar"
+      }
+    },
+    "serviceType": service.category,
+    "areaServed": {
+      "@type": "Country",
+      "name": "Qatar"
+    },
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceUrl": `https://fabtechqatar.com/services/${resolvedParams.service}`
+    },
+    "offers": service.pricing.map(plan => ({
+      "@type": "Offer",
+      "name": plan.type,
+      "price": plan.price,
+      "priceCurrency": "QAR",
+      "description": plan.features.join(", ")
+    }))
+  };
+
   return (
     <div className="">
+      {/* Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceStructuredData) }}
+      />
+      
       {/* Hero Section with Background Image */}
       <section className="relative min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}

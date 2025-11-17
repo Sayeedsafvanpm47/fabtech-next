@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function Footer() {
+export default function Footer({ showServiceLinks = false }) {
   return (
     <footer className="bg-black text-white">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className={`grid grid-cols-1 gap-8 ${showServiceLinks ? 'md:grid-cols-4 lg:grid-cols-5' : 'md:grid-cols-4'}`}>
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
@@ -100,6 +100,57 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+
+          {/* Service Sublinks - Only shown on service pages */}
+          {showServiceLinks && (
+            <div>
+              <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase mb-4">
+                Popular Services
+              </h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/services/residential-deep-cleaning" className="text-gray-300 hover:text-white transition-colors">
+                    Residential Deep Cleaning
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/commercial-deep-cleaning" className="text-gray-300 hover:text-white transition-colors">
+                    Commercial Deep Cleaning
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/general-cleaning" className="text-gray-300 hover:text-white transition-colors">
+                    General Cleaning
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/sofa-cleaning" className="text-gray-300 hover:text-white transition-colors">
+                    Sofa Cleaning
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/carpet-cleaning" className="text-gray-300 hover:text-white transition-colors">
+                    Carpet Cleaning
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/pest-control" className="text-gray-300 hover:text-white transition-colors">
+                    Pest Control
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/marble-polishing" className="text-gray-300 hover:text-white transition-colors">
+                    Marble Polishing
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/post-construction-cleaning" className="text-gray-300 hover:text-white transition-colors">
+                    Post Construction Cleaning
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          )}
 
           {/* Contact Info */}
           <div>

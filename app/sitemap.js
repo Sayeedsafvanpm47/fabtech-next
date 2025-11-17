@@ -2,10 +2,10 @@ export default function sitemap() {
   const baseUrl = 'https://fabtechqatar.com';
   const currentDate = new Date();
   
-  // Define all service pages
+  // Define all service pages (ensure these match your actual service routes)
   const services = [
     'residential-deep-cleaning',
-    'commercial-deep-cleaning',
+    'commercial-deep-cleaning', 
     'general-cleaning',
     'cleaner-supply-commercial',
     'cleaner-supply-residential',

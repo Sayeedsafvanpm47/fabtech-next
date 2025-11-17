@@ -2,11 +2,51 @@ import ContactForm from '../components/ContactForm';
 import GoToContact from '../components/GoToContact';
 
 export const metadata = {
-  title: 'Contact Us',
-  description: 'Get in touch with FabTech for all your facility management needs. Call (555) 123-4567 or send us a message for a free consultation and quote.',
+  title: 'Contact Us - FabTech Qatar | Get Free Quote for Facility Management Services',
+  description: 'Contact FabTech Qatar for professional facility management and cleaning services. Call +974 5518 7619 or email fms@fabtechqatar.com for a free consultation and quote.',
+  keywords: [
+    'contact fabtech qatar',
+    'facility management quote qatar',
+    'cleaning services contact doha',
+    'fabtech phone number',
+    'facility management consultation qatar',
+    'cleaning company contact qatar'
+  ],
+  alternates: {
+    canonical: 'https://fabtechqatar.com/contact',
+  },
   openGraph: {
-    title: 'Contact FabTech | Get Your Free Facility Management Quote',
-    description: 'Ready to optimize your facility operations? Contact FabTech today for expert facility management services.',
+    title: 'Contact FabTech Qatar | Get Your Free Facility Management Quote',
+    description: 'Ready to optimize your facility operations? Contact FabTech Qatar today for expert facility management and cleaning services.',
+    url: 'https://fabtechqatar.com/contact',
+    siteName: 'FabTech Qatar',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: 'https://fabtechqatar.com/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Contact FabTech Qatar',
+      }
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact FabTech Qatar | Professional Facility Management',
+    description: 'Get in touch with Qatar\'s leading facility management company for all your cleaning and maintenance needs.',
+    images: ['https://fabtechqatar.com/logo.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 

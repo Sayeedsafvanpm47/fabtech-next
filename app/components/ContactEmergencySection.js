@@ -59,12 +59,12 @@ export default function ContactEmergencySection() {
               <svg className="h-6 w-6 mr-3 group-hover:animate-pulse" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
               </svg>
-              +974 4412 3456
+              +974 5518 7619
             </a>
             <div className="flex items-center bg-yellow-400/20 px-4 py-2 rounded-lg">
               <span className="text-yellow-200 font-semibold flex items-center">
                 <span className="animate-pulse mr-2">⚡</span>
-                Average Response: 15 minutes
+                Average Response: 30 minutes
               </span>
             </div>
           </div>
@@ -119,7 +119,7 @@ export default function ContactEmergencySection() {
                         label: 'Phone',
                         content: (
                           <a href="tel:+97444123456" className="text-blue-200 hover:text-white transition-colors duration-200 font-medium">
-                            +974 4412 3456
+                            +974 5518 7619
                           </a>
                         )
                       },
@@ -132,7 +132,7 @@ export default function ContactEmergencySection() {
                         label: 'Email',
                         content: (
                           <a href="mailto:info@fabtech-qatar.com" className="text-blue-200 hover:text-white transition-colors duration-200 font-medium">
-                            info@fabtech-qatar.com
+                            fms@fabtechqatar.com
                           </a>
                         )
                       },
@@ -146,8 +146,8 @@ export default function ContactEmergencySection() {
                         label: 'Address',
                         content: (
                           <div className="text-blue-200">
-                            <p>Building 123, Street 45</p>
-                            <p>Al Sadd, Doha, Qatar</p>
+                            <p>Madina Khalifa (S) Building 138, Zone 34, Street 362,</p>
+                            <p>Rabiah Building 1, Second floor S14, Doha</p>
                           </div>
                         )
                       }
@@ -279,7 +279,7 @@ export default function ContactEmergencySection() {
                 <ul className="space-y-4">
                   {[
                     '100% Satisfaction Guarantee',
-                    '15-minute Emergency Response',
+                    '30-minute Emergency Response',
                     'Up to 30% Cost Savings'
                   ].map((guarantee, index) => (
                     <li key={index} className="flex items-center group">

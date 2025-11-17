@@ -4,6 +4,7 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import PerformanceMonitor from "./components/PerformanceMonitor";
 import GoogleMapsProvider from "./components/GoogleMapsProvider";
+import ConditionalFooter from "./components/ConditionalFooter";
 
 // Optimized font loading with display swap and preload
 const geistSans = Geist({
@@ -148,7 +149,7 @@ export default function RootLayout({ children }) {
               <main className="min-h-screen">
                 {children}
               </main>
-              <Footer />
+              <ConditionalFooter />
               <PerformanceMonitor />
             </GoogleMapsProvider>
         

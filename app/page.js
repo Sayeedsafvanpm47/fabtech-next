@@ -111,9 +111,9 @@ const structuredData = {
     }
   ],
   "sameAs": [
-    "https://www.facebook.com/fabtech",
-    "https://www.linkedin.com/company/fabtech",
-    "https://twitter.com/fabtech"
+    "https://www.facebook.com/Fabtechqatar/",
+    "https://www.linkedin.com/company/fabtechservicestrading",
+    "https://www.instagram.com/fabtech_services/"
   ],
   "aggregateRating": {
     "@type": "AggregateRating",
@@ -134,7 +134,7 @@ const structuredData = {
             "@type": "Organization",
             "name": "FabTech Facility Management"
           },
-          "areaServed": "US",
+          "areaServed": "Qatar",
           "availableChannel": {
             "@type": "ServiceChannel",
             "serviceUrl": "https://fabtechqatar.com/services/maintenance"
@@ -151,7 +151,7 @@ const structuredData = {
             "@type": "Organization",
             "name": "FabTech Facility Management"
           },
-          "areaServed": "US",
+          "areaServed": "Qatar",
           "availableChannel": {
             "@type": "ServiceChannel",
             "serviceUrl": "https://fabtechqatar.com/services/cleaning"
@@ -168,7 +168,7 @@ const structuredData = {
             "@type": "Organization",
             "name": "FabTech Facility Management"
           },
-          "areaServed": "US",
+          "areaServed": "Qatar",
           "availableChannel": {
             "@type": "ServiceChannel",
             "serviceUrl": "https://fabtechqatar.com/services/security"
@@ -185,7 +185,7 @@ const structuredData = {
             "@type": "Organization",
             "name": "FabTech Facility Management"
           },
-          "areaServed": "US",
+          "areaServed": "Qatar",
           "availableChannel": {
             "@type": "ServiceChannel",
             "serviceUrl": "https://fabtechqatar.com/services/property-management"
