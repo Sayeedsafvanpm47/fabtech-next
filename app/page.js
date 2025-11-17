@@ -1,5 +1,5 @@
 import Hero from './components/Hero';
-
+import Link from 'next/link';
 import ServiceCarousel from './components/ServiceCarousel';
 import Image from 'next/image';
 import FlipWord from './components/FlipWord';
@@ -549,6 +549,112 @@ export default function Home() {
 </section>
 
 
+
+     {/* Our Top Cleaning Services Section - Internal Links for SEO */}
+     <section className="py-8 sm:py-16 bg-gray-50" aria-labelledby="top-services-heading">
+       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+         <div className="text-center mb-8 sm:mb-12">
+           <h2 id="top-services-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4">
+             Our Top Cleaning Services in Qatar
+           </h2>
+           <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
+             Discover our most popular professional cleaning services trusted by thousands of customers across Qatar.
+           </p>
+         </div>
+         
+         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+           <Link href="/services/residential-deep-cleaning" className="group bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+             <div className="p-6">
+               <div className="text-4xl mb-4">🏠</div>
+               <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors">
+                 Residential Deep Cleaning
+               </h3>
+               <p className="text-gray-600 mb-4">
+                 Comprehensive deep cleaning for homes, villas, and apartments with professional results.
+               </p>
+               <span className="inline-flex items-center text-red-600 font-semibold group-hover:text-red-700">
+                 Learn More →
+               </span>
+             </div>
+           </Link>
+
+           <Link href="/services/general-cleaning" className="group bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+             <div className="p-6">
+               <div className="text-4xl mb-4">🧹</div>
+               <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors">
+                 General Cleaning
+               </h3>
+               <p className="text-gray-600 mb-4">
+                 Regular maintenance cleaning services for homes and offices with flexible scheduling.
+               </p>
+               <span className="inline-flex items-center text-red-600 font-semibold group-hover:text-red-700">
+                 Learn More →
+               </span>
+             </div>
+           </Link>
+
+           <Link href="/services/sofa-cleaning" className="group bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+             <div className="p-6">
+               <div className="text-4xl mb-4">🛋️</div>
+               <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors">
+                 Sofa Cleaning
+               </h3>
+               <p className="text-gray-600 mb-4">
+                 Professional upholstery cleaning to restore freshness and remove stains from furniture.
+               </p>
+               <span className="inline-flex items-center text-red-600 font-semibold group-hover:text-red-700">
+                 Learn More →
+               </span>
+             </div>
+           </Link>
+
+           <Link href="/services/carpet-cleaning" className="group bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+             <div className="p-6">
+               <div className="text-4xl mb-4">🏠</div>
+               <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors">
+                 Carpet Cleaning
+               </h3>
+               <p className="text-gray-600 mb-4">
+                 Deep carpet cleaning services to remove allergens, stains, and restore carpet appearance.
+               </p>
+               <span className="inline-flex items-center text-red-600 font-semibold group-hover:text-red-700">
+                 Learn More →
+               </span>
+             </div>
+           </Link>
+
+           <Link href="/services/pest-control" className="group bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+             <div className="p-6">
+               <div className="text-4xl mb-4">🦎</div>
+               <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors">
+                 Pest Control
+               </h3>
+               <p className="text-gray-600 mb-4">
+                 Licensed pest control services to eliminate insects, rodents, and other unwanted pests.
+               </p>
+               <span className="inline-flex items-center text-red-600 font-semibold group-hover:text-red-700">
+                 Learn More →
+               </span>
+             </div>
+           </Link>
+
+           <Link href="/services/commercial-deep-cleaning" className="group bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+             <div className="p-6">
+               <div className="text-4xl mb-4">🏢</div>
+               <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors">
+                 Commercial Deep Cleaning
+               </h3>
+               <p className="text-gray-600 mb-4">
+                 Intensive cleaning for offices, retail spaces, and commercial facilities.
+               </p>
+               <span className="inline-flex items-center text-red-600 font-semibold group-hover:text-red-700">
+                 Learn More →
+               </span>
+             </div>
+           </Link>
+         </div>
+       </div>
+     </section>
 
      <section className="py-8 sm:py-16 bg-white text-black" aria-labelledby="services-heading">
        

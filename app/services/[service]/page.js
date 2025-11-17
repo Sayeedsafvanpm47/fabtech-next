@@ -575,7 +575,8 @@ const servicesData = {
 }
 // Generate metadata for SEO
 export async function generateMetadata({ params }) {
-  const service = servicesData[params.service];
+  const resolvedParams = await params;
+  const service = servicesData[resolvedParams.service];
   
   if (!service) {
     return {
@@ -601,8 +602,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ServicePage({ params }) {
-  const service = servicesData[params.service];
+export default async function ServicePage({ params }) {
+  const resolvedParams = await params;
+  const service = servicesData[resolvedParams.service];
 
   if (!service) {
     notFound();
@@ -666,7 +668,7 @@ export default function ServicePage({ params }) {
             {/* Call-to-Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link 
-                href={`/booking?service=${params.service}`}
+                href={`/booking?service=${resolvedParams.service}`}
                 className="bg-white text-red-700 hover:bg-red-50 hover:text-red-800 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 min-w-[200px] text-center"
               >
                 Book Service Now
@@ -790,7 +792,7 @@ export default function ServicePage({ params }) {
                   ))}
                 </ul>
                 <Link 
-                href={`/booking?service=${params.service}`}
+                href={`/booking?service=${resolvedParams.service}`}
                 className="bg-white text-red-700 hover:bg-red-50 hover:text-red-800 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 min-w-[200px] text-center"
               >
                 Book Service Now
@@ -813,7 +815,7 @@ export default function ServicePage({ params }) {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link 
-                href={`/booking?service=${params.service}`}
+                href={`/booking?service=${resolvedParams.service}`}
                 className="bg-white text-red-700 hover:bg-red-50 hover:text-red-800 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 min-w-[200px] text-center"
               >
                 Book Service Now
