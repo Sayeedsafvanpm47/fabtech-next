@@ -1,6 +1,6 @@
 export default function sitemap() {
   const baseUrl = 'https://fabtechqatar.com';
-  const currentDate = new Date();
+  const currentDate = new Date().toISOString();
   
   // Define all service pages (ensure these match your actual service routes)
   const services = [
@@ -27,7 +27,7 @@ export default function sitemap() {
     'structural-maintenance'
   ];
 
-  // Main pages
+  // Main pages with proper Next.js sitemap format
   const mainPages = [
     {
       url: baseUrl,
@@ -79,7 +79,7 @@ export default function sitemap() {
     }
   ];
 
-  // Service pages
+  // Service pages with proper format
   const servicePages = services.map(service => ({
     url: `${baseUrl}/services/${service}`,
     lastModified: currentDate,
@@ -87,5 +87,6 @@ export default function sitemap() {
     priority: 0.8,
   }));
 
+  // Return the array - Next.js will automatically convert to XML
   return [...mainPages, ...servicePages];
 }
