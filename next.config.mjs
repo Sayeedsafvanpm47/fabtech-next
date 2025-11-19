@@ -68,6 +68,91 @@ const nextConfig = {
     return config;
   },
 
+  // Redirects for old URLs to prevent 404 errors
+  async redirects() {
+    return [
+      // Old service URLs that are causing 404 errors in Google Search Console
+      {
+        source: '/services/landscaping-grounds',
+        destination: '/services/general-cleaning',
+        permanent: true,
+      },
+      {
+        source: '/services/emergency-response',
+        destination: '/services/pest-control',
+        permanent: true,
+      },
+      {
+        source: '/services/property-management',
+        destination: '/services/structural-maintenance',
+        permanent: true,
+      },
+      {
+        source: '/services/plumbing-services',
+        destination: '/services/structural-maintenance',
+        permanent: true,
+      },
+      {
+        source: '/services/facility-maintenance',
+        destination: '/services/structural-maintenance',
+        permanent: true,
+      },
+      {
+        source: '/services/energy-management',
+        destination: '/services/structural-maintenance',
+        permanent: true,
+      },
+      {
+        source: '/services/hvac-services',
+        destination: '/services/structural-maintenance',
+        permanent: true,
+      },
+      {
+        source: '/pesticide-guard',
+        destination: '/services/pest-control',
+        permanent: true,
+      },
+      {
+        source: '/hospitality-services',
+        destination: '/services/commercial-deep-cleaning',
+        permanent: true,
+      },
+      {
+        source: '/landscaping-services',
+        destination: '/services/general-cleaning',
+        permanent: true,
+      },
+      {
+        source: '/building-maintenance',
+        destination: '/services/structural-maintenance',
+        permanent: true,
+      },
+      {
+        source: '/civil-works',
+        destination: '/services/structural-maintenance',
+        permanent: true,
+      },
+      {
+        source: '/digital-solutions',
+        destination: '/services/interior-design',
+        permanent: true,
+      },
+      // Catch-all for any other old service URLs
+      {
+        source: '/services/:slug*',
+        has: [
+          {
+            type: 'query',
+            key: 'redirect',
+            value: 'true',
+          },
+        ],
+        destination: '/services',
+        permanent: false,
+      },
+    ];
+  },
+
   // Headers for caching and security
   async headers() {
     return [

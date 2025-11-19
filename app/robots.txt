@@ -4,11 +4,20 @@ Allow: /
 # Disallow sensitive backend areas
 Disallow: /api/
 Disallow: /admin/
+Disallow: /_next/
+Disallow: /static/
 
 # Allow key static files
 Allow: /favicon.ico
 Allow: /robots.txt
 Allow: /sitemap.xml
 
+# Crawl delay to be respectful
+Crawl-delay: 1
+
 # Sitemap
 Sitemap: https://fabtechqatar.com/sitemap.xml
+
+# Additional information for search engines
+# Last updated: 2025-11-19
+# Contact: info@fabtechqatar.com
