@@ -38,7 +38,7 @@ export default function Navigation() {
     },
     // { href: '/projects', label: 'Projects', labelAr: 'المشاريع' },
     { href: '/about', label: 'About', labelAr: 'من نحن' },
-    // { href: '/blog', label: 'Blog', labelAr: 'المدونة' },
+    { href: '/blog', label: 'Blog', labelAr: 'المدونة' },
     { href: '/faq', label: 'FAQ', labelAr: 'الأسئلة الشائعة' },
     { href: '/contact', label: 'Contact', labelAr: 'اتصل بنا' },
   ];

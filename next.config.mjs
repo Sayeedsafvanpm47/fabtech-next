@@ -1,16 +1,38 @@
 /** @type {import('next').NextConfig} */
+
+// Extract Supabase hostname from URL for image configuration
+const getSupabaseHostname = () => {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  if (supabaseUrl) {
+    try {
+      const url = new URL(supabaseUrl);
+      return url.hostname;
+    } catch (error) {
+      console.warn('Invalid NEXT_PUBLIC_SUPABASE_URL:', error.message);
+    }
+  }
+  // Fallback to your current hostname if env var is not available
+  return 'gzqenpdavooyghpcwgtb.supabase.co';
+};
+
 const nextConfig = {
   // Performance optimizations
   compress: true,
   poweredByHeader: false,
   
   // Image optimization
+  // Note: Changes to next.config.mjs require server restart
   images: {
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'res.cloudinary.com',
         pathname: '/diunkrydn/**',
+      },
+      {
+        protocol: 'https',
+        hostname: getSupabaseHostname(),
+        pathname: '/storage/v1/object/public/**',
       },
     ],
     formats: ['image/webp', 'image/avif'],
