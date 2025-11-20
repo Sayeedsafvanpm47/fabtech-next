@@ -185,3 +185,4 @@ export default function BlogList({ blogs, isLoading, onEdit, onDelete, onRefresh
     </div>
   );
 }
+

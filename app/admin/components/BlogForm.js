@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-
+import Image from 'next/image';
 export default function BlogForm({ onBlogCreated, editingBlog, onCancelEdit }) {
   const [formData, setFormData] = useState({
     title: '',
@@ -315,11 +315,8 @@ export default function BlogForm({ onBlogCreated, editingBlog, onCancelEdit }) {
             />
             {imagePreview && (
               <div className="mt-4">
-                <img
-                  src={imagePreview}
-                  alt="Preview"
-                  className="max-w-xs h-32 object-cover rounded-md"
-                />
+                <Image src={imagePreview} alt="Preview" className="max-w-xs h-32 object-cover rounded-md" />
+               
               </div>
             )}
           </div>
@@ -377,3 +374,4 @@ export default function BlogForm({ onBlogCreated, editingBlog, onCancelEdit }) {
     </div>
   );
 }
+

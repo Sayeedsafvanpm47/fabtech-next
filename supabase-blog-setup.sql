@@ -178,3 +178,4 @@ Regular maintenance is crucial for system longevity and efficiency in Qatar''s c
 
 -- Display success message
 SELECT 'Blog system setup completed successfully!' as message;
+

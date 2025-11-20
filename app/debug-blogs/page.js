@@ -185,9 +185,9 @@ export default function DebugBlogs() {
       <div className="mt-8 bg-blue-50 rounded-lg p-6">
         <h2 className="text-xl font-semibold mb-4 text-blue-900">Debug Instructions</h2>
         <ol className="list-decimal list-inside space-y-2 text-blue-800">
-          <li>Check if blogs appear in the "All Blogs" section (left)</li>
-          <li>Verify that published blogs appear in the "Published Blogs" section (right)</li>
-          <li>If blogs are missing from "Published Blogs", check the published status</li>
+          <li>Check if blogs appear in the &quot;All Blogs&quot; section (left)</li>
+          <li>Verify that published blogs appear in the &quot;Published Blogs&quot; section (right)</li>
+          <li>If blogs are missing from &quot;Published Blogs&quot;, check the published status</li>
           <li>Use the API test buttons to check raw API responses</li>
           <li>Create a new blog in the admin panel and refresh this page</li>
         </ol>

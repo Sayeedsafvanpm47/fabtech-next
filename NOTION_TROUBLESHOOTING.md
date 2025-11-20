@@ -194,3 +194,4 @@ Check your browser's Network tab or terminal logs for detailed error messages. T
 5. Test with a simple blog post first
 
 The most common issue is forgetting to share the database with your integration! 🔗
+
