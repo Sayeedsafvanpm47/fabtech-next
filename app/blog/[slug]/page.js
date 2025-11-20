@@ -22,7 +22,7 @@ function getCategoryEmoji(category) {
 // Fetch single blog post from API
 async function getBlogPost(slug) {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://fabtechqatar.com';
     const res = await fetch(`${baseUrl}/api/blogs/${slug}`, {
       next: { revalidate: 300 } // Revalidate every 5 minutes
     });
@@ -41,7 +41,7 @@ async function getBlogPost(slug) {
 // Fetch all blogs for related posts
 async function getAllBlogs() {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://fabtechqatar.com';
     const res = await fetch(`${baseUrl}/api/blogs`, {
       next: { revalidate: 300 }
     });

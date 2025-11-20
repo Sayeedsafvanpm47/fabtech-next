@@ -12,11 +12,11 @@ export const metadata = {
 // Fetch blogs from API
 async function getBlogs() {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://fabtechqatar.com';
     console.log('Fetching blogs from:', `${baseUrl}/api/blogs`);
     
     const res = await fetch(`${baseUrl}/api/blogs`, {
-      cache: 'no-store' // Disable caching for now to see fresh data
+      next: { revalidate: 300 } // Revalidate every 5 minutes
     });
     
     if (!res.ok) {
