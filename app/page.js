@@ -554,12 +554,16 @@ export default function Home() {
      <section className="py-8 sm:py-16 bg-gray-50" aria-labelledby="top-services-heading">
        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
          <div className="text-center mb-8 sm:mb-12">
-           <h2 id="top-services-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4">
-             Our Top Cleaning Services in Qatar
+            <div className="text-center mb-8 sm:mb-12">
+           <h2 id="services-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4">
+             We Do It All, <FlipWord words={serviceFlipWords} />
            </h2>
-           <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
-             Discover our most popular professional cleaning services trusted by thousands of customers across Qatar.
+           <p className="text-base sm:text-xl text-black max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
+             We provide comprehensive facility management solutions tailored to meet 
+             the unique needs of your business across maintenance, cleaning, security, and property management.
            </p>
+         </div>
+           
          </div>
          
          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -656,25 +660,7 @@ export default function Home() {
        </div>
      </section>
 
-     <section className="py-8 sm:py-16 bg-white text-black" aria-labelledby="services-heading">
-       
-       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-         
-         <div className="text-center mb-8 sm:mb-12">
-           <h2 id="services-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4">
-             We Do It All, <FlipWord words={serviceFlipWords} />
-           </h2>
-           <p className="text-base sm:text-xl text-black max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
-             We provide comprehensive facility management solutions tailored to meet 
-             the unique needs of your business across maintenance, cleaning, security, and property management.
-           </p>
-         </div>
-         
-         <div className="max-w-7xl mx-auto">
-          <ServiceCarousel services={carouselServices} />
-        </div>
-       </div>
-     </section>
+    
 
    
      

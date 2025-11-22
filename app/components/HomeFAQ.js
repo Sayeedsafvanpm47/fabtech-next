@@ -39,38 +39,45 @@ export default function HomeFAQ({
   const defaultFaqs = [
     {
       question: "What types of facility management services do you provide?",
-      answer: "We provide comprehensive facility management services including cleaning (commercial, residential, specialized), maintenance (HVAC, electrical, plumbing), security services, property management, pest control, marble and stone care, landscaping, and emergency response services."
+      answer:
+        "Fabtech Services in Qatar provides complete facility management solutions including commercial and residential cleaning, deep cleaning, post-construction cleaning, general maintenance, civil works, MEP services, pest control, landscaping, manpower supply, and renovation works such as painting, flooring, and glass partition installation."
     },
     {
       question: "Do you serve both commercial and residential properties?",
-      answer: "Yes, we serve both commercial and residential properties. Our services are scalable and can be customized for small offices, large commercial complexes, individual homes, residential towers, and mixed-use developments."
+      answer:
+        "Yes, we serve both commercial and residential clients across Qatar. Our services cover villas, apartments, offices, retail shops, warehouses, hotels, restaurants, and large commercial buildings."
     },
     {
       question: "How do you determine pricing for your services?",
-      answer: "Our pricing is based on several factors including property size, service frequency, complexity of requirements, and specific client needs. We provide transparent, competitive pricing with no hidden costs after a thorough assessment."
+      answer:
+        "Pricing is based on several factors including the size of the property, scope of work, materials required, manpower needed, and service frequency. We provide transparent and competitive quotations after a detailed site assessment."
     },
     {
       question: "Do you offer free consultations and quotes?",
-      answer: "Yes, we provide free initial consultations and detailed quotes. Our team will assess your facility, understand your requirements, and provide a comprehensive proposal with transparent pricing."
+      answer:
+        "Yes, Fabtech offers free site visits, consultations, and quotations anywhere in Qatar. Our team assesses your requirements and prepares a detailed proposal with clear pricing and timelines."
     },
     {
       question: "Are your services available 24/7?",
-      answer: "Yes, we offer 24/7 emergency response services. Our regular services are scheduled based on your needs, but emergency support is always available for critical issues."
+      answer:
+        "We offer flexible scheduling based on customer needs and provide 24/7 emergency support for urgent cleaning, maintenance, and repair works."
     },
     {
       question: "Are you licensed and insured?",
-      answer: "Yes, we are fully licensed by relevant UAE authorities and carry comprehensive insurance including general liability, professional indemnity, and workers' compensation. We can provide certificates upon request."
+      answer:
+        "Yes, Fabtech Services is fully licensed in Qatar and complies with all local regulations. We maintain necessary insurance coverage including liability and worker protection, ensuring safe and reliable service delivery."
     },
     {
       question: "What quality standards do you follow?",
-      answer: "We follow international quality standards including ISO 9001 for quality management, ISO 14001 for environmental management, and OHSAS 18001 for health and safety. We also comply with UAE municipal regulations and industry best practices."
+      answer:
+        "We follow Qatar’s health, safety, and environmental regulations and adhere to industry best practices. Our team is trained to maintain high standards of professionalism, safety compliance, and service quality."
     },
     {
       question: "Do you use eco-friendly products?",
-      answer: "Yes, we prioritize the use of eco-friendly, non-toxic cleaning products and sustainable practices. We're committed to environmental responsibility and can provide green cleaning solutions upon request."
+      answer:
+        "Yes, wherever possible we use eco-friendly and non-toxic cleaning materials that are safe for homes, offices, children, and pets. Eco-friendly cleaning can be provided upon request."
     }
   ];
-
   const faqs = customFaqs || defaultFaqs.slice(0, maxItems);
 
   return (
